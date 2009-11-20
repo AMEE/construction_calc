@@ -1,0 +1,5 @@
+<% if logged_in? %>
+    Logged In as <%= current_user.login %>
+<% else %>
+    Not logged in :(
+<% end %>

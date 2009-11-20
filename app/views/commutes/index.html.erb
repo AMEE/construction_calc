@@ -1,0 +1,6 @@
+<table>
+<%= render :partial => "commute", :collection => @commutes %>
+</table>
+<p>Total Commutes: <%= @commutes.size %></p>
+
+<p><%= link_to("Add Commute", new_project_commute_path) %></p>

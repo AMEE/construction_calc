@@ -1,0 +1,5 @@
+<h1><%= @project.name %></h1>
+
+Total Carbon: <%= @project.total_carbon %> kg/year
+
+<%= link_to("Commutes", project_commutes_path(@project)) %>
