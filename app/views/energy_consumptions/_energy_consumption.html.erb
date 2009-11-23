@@ -1,0 +1,1 @@
+<tr><td><%= energy_consumption.id %></td><td><%= link_to(energy_consumption.name, edit_project_energy_consumption_path(energy_consumption.project, energy_consumption)) %></td><td><%= button_to("delete", project_energy_consumption_path(energy_consumption.project, energy_consumption), :method => :delete, :confirm => "Are you sure?") %></td></tr>

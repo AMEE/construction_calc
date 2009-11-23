@@ -1,15 +1,15 @@
 class Project < ActiveRecord::Base
   
   belongs_to :client
-  has_many :roles, :as => :allowable
+  #has_many :roles, :as => :allowable  # need this?
   has_many :commutes
+  has_many :energy_consumptions
   
   # TODO
   has_many :deliveries
   has_many :materials
   
-  # TODO rename - models called Energy and Waste
-  has_many :energy_consumptions
+  # TODO rename model
   has_many :waste_management
   
   has_amee_profile
@@ -18,15 +18,12 @@ class Project < ActiveRecord::Base
     "/profiles/#{amee_profile}"
   end
   
-  def total_carbon
-    # TODO improve + add all types
-    # NOTE - only total per page or is it with profile categories?
-    total = 0
-    Commute::TYPE.each do |key, commute_type|
-      # DRY this up a bit
-      total += AMEE::Profile::Category.get(amee_connection, "#{profile_path}#{commute_type.path}").total_amount
-    end
-    total
+  def total_carbon    
+    # Had to cache carbon data for each item and purge at weekend when plenty of time
+    # Can't cache by category as transport spans multiple classes = major fail
+    
+    # TODO all types
+    (commutes + energy_consumptions).map {|i| i.carbon_output_cache}.sum
   end
   
   # TODO on create add /metadata to profile with UK country (even though default)

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091118120729) do
+ActiveRecord::Schema.define(:version => 20091123105445) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -27,6 +27,18 @@ ActiveRecord::Schema.define(:version => 20091118120729) do
   end
 
   add_index "commutes", ["project_id"], :name => "index_commutes_on_project_id"
+
+  create_table "energy_consumptions", :force => true do |t|
+    t.integer  "project_id"
+    t.string   "name"
+    t.string   "amee_profile_item_id"
+    t.string   "energy_consumption_type"
+    t.float    "carbon_output_cache"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "energy_consumptions", ["project_id"], :name => "index_energy_consumptions_on_project_id"
 
   create_table "passwords", :force => true do |t|
     t.integer  "user_id"

@@ -24,6 +24,12 @@ class Unit
     @type = type
   end
   
+  def self.from_amee_unit(unit)
+    AMEE_API_UNITS.each do |key, value|
+      return new(key) if value == unit
+    end
+  end
+  
   def amee_api_unit
     AMEE_API_UNITS[@type]
   end

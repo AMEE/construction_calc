@@ -2,4 +2,4 @@
 
 Total Carbon: <%= @project.total_carbon %> kg/year
 
-<%= link_to("Commutes", project_commutes_path(@project)) %>
+<%= link_to("Commutes", project_commutes_path(@project)) %> <%= link_to("Energy Consumptions", project_energy_consumptions_path(@project)) %>

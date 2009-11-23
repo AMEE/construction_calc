@@ -5,9 +5,12 @@ class CommutesController < ApplicationController
   before_filter :ensure_project_readable_by_user, :only => [:index, :show]
   before_filter :ensure_project_writeable_by_user, :except => [:index, :show]
   
-  # TODO can't change unit once created when editing - or we'd have to perform client side [possible extension would be to request in new unit from AMEE]
-  
+  # TODO create two in a minute - will it blow up??  Yes
+  # TODO type means ordering always changes - solve by alphabetical order?  What about units - same problem?
+  # TODO paging issue will almost certainly occur on ice category one (material)
+  # TODO lookup of required data item ids at application startup (note if staging may need to restart in app doc)
   # TODO type mappings, not available = can't have, recycle/dispose types
+  # TODO write tests for access rights and test myself
   
   # TODO meeting notes:
   #   - Assumptions on types
@@ -17,12 +20,6 @@ class CommutesController < ApplicationController
   #       material assumptions + missing two
   #   - Also we need to decide units everything specified in
   #   - unit.rb and commute.rb encapsulation with James on Monday
-  # TODO prototype -> different fields for different types (is field name the same? just one field? have units as JS stored that change on dropdown change?)
-  # TODO architecture if can only do 1 API call
-  # TODO checkin
-  
-  # TODO lookup of required data item ids at application startup (note if staging may need to restart in app doc)
-  # TODO write tests for access rights and test myself
   
   def index
     @commutes = @project.commutes
@@ -43,7 +40,25 @@ class CommutesController < ApplicationController
     end
   end
   
-  def show
+  def edit
     @commute = @project.commutes.find(params[:id])
+  end
+  
+  def update
+    @commute = @project.commutes.find(params[:id])
+    if @commute.update_attributes(params[:commute])
+      flash[:notice] = "Commute updated"
+      redirect_to project_path(@project)
+    else
+      flash[:error] = "Unable to update commute"
+      render :action => "edit"
+    end
+  end
+  
+  def destroy
+    @commute = @project.commutes.find(params[:id])
+    @commute.destroy
+    flash[:notice] = "Commute destroyed"
+    redirect_to project_path(@project)
   end
 end

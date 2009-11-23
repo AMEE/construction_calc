@@ -18,6 +18,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :units, :only => [:index]
   
   map.resources :projects do |project|
-    project.resources :commutes
+    project.resources :commutes, :except => [:show]
+    project.resources :energy_consumptions, :except => [:show]
   end
 end

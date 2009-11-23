@@ -1,6 +1,7 @@
 <table>
 <%= render :partial => "commute", :collection => @commutes %>
 </table>
+<p>Total Carbon: <%= @commutes.map{|c| c.carbon_output_cache }.sum %></p>
 <p>Total Commutes: <%= @commutes.size %></p>
 
 <p><%= link_to("Add Commute", new_project_commute_path) %></p>

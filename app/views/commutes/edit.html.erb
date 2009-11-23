@@ -1,0 +1,7 @@
+<% form_for @commute, :url => project_commute_path(@commute.project, @commute), :html => {:method => :put} do |f| %>
+    <%= f.label :name %> <%= f.text_field :name %>
+    <%= @commute.amee_category.name %>
+    <%= f.label :amount %> <%= f.text_field :amount %>
+    <%= units_name_from_amee_unit(@commute) %>
+    <%= submit_tag "Update Commute" %>
+<% end %>
