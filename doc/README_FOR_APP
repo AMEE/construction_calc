@@ -1,1 +1,9 @@
-Notes on Overbury app
+Notes on the application
+------------------------
+- Application needs javascript, user is warned on front page if they don't have it switched on
+- See lib/tasks/cronjobs for cronjobs that need to be setup along with this application
+
+
+Code notes
+----------
+- AmeeCarbonStore#amee_profile_item_field assumes the field entered is going to be a number.  If the application is extended to support fields that are non-numbers this area will need to be revisited

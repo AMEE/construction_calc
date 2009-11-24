@@ -21,8 +21,9 @@ class Project < ActiveRecord::Base
   def total_carbon    
     # Had to cache carbon data for each item and purge at weekend when plenty of time
     # Can't cache by category as transport spans multiple classes = major fail
+    # Other factors paging through results and manual ask for carbon value each time update or delete
     
-    # TODO all types
+    # TODO all types, also anything added here should be updated in the cronjob
     (commutes + energy_consumptions).map {|i| i.carbon_output_cache}.sum
   end
   

@@ -1,8 +1,8 @@
 <% form_for @commute, :url => project_commutes_path do |f| %>
     <%= f.label :name %> <%= f.text_field :name %>
-    <%= f.label :commute_type %> <%= f.select :commute_type, Commute::TYPE.map {|i| [i[1].name, i[0].to_s]}, {}, :onchange => "updateUnits('commute');" %>
+    <%= f.label :commute_type %> <%= f.select :commute_type, options_for_commute_type_select, {}, :onchange => "updateUnits('commute');" %>
     <%= f.label :amount %> <%= f.text_field :amount %>
-    <%= f.select :units, Commute::TYPE[Commute::TYPE.keys.first].unit_options %>
+    <%= f.select :units, ["(fetching)"] %>
     <%= submit_tag "Create Commute" %>
 <% end %>
 
@@ -11,4 +11,5 @@
     <% Commute::TYPE.keys.each do |key| %>
         units['<%= key.to_s %>'] = '<%= options_for_select(Commute::TYPE[key].unit_options).gsub("\n", "") %>';
     <% end %>
+    updateUnits('commute');
 <% end %>

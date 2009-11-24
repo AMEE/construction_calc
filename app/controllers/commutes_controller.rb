@@ -5,22 +5,6 @@ class CommutesController < ApplicationController
   before_filter :ensure_project_readable_by_user, :only => [:index, :show]
   before_filter :ensure_project_writeable_by_user, :except => [:index, :show]
   
-  # TODO create two in a minute - will it blow up??  Yes
-  # TODO type means ordering always changes - solve by alphabetical order?  What about units - same problem?
-  # TODO paging issue will almost certainly occur on ice category one (material)
-  # TODO lookup of required data item ids at application startup (note if staging may need to restart in app doc)
-  # TODO type mappings, not available = can't have, recycle/dispose types
-  # TODO write tests for access rights and test myself
-  
-  # TODO meeting notes:
-  #   - Assumptions on types
-  #       What to use for freight train
-  #       LGV, HGV, articulated classifications - differences and mappings
-  #       waste mappings
-  #       material assumptions + missing two
-  #   - Also we need to decide units everything specified in
-  #   - unit.rb and commute.rb encapsulation with James on Monday
-  
   def index
     @commutes = @project.commutes
   end

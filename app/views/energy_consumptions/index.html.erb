@@ -2,6 +2,6 @@
 <%= render :partial => "energy_consumption", :collection => @energy_consumptions %>
 </table>
 <p>Total Carbon: <%= @energy_consumptions.map{|c| c.carbon_output_cache }.sum %></p>
-<p>Total Commutes: <%= @energy_consumptions.size %></p>
+<p>Total Energy Consumptions: <%= @energy_consumptions.size %></p>
 
 <p><%= link_to("Add Energy Consumption", new_project_energy_consumption_path) %></p>

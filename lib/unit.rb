@@ -30,12 +30,12 @@ class Unit
     end
   end
   
-  def amee_api_unit
-    AMEE_API_UNITS[@type]
-  end
-  
   def name
     NAME[@type]
+  end
+  
+  def amee_api_unit
+    AMEE_API_UNITS[@type]
   end
   
   def self.km

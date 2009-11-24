@@ -1,8 +1,8 @@
 <% form_for @energy_consumption, :url => project_energy_consumptions_path do |f| %>
     <%= f.label :name %> <%= f.text_field :name %>
-    <%= f.label :energy_consumption_type %> <%= f.select :energy_consumption_type, EnergyConsumption::TYPE.map {|i| [i[1].name, i[0].to_s]}, {}, :onchange => "updateUnits('energy_consumption');" %>
+    <%= f.label :energy_consumption_type %> <%= f.select :energy_consumption_type, options_for_energy_consumption_type_select, {}, :onchange => "updateUnits('energy_consumption');" %>
     <%= f.label :amount %> <%= f.text_field :amount %>
-    <%= f.select :units, EnergyConsumption::TYPE[EnergyConsumption::TYPE.keys.first].unit_options %>
+    <%= f.select :units, ["(fetching)"] %>
     <%= submit_tag "Create Energy Consumption" %>
 <% end %>
 
@@ -11,4 +11,5 @@
     <% EnergyConsumption::TYPE.keys.each do |key| %>
         units['<%= key.to_s %>'] = '<%= options_for_select(EnergyConsumption::TYPE[key].unit_options).gsub("\n", "") %>';
     <% end %>
+    updateUnits('energy_consumption');
 <% end %>

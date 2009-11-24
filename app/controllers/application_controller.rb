@@ -21,17 +21,36 @@ class ApplicationController < ActionController::Base
   def ensure_project_readable_by_user
     raise ActiveRecord::RecordNotFound unless current_user.can_read?(@project)
   end
-  # TODO throw something else and treat as 404
+
   def ensure_project_writeable_by_user
     raise ActiveRecord::RecordNotFound unless current_user.can_write?(@project)
   end
 end
 
-# TODO:
-# cap and cap-multistaging
-# amee gem version, json so faster
-# Go through auth system and specs for
+# TODO do other types
+# TODO notes in project.rb
+# TODO re-read paper docs - check got all requirements covered
+# TODO is way to have include out of models?
+# TODO auth errors throw something else and treat as 404
+# TODO create two in a minute - will it blow up??  Yes
+# TODO user.rb TODO items
+# TODO write tests for access rights and test myself
+# TODO type mappings, not available = can't have, recycle/dispose types
+# TODO work on UI
+# TODO cap and cap-multistaging
+# TODO amee gem version, json so faster
+# TODO Go through auth system and specs for
+# TODO front page needs to warn if no JS (can view but not create)
+
+# TODO meeting notes:
+#   - Assumptions on types
+#       What to use for freight train
+#       LGV, HGV, articulated classifications - differences and mappings
+#       waste mappings
+#       material assumptions + missing two
+#   - Also we need to decide units everything specified in
 
 # AMEE badly documented:
 # - data/profile category
 # - metadata
+# - no docs on type, limits and validations

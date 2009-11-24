@@ -28,7 +28,7 @@ class AmeeCategory
   end
   
   def unit_options
-    type_units.map{|unit| [unit.name, unit.amee_api_unit]}
+    item_value_units.map{|unit| [unit.name, unit.amee_api_unit]}
   end
   
   def item_value_names
@@ -40,16 +40,14 @@ class AmeeCategory
       return name if amee_api_units(name).include?(amee_unit)
     end
     return nil
-    # TODO what to do in nil case?
   end
   
-  # TODO not great code
   def item_value_unit_name(amee_unit)
     (item_value_name(amee_unit).to_s + "Unit").to_sym
   end
   
   private
-  def type_units
+  def item_value_units
     item_value_names.map{|t| AMEE_ITEM_VALUE_UNITS[t]}.flatten
   end
   

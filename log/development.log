@@ -17586,3 +17586,2322 @@ Rendering template within layouts/application
 Rendering energy_consumptions/edit
   [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
 Completed in 272ms (View: 188, DB: 9) | 200 OK [http://localhost/projects/2/energy_consumptions/1/edit]
+  [4;35;1mSQL (153.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EnergyConsumptionsController#index (for 127.0.0.1 at 2009-11-24 09:09:30) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"index", "controller"=>"energy_consumptions"}
+  [4;36;1mClient Load (420.7ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (227.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (210.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (17.4ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (26.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (39.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (58.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering energy_consumptions/index
+  [4;35;1mEnergyConsumption Load (18.7ms)[0m   [0mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.project_id = 2) [0m
+  [4;36;1mEnergyConsumption Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `energy_consumptions`[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered energy_consumptions/_energy_consumption (6.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered energy_consumptions/_energy_consumption (5.5ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered energy_consumptions/_energy_consumption (5.2ms)
+Completed in 1249ms (View: 46, DB: 1175) | 200 OK [http://localhost/projects/2/energy_consumptions]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EnergyConsumptionsController#new (for 127.0.0.1 at 2009-11-24 09:18:31) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"new", "controller"=>"energy_consumptions"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (32.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mEnergyConsumption Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `energy_consumptions`[0m
+Rendering template within layouts/application
+Rendering energy_consumptions/new
+Completed in 306ms (View: 104, DB: 40) | 200 OK [http://localhost/projects/2/energy_consumptions/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EnergyConsumptionsController#create (for 127.0.0.1 at 2009-11-24 09:18:43) [POST]
+  Parameters: {"commit"=>"Create Energy Consumption", "project_id"=>"2", "action"=>"create", "authenticity_token"=>"xn5QyqU15cvDfy3QiX9ieGLKwPPC7yFKGURrWZHok9Q=", "energy_consumption"=>{"name"=>"Backup generator", "units"=>"L", "amount"=>"50", "energy_consumption_type"=>"diesel"}, "controller"=>"energy_consumptions"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (2.1ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mEnergyConsumption Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `energy_consumptions`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mEnergyConsumption Load (0.3ms)[0m   [0mSELECT `energy_consumptions`.id FROM `energy_consumptions` WHERE (`energy_consumptions`.`name` = BINARY 'Backup generator') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mEnergyConsumption Create (60.9ms)[0m   [0mINSERT INTO `energy_consumptions` (`name`, `created_at`, `project_id`, `updated_at`, `carbon_output_cache`, `amee_profile_item_id`, `energy_consumption_type`) VALUES('Backup generator', '2009-11-24 09:18:45', 2, '2009-11-24 09:18:45', 131.955, '738BAAF1FD4E', 'diesel')[0m
+  [4;36;1mSQL (41.5ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/projects/2
+Completed in 2063ms (DB: 113) | 302 Found [http://localhost/projects/2/energy_consumptions]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-11-24 09:18:46) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"projects"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;35;1mCommute Load (19.1ms)[0m   [0mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;36;1mEnergyConsumption Load (0.4ms)[0m   [0;1mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.project_id = 2) [0m
+  [4;35;1mCommute Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mEnergyConsumption Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `energy_consumptions`[0m
+Completed in 212ms (View: 131, DB: 29) | 200 OK [http://localhost/projects/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EnergyConsumptionsController#index (for 127.0.0.1 at 2009-11-24 09:18:48) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"index", "controller"=>"energy_consumptions"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.5ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering energy_consumptions/index
+  [4;35;1mEnergyConsumption Load (0.4ms)[0m   [0mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.project_id = 2) [0m
+  [4;36;1mEnergyConsumption Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `energy_consumptions`[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered energy_consumptions/_energy_consumption (6.6ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered energy_consumptions/_energy_consumption (5.2ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered energy_consumptions/_energy_consumption (5.2ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered energy_consumptions/_energy_consumption (5.2ms)
+Completed in 118ms (View: 34, DB: 10) | 200 OK [http://localhost/projects/2/energy_consumptions]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EnergyConsumptionsController#edit (for 127.0.0.1 at 2009-11-24 09:18:51) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"edit", "id"=>"4", "controller"=>"energy_consumptions"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (23.3ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mEnergyConsumption Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `energy_consumptions`[0m
+  [4;36;1mEnergyConsumption Load (19.3ms)[0m   [0;1mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.`id` = 4 AND (`energy_consumptions`.project_id = 2)) [0m
+Rendering template within layouts/application
+Rendering energy_consumptions/edit
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Completed in 271ms (View: 138, DB: 51) | 200 OK [http://localhost/projects/2/energy_consumptions/4/edit]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-11-24 09:19:14) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"projects"}
+  [4;35;1mClient Load (0.4ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;36;1mCommute Load (0.4ms)[0m   [0;1mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;35;1mEnergyConsumption Load (0.3ms)[0m   [0mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.project_id = 2) [0m
+  [4;36;1mCommute Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mEnergyConsumption Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `energy_consumptions`[0m
+Completed in 112ms (View: 49, DB: 12) | 200 OK [http://localhost/projects/2/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EnergyConsumptionsController#index (for 127.0.0.1 at 2009-11-24 09:19:15) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"index", "controller"=>"energy_consumptions"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering energy_consumptions/index
+  [4;36;1mEnergyConsumption Load (0.4ms)[0m   [0;1mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.project_id = 2) [0m
+  [4;35;1mEnergyConsumption Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `energy_consumptions`[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered energy_consumptions/_energy_consumption (6.6ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered energy_consumptions/_energy_consumption (5.3ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered energy_consumptions/_energy_consumption (5.2ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered energy_consumptions/_energy_consumption (5.0ms)
+Completed in 196ms (View: 35, DB: 9) | 200 OK [http://localhost/projects/2/energy_consumptions]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#index (for 127.0.0.1 at 2009-11-24 09:19:18) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"index", "controller"=>"commutes"}
+  [4;35;1mClient Load (0.4ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering commutes/index
+  [4;36;1mCommute Load (0.4ms)[0m   [0;1mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;35;1mCommute Columns (19.3ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (5.1ms)
+Completed in 116ms (View: 17, DB: 27) | 200 OK [http://localhost/projects/2/commutes]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#index (for 127.0.0.1 at 2009-11-24 09:26:14) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"index", "controller"=>"commutes"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering commutes/index
+  [4;35;1mCommute Load (0.4ms)[0m   [0mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;36;1mCommute Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (5.2ms)
+Completed in 97ms (View: 16, DB: 9) | 200 OK [http://localhost/projects/2/commutes]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#new (for 127.0.0.1 at 2009-11-24 09:26:16) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"new", "controller"=>"commutes"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (33.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mCommute Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+Rendering template within layouts/application
+Rendering commutes/new
+Completed in 167ms (View: 48, DB: 41) | 200 OK [http://localhost/projects/2/commutes/new]
+  [4;35;1mEnergyConsumption Load (29.6ms)[0m   [0mSELECT * FROM `energy_consumptions` ORDER BY energy_consumptions.id DESC LIMIT 1[0m
+  [4;36;1mProject Load (22.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mEnergyConsumption Load (0.3ms)[0m   [0mSELECT * FROM `energy_consumptions` ORDER BY energy_consumptions.id DESC LIMIT 1[0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mEnergyConsumption Load (0.4ms)[0m   [0mSELECT * FROM `energy_consumptions` ORDER BY energy_consumptions.id DESC LIMIT 1[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mEnergyConsumption Load (0.4ms)[0m   [0mSELECT * FROM `energy_consumptions` ORDER BY energy_consumptions.id DESC LIMIT 1[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mEnergyConsumption Load (0.3ms)[0m   [0;1mSELECT * FROM `energy_consumptions` ORDER BY energy_consumptions.id DESC LIMIT 1[0m
+  [4;35;1mEnergyConsumption Columns (14.9ms)[0m   [0mSHOW FIELDS FROM `energy_consumptions`[0m
+  [4;36;1mEnergyConsumption Load (0.5ms)[0m   [0;1mSELECT * FROM `energy_consumptions` ORDER BY energy_consumptions.id DESC LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mEnergyConsumption Load (12.9ms)[0m   [0;1mSELECT `energy_consumptions`.id FROM `energy_consumptions` WHERE (`energy_consumptions`.`name` = BINARY 'Backup generator' AND `energy_consumptions`.id <> 4) LIMIT 1[0m
+  [4;35;1mProject Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCOMMIT[0m
+  [4;36;1mEnergyConsumption Load (0.3ms)[0m   [0;1mSELECT * FROM `energy_consumptions` ORDER BY energy_consumptions.id DESC LIMIT 1[0m
+  [4;35;1mEnergyConsumption Load (3.1ms)[0m   [0mSELECT * FROM `energy_consumptions` ORDER BY energy_consumptions.id DESC LIMIT 1[0m
+  [4;36;1mEnergyConsumption Load (0.4ms)[0m   [0;1mSELECT * FROM `energy_consumptions` ORDER BY energy_consumptions.id DESC LIMIT 1[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mEnergyConsumption Load (0.7ms)[0m   [0mSELECT `energy_consumptions`.id FROM `energy_consumptions` WHERE (`energy_consumptions`.`name` = BINARY 'Backup generator' AND `energy_consumptions`.id <> 4) LIMIT 1[0m
+  [4;36;1mEnergyConsumption Update (0.3ms)[0m   [0;1mUPDATE `energy_consumptions` SET `updated_at` = '2009-11-24 09:43:11', `carbon_output_cache` = 131.955 WHERE `id` = 4[0m
+  [4;35;1mSQL (13.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mEnergyConsumption Load (1.2ms)[0m   [0;1mSELECT * FROM `energy_consumptions` ORDER BY energy_consumptions.id DESC LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-11-24 09:50:14) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"projects"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (30.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (29.2ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;35;1mCommute Load (0.4ms)[0m   [0mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;36;1mEnergyConsumption Load (0.2ms)[0m   [0;1mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.project_id = 2) [0m
+  [4;35;1mCommute Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mEnergyConsumption Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `energy_consumptions`[0m
+Completed in 260ms (View: 49, DB: 67) | 200 OK [http://localhost/projects/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mCommute Load (0.3ms)[0m   [0;1mSELECT * FROM `commutes` [0m
+  [4;35;1mCommute Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mProject Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCommute Load (0.4ms)[0m   [0mSELECT `commutes`.id FROM `commutes` WHERE (`commutes`.`name` = BINARY 'Clapham North -> Moorgate' AND `commutes`.id <> 24) LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mEnergyConsumption Load (0.3ms)[0m   [0mSELECT * FROM `energy_consumptions` [0m
+  [4;36;1mEnergyConsumption Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `energy_consumptions`[0m
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mEnergyConsumption Load (0.4ms)[0m   [0mSELECT `energy_consumptions`.id FROM `energy_consumptions` WHERE (`energy_consumptions`.`name` = BINARY 'petrol engine' AND `energy_consumptions`.id <> 1) LIMIT 1[0m
+  [4;36;1mEnergyConsumption Update (0.3ms)[0m   [0;1mUPDATE `energy_consumptions` SET `updated_at` = '2009-11-24 09:50:48', `carbon_output_cache` = 57.5875 WHERE `id` = 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mEnergyConsumption Load (0.3ms)[0m   [0;1mSELECT `energy_consumptions`.id FROM `energy_consumptions` WHERE (`energy_consumptions`.`name` = BINARY 'Electricity Bill' AND `energy_consumptions`.id <> 2) LIMIT 1[0m
+  [4;35;1mEnergyConsumption Update (0.3ms)[0m   [0mUPDATE `energy_consumptions` SET `updated_at` = '2009-11-24 09:50:49', `carbon_output_cache` = 148.665 WHERE `id` = 2[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mEnergyConsumption Load (0.4ms)[0m   [0mSELECT `energy_consumptions`.id FROM `energy_consumptions` WHERE (`energy_consumptions`.`name` = BINARY 'North sea gas' AND `energy_consumptions`.id <> 3) LIMIT 1[0m
+  [4;36;1mEnergyConsumption Update (0.4ms)[0m   [0;1mUPDATE `energy_consumptions` SET `updated_at` = '2009-11-24 09:50:50', `carbon_output_cache` = 0.251125 WHERE `id` = 3[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mEnergyConsumption Load (0.8ms)[0m   [0;1mSELECT `energy_consumptions`.id FROM `energy_consumptions` WHERE (`energy_consumptions`.`name` = BINARY 'Backup generator' AND `energy_consumptions`.id <> 4) LIMIT 1[0m
+  [4;35;1mEnergyConsumption Update (0.4ms)[0m   [0mUPDATE `energy_consumptions` SET `updated_at` = '2009-11-24 09:50:50', `carbon_output_cache` = 131.955 WHERE `id` = 4[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-11-24 09:50:59) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"projects"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (1.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.8ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;35;1mCommute Load (0.4ms)[0m   [0mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;36;1mEnergyConsumption Load (0.3ms)[0m   [0;1mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.project_id = 2) [0m
+  [4;35;1mCommute Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mEnergyConsumption Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `energy_consumptions`[0m
+Completed in 193ms (View: 130, DB: 12) | 200 OK [http://localhost/projects/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mEnergyConsumption Load (0.3ms)[0m   [0;1mSELECT * FROM `energy_consumptions` [0m
+  [4;35;1mEnergyConsumption Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `energy_consumptions`[0m
+  [4;36;1mProject Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mEnergyConsumption Load (0.5ms)[0m   [0mSELECT `energy_consumptions`.id FROM `energy_consumptions` WHERE (`energy_consumptions`.`name` = BINARY 'petrol engine' AND `energy_consumptions`.id <> 1) LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mEnergyConsumption Load (0.4ms)[0m   [0mSELECT `energy_consumptions`.id FROM `energy_consumptions` WHERE (`energy_consumptions`.`name` = BINARY 'Electricity Bill' AND `energy_consumptions`.id <> 2) LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mEnergyConsumption Load (0.4ms)[0m   [0mSELECT `energy_consumptions`.id FROM `energy_consumptions` WHERE (`energy_consumptions`.`name` = BINARY 'North sea gas' AND `energy_consumptions`.id <> 3) LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mEnergyConsumption Load (0.4ms)[0m   [0mSELECT `energy_consumptions`.id FROM `energy_consumptions` WHERE (`energy_consumptions`.`name` = BINARY 'Backup generator' AND `energy_consumptions`.id <> 4) LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EnergyConsumptionsController#index (for 127.0.0.1 at 2009-11-24 09:58:13) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"index", "controller"=>"energy_consumptions"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (20.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.6ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering energy_consumptions/index
+  [4;35;1mEnergyConsumption Load (0.4ms)[0m   [0mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.project_id = 2) [0m
+  [4;36;1mEnergyConsumption Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `energy_consumptions`[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered energy_consumptions/_energy_consumption (6.8ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered energy_consumptions/_energy_consumption (5.2ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered energy_consumptions/_energy_consumption (5.3ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered energy_consumptions/_energy_consumption (5.1ms)
+Completed in 149ms (View: 43, DB: 29) | 200 OK [http://localhost/projects/2/energy_consumptions]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EnergyConsumptionsController#edit (for 127.0.0.1 at 2009-11-24 09:58:15) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"edit", "id"=>"4", "controller"=>"energy_consumptions"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (1.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mEnergyConsumption Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `energy_consumptions`[0m
+  [4;36;1mEnergyConsumption Load (0.3ms)[0m   [0;1mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.`id` = 4 AND (`energy_consumptions`.project_id = 2)) [0m
+Rendering template within layouts/application
+Rendering energy_consumptions/edit
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Completed in 360ms (View: 273, DB: 10) | 200 OK [http://localhost/projects/2/energy_consumptions/4/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-11-24 09:58:30) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"projects"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;36;1mCommute Load (0.4ms)[0m   [0;1mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;35;1mEnergyConsumption Load (0.2ms)[0m   [0mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.project_id = 2) [0m
+  [4;36;1mCommute Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mEnergyConsumption Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `energy_consumptions`[0m
+Completed in 112ms (View: 48, DB: 11) | 200 OK [http://localhost/projects/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EnergyConsumptionsController#update (for 127.0.0.1 at 2009-11-24 09:58:34) [PUT]
+  Parameters: {"commit"=>"Update Energy Consumption", "project_id"=>"2", "action"=>"update", "_method"=>"put", "authenticity_token"=>"xn5QyqU15cvDfy3QiX9ieGLKwPPC7yFKGURrWZHok9Q=", "id"=>"4", "energy_consumption"=>{"name"=>"Backup generator number 1", "amount"=>"75"}, "controller"=>"energy_consumptions"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mEnergyConsumption Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `energy_consumptions`[0m
+  [4;35;1mEnergyConsumption Load (0.3ms)[0m   [0mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.`id` = 4 AND (`energy_consumptions`.project_id = 2)) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mEnergyConsumption Load (1.6ms)[0m   [0mSELECT `energy_consumptions`.id FROM `energy_consumptions` WHERE (`energy_consumptions`.`name` = BINARY 'Backup generator number 1' AND `energy_consumptions`.id <> 4) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mEnergyConsumption Update (0.4ms)[0m   [0mUPDATE `energy_consumptions` SET `updated_at` = '2009-11-24 09:58:35', `name` = 'Backup generator number 1', `carbon_output_cache` = 197.9325 WHERE `id` = 4[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/projects/2
+Completed in 580ms (DB: 12) | 302 Found [http://localhost/projects/2/energy_consumptions/4]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-11-24 09:58:35) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"projects"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;35;1mCommute Load (0.4ms)[0m   [0mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;36;1mEnergyConsumption Load (12.5ms)[0m   [0;1mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.project_id = 2) [0m
+  [4;35;1mCommute Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mEnergyConsumption Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `energy_consumptions`[0m
+Completed in 200ms (View: 50, DB: 23) | 200 OK [http://localhost/projects/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EnergyConsumptionsController#index (for 127.0.0.1 at 2009-11-24 09:59:34) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"index", "controller"=>"energy_consumptions"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering energy_consumptions/index
+  [4;35;1mEnergyConsumption Load (0.5ms)[0m   [0mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.project_id = 2) [0m
+  [4;36;1mEnergyConsumption Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `energy_consumptions`[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered energy_consumptions/_energy_consumption (6.5ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered energy_consumptions/_energy_consumption (5.4ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered energy_consumptions/_energy_consumption (5.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered energy_consumptions/_energy_consumption (5.1ms)
+Completed in 198ms (View: 113, DB: 11) | 200 OK [http://localhost/projects/2/energy_consumptions]
+  [4;35;1mSQL (0.4ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EnergyConsumptionsController#destroy (for 127.0.0.1 at 2009-11-24 09:59:39) [DELETE]
+  Parameters: {"project_id"=>"2", "action"=>"destroy", "_method"=>"delete", "authenticity_token"=>"xn5QyqU15cvDfy3QiX9ieGLKwPPC7yFKGURrWZHok9Q=", "id"=>"4", "controller"=>"energy_consumptions"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (24.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (1.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mEnergyConsumption Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `energy_consumptions`[0m
+  [4;36;1mEnergyConsumption Load (0.3ms)[0m   [0;1mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.`id` = 4 AND (`energy_consumptions`.project_id = 2)) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mEnergyConsumption Destroy (0.2ms)[0m   [0;1mDELETE FROM `energy_consumptions` WHERE `id` = 4[0m
+  [4;35;1mProject Load (0.5ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/projects/2
+Completed in 231ms (DB: 36) | 302 Found [http://localhost/projects/2/energy_consumptions/4]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-11-24 09:59:39) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"projects"}
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;35;1mCommute Load (0.4ms)[0m   [0mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;36;1mEnergyConsumption Load (0.3ms)[0m   [0;1mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.project_id = 2) [0m
+  [4;35;1mCommute Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mEnergyConsumption Columns (23.8ms)[0m   [0;1mSHOW FIELDS FROM `energy_consumptions`[0m
+Completed in 137ms (View: 51, DB: 33) | 200 OK [http://localhost/projects/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-11-24 11:00:24) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"projects"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;35;1mCommute Load (0.4ms)[0m   [0mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;36;1mEnergyConsumption Load (0.2ms)[0m   [0;1mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.project_id = 2) [0m
+  [4;35;1mCommute Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mEnergyConsumption Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `energy_consumptions`[0m
+Completed in 184ms (View: 48, DB: 10) | 200 OK [http://localhost/projects/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#index (for 127.0.0.1 at 2009-11-24 11:03:33) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"index", "controller"=>"commutes"}
+  [4;36;1mClient Load (0.5ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (3.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.5ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.5ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.5ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering commutes/index
+  [4;35;1mCommute Load (0.4ms)[0m   [0mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;36;1mCommute Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (6.6ms)
+Completed in 236ms (View: 23, DB: 12) | 200 OK [http://localhost/projects/2/commutes]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#new (for 127.0.0.1 at 2009-11-24 11:03:34) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"new", "controller"=>"commutes"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (72.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (119.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (22.5ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (113.1ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.9ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (107.2ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (46.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.5ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mCommute Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+Rendering template within layouts/application
+Rendering commutes/new
+Completed in 598ms (View: 24, DB: 485) | 200 OK [http://localhost/projects/2/commutes/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#new (for 127.0.0.1 at 2009-11-24 11:04:06) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"new", "controller"=>"commutes"}
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mCommute Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+Rendering template within layouts/application
+Rendering commutes/new
+Completed in 101ms (View: 14, DB: 9) | 200 OK [http://localhost/projects/2/commutes/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#new (for 127.0.0.1 at 2009-11-24 11:04:16) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"new", "controller"=>"commutes"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.5ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mCommute Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+Rendering template within layouts/application
+Rendering commutes/new
+Completed in 106ms (View: 14, DB: 9) | 200 OK [http://localhost/projects/2/commutes/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+/!\ FAILSAFE /!\  Tue Nov 24 11:14:34 +0000 2009
+  Status: 500 Internal Server Error
+  Expected /Users/george/work/amee/overbury/app/helpers/energy_consumptions_helper.rb to define EnergyConsumptionsHelper
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:426:in `load_missing_constant'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:80:in `const_missing'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:92:in `const_missing'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/inflector.rb:361:in `constantize'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/inflector.rb:360:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/inflector.rb:360:in `constantize'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/string/inflections.rb:162:in `constantize'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/helpers.rb:137:in `helper'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/helpers.rb:115:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/helpers.rb:115:in `helper'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/helpers.rb:120:in `helper'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/helpers.rb:115:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/helpers.rb:115:in `helper'
+    /Users/george/work/amee/overbury/app/controllers/application_controller.rb:8
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:380:in `load_file'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:379:in `load_file'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:80:in `const_missing'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:92:in `const_missing'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:114:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/reloader.rb:34:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:108:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.3.4/lib/rails/rack/static.rb:31:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.3.4/lib/rails/rack/log_tailer.rb:17:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.3.4/lib/commands/server.rb:111
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-11-24 11:14:57) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"projects"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (19.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;36;1mCommute Load (0.4ms)[0m   [0;1mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;35;1mEnergyConsumption Load (0.2ms)[0m   [0mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.project_id = 2) [0m
+  [4;36;1mCommute Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mEnergyConsumption Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `energy_consumptions`[0m
+Completed in 125ms (View: 48, DB: 28) | 200 OK [http://localhost/projects/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EnergyConsumptionsController#index (for 127.0.0.1 at 2009-11-24 11:14:59) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"index", "controller"=>"energy_consumptions"}
+  [4;35;1mClient Load (0.4ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering energy_consumptions/index
+  [4;36;1mEnergyConsumption Load (0.4ms)[0m   [0;1mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.project_id = 2) [0m
+  [4;35;1mEnergyConsumption Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `energy_consumptions`[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered energy_consumptions/_energy_consumption (5.9ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered energy_consumptions/_energy_consumption (5.5ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered energy_consumptions/_energy_consumption (6.4ms)
+Completed in 197ms (View: 30, DB: 9) | 200 OK [http://localhost/projects/2/energy_consumptions]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EnergyConsumptionsController#new (for 127.0.0.1 at 2009-11-24 11:15:01) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"new", "controller"=>"energy_consumptions"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mEnergyConsumption Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `energy_consumptions`[0m
+Rendering template within layouts/application
+Rendering energy_consumptions/new
+Completed in 193ms (View: 26, DB: 9) | 200 OK [http://localhost/projects/2/energy_consumptions/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EnergyConsumptionsController#new (for 127.0.0.1 at 2009-11-24 11:16:16) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"new", "controller"=>"energy_consumptions"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mEnergyConsumption Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `energy_consumptions`[0m
+Rendering template within layouts/application
+Rendering energy_consumptions/new
+Completed in 103ms (View: 17, DB: 8) | 200 OK [http://localhost/projects/2/energy_consumptions/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EnergyConsumptionsController#new (for 127.0.0.1 at 2009-11-24 11:16:22) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"new", "controller"=>"energy_consumptions"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mEnergyConsumption Columns (8.0ms)[0m   [0mSHOW FIELDS FROM `energy_consumptions`[0m
+Rendering template within layouts/application
+Rendering energy_consumptions/new
+Completed in 121ms (View: 23, DB: 16) | 200 OK [http://localhost/projects/2/energy_consumptions/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EnergyConsumptionsController#new (for 127.0.0.1 at 2009-11-24 11:16:37) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"new", "controller"=>"energy_consumptions"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.5ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mEnergyConsumption Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `energy_consumptions`[0m
+Rendering template within layouts/application
+Rendering energy_consumptions/new
+Completed in 105ms (View: 17, DB: 10) | 200 OK [http://localhost/projects/2/energy_consumptions/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EnergyConsumptionsController#new (for 127.0.0.1 at 2009-11-24 11:17:05) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"new", "controller"=>"energy_consumptions"}
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mEnergyConsumption Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `energy_consumptions`[0m
+Rendering template within layouts/application
+Rendering energy_consumptions/new
+Completed in 204ms (View: 31, DB: 9) | 200 OK [http://localhost/projects/2/energy_consumptions/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-11-24 11:17:18) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"projects"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;36;1mCommute Load (0.4ms)[0m   [0;1mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;35;1mEnergyConsumption Load (0.2ms)[0m   [0mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.project_id = 2) [0m
+  [4;36;1mCommute Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mEnergyConsumption Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `energy_consumptions`[0m
+Completed in 185ms (View: 48, DB: 11) | 200 OK [http://localhost/projects/2]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#index (for 127.0.0.1 at 2009-11-24 11:17:19) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"index", "controller"=>"commutes"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering commutes/index
+  [4;36;1mCommute Load (0.4ms)[0m   [0;1mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;35;1mCommute Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (5.1ms)
+Completed in 99ms (View: 16, DB: 9) | 200 OK [http://localhost/projects/2/commutes]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#new (for 127.0.0.1 at 2009-11-24 11:17:21) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"new", "controller"=>"commutes"}
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.6ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.5ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mCommute Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+Rendering template within layouts/application
+Rendering commutes/new
+Completed in 119ms (View: 23, DB: 10) | 200 OK [http://localhost/projects/2/commutes/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#new (for 127.0.0.1 at 2009-11-24 11:19:31) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"new", "controller"=>"commutes"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.5ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mCommute Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+Rendering template within layouts/application
+Rendering commutes/new
+Completed in 104ms (View: 15, DB: 9) | 200 OK [http://localhost/projects/2/commutes/new]
+  [4;35;1mCommute Load (0.3ms)[0m   [0mSELECT * FROM `commutes` ORDER BY commutes.id DESC LIMIT 1[0m
+  [4;36;1mCommute Columns (30.7ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mCommute Load (0.4ms)[0m   [0mSELECT * FROM `commutes` ORDER BY commutes.id DESC LIMIT 1[0m
+  [4;36;1mCommute Load (0.3ms)[0m   [0;1mSELECT * FROM `commutes` ORDER BY commutes.id DESC LIMIT 1[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mCommute Load (0.2ms)[0m   [0;1mSELECT * FROM `commutes` ORDER BY commutes.id DESC LIMIT 1[0m
+  [4;35;1mCommute Load (0.3ms)[0m   [0mSELECT * FROM `commutes` ORDER BY commutes.id DESC LIMIT 1[0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mCommute Load (0.2ms)[0m   [0mSELECT * FROM `commutes` ORDER BY commutes.id DESC LIMIT 1[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#create (for 127.0.0.1 at 2009-11-24 12:00:53) [POST]
+  Parameters: {"commit"=>"Create Commute", "project_id"=>"2", "action"=>"create", "authenticity_token"=>"xn5QyqU15cvDfy3QiX9ieGLKwPPC7yFKGURrWZHok9Q=", "commute"=>{"name"=>"Moped to work", "commute_type"=>"motorbike", "units"=>"mi", "amount"=>"21"}, "controller"=>"commutes"}
+  [4;36;1mClient Load (0.6ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (72.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mCommute Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCommute Load (0.5ms)[0m   [0mSELECT `commutes`.id FROM `commutes` WHERE (`commutes`.`name` = BINARY 'Moped to work') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mSQL (10.7ms)[0m   [0mROLLBACK[0m
+
+NameError (uninitialized constant AmeeCarbonStore::InstanceMethods::DRILLDOWN_CACHE_PREFIX):
+  lib/amee_carbon_store.rb:119:in `amee_data_category_uid'
+  lib/amee_carbon_store.rb:114:in `create_amee_profile'
+  lib/amee_carbon_store.rb:103:in `add_to_amee'
+  app/controllers/commutes_controller.rb:39:in `create'
+
+Rendered rescues/_trace (90.7ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+** [Hoptoad] Notifier 2.0.3 ready to catch errors
+** [Hoptoad] Notifier 2.0.3 ready to catch errors
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#create (for 127.0.0.1 at 2009-11-24 12:01:24) [POST]
+  Parameters: {"commit"=>"Create Commute", "project_id"=>"2", "action"=>"create", "authenticity_token"=>"xn5QyqU15cvDfy3QiX9ieGLKwPPC7yFKGURrWZHok9Q=", "commute"=>{"name"=>"Moped to work", "commute_type"=>"motorbike", "units"=>"mi", "amount"=>"21"}, "controller"=>"commutes"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (2.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mCommute Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCommute Load (0.3ms)[0m   [0;1mSELECT `commutes`.id FROM `commutes` WHERE (`commutes`.`name` = BINARY 'Moped to work') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Cache miss: drilldown_datatransportmotorcyclegenericdrill?fuel=petrol&size=medium ({})
+Cache write (will save 159.25ms): drilldown_datatransportmotorcyclegenericdrill?fuel=petrol&size=medium
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+
+NoMethodError (undefined method `connection' for #<AmeeCategory:0x10386d7e8>):
+  amee (2.0.28) lib/amee/profile_item.rb:238:in `create'
+  lib/amee_carbon_store.rb:114:in `create_amee_profile'
+  lib/amee_carbon_store.rb:103:in `add_to_amee'
+  app/controllers/commutes_controller.rb:39:in `create'
+
+Rendered rescues/_trace (91.1ms)
+Rendered rescues/_request_and_response (2.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#create (for 127.0.0.1 at 2009-11-24 12:03:16) [POST]
+  Parameters: {"commit"=>"Create Commute", "project_id"=>"2", "action"=>"create", "authenticity_token"=>"xn5QyqU15cvDfy3QiX9ieGLKwPPC7yFKGURrWZHok9Q=", "commute"=>{"name"=>"Moped to work", "commute_type"=>"motorbike", "units"=>"mi", "amount"=>"21"}, "controller"=>"commutes"}
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mCommute Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCommute Load (0.3ms)[0m   [0mSELECT `commutes`.id FROM `commutes` WHERE (`commutes`.`name` = BINARY 'Moped to work') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Cache hit: drilldown_datatransportmotorcyclegenericdrill?fuel=petrol&size=medium ({})
+  [4;35;1mCommute Create (16.1ms)[0m   [0mINSERT INTO `commutes` (`name`, `created_at`, `commute_type`, `project_id`, `updated_at`, `carbon_output_cache`, `amee_profile_item_id`) VALUES('Moped to work', '2009-11-24 12:03:17', 'motorbike', 2, '2009-11-24 12:03:17', 3.48777, '86CF4EE0EFF6')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/projects/2
+Completed in 1287ms (DB: 26) | 302 Found [http://localhost/projects/2/commutes]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-11-24 12:03:17) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"projects"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;35;1mCommute Load (0.4ms)[0m   [0mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;36;1mEnergyConsumption Load (0.3ms)[0m   [0;1mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.project_id = 2) [0m
+  [4;35;1mCommute Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mEnergyConsumption Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `energy_consumptions`[0m
+Completed in 204ms (View: 141, DB: 11) | 200 OK [http://localhost/projects/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#index (for 127.0.0.1 at 2009-11-24 12:03:22) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"index", "controller"=>"commutes"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering commutes/index
+  [4;35;1mCommute Load (0.4ms)[0m   [0mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;36;1mCommute Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (22.5ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (5.4ms)
+Completed in 232ms (View: 71, DB: 9) | 200 OK [http://localhost/projects/2/commutes]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#edit (for 127.0.0.1 at 2009-11-24 12:03:24) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"edit", "id"=>"28", "controller"=>"commutes"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (33.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mCommute Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mCommute Load (0.3ms)[0m   [0;1mSELECT * FROM `commutes` WHERE (`commutes`.`id` = 28 AND (`commutes`.project_id = 2)) [0m
+Rendering template within layouts/application
+Rendering commutes/edit
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Completed in 363ms (View: 164, DB: 41) | 200 OK [http://localhost/projects/2/commutes/28/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#index (for 127.0.0.1 at 2009-11-24 12:04:07) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"index", "controller"=>"commutes"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering commutes/index
+  [4;36;1mCommute Load (0.4ms)[0m   [0;1mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;35;1mCommute Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (6.2ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (5.0ms)
+Completed in 191ms (View: 23, DB: 10) | 200 OK [http://localhost/projects/2/commutes]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mCommute Load (0.3ms)[0m   [0mSELECT * FROM `commutes` ORDER BY commutes.id DESC LIMIT 1[0m
+  [4;36;1mCommute Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mCommute Load (0.4ms)[0m   [0mSELECT * FROM `commutes` ORDER BY commutes.id DESC LIMIT 1[0m
+** [Hoptoad] Notifier 2.0.3 ready to catch errors
+** [Hoptoad] Notifier 2.0.3 ready to catch errors
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mCommute Load (0.3ms)[0m   [0mSELECT * FROM `commutes` ORDER BY commutes.id DESC LIMIT 1[0m
+  [4;36;1mCommute Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+Cache miss: drilldown_datatransportmotorcyclegenericdrill?fuel=petrol&size=medium ({})
+  [4;35;1mProject Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Cache write (will save 375.41ms): drilldown_datatransportmotorcyclegenericdrill?fuel=petrol&size=medium
+  [4;35;1mCommute Load (0.4ms)[0m   [0mSELECT * FROM `commutes` ORDER BY commutes.id DESC LIMIT 1[0m
+Cache hit: drilldown_datatransportmotorcyclegenericdrill?fuel=petrol&size=medium ({})
+  [4;36;1mCommute Load (0.4ms)[0m   [0;1mSELECT * FROM `commutes` ORDER BY commutes.id DESC LIMIT 1[0m
+Cache hit: drilldown_datatransportmotorcyclegenericdrill?fuel=petrol&size=medium ({})
+  [4;35;1mCommute Load (0.4ms)[0m   [0mSELECT * FROM `commutes` ORDER BY commutes.id DESC LIMIT 1[0m
+  [4;36;1mCommute Load (0.4ms)[0m   [0;1mSELECT * FROM `commutes` ORDER BY commutes.id DESC LIMIT 1[0m
+  [4;35;1mCommute Load (0.4ms)[0m   [0mSELECT * FROM `commutes` ORDER BY commutes.id DESC LIMIT 1[0m
+  [4;36;1mCommute Load (0.5ms)[0m   [0;1mSELECT * FROM `commutes` ORDER BY commutes.id DESC LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#new (for 127.0.0.1 at 2009-11-24 12:12:49) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"new", "controller"=>"commutes"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mCommute Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+Rendering template within layouts/application
+Rendering commutes/new
+Completed in 130ms (View: 45, DB: 9) | 200 OK [http://localhost/projects/2/commutes/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#create (for 127.0.0.1 at 2009-11-24 12:13:04) [POST]
+  Parameters: {"commit"=>"Create Commute", "project_id"=>"2", "action"=>"create", "authenticity_token"=>"xn5QyqU15cvDfy3QiX9ieGLKwPPC7yFKGURrWZHok9Q=", "commute"=>{"name"=>"Motorbike to work", "commute_type"=>"motorbike", "units"=>"km", "amount"=>"41"}, "controller"=>"commutes"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.5ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mCommute Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCommute Load (0.3ms)[0m   [0mSELECT `commutes`.id FROM `commutes` WHERE (`commutes`.`name` = BINARY 'Motorbike to work') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Cache miss: drilldown_datatransportmotorcyclegenericdrillfuelpetrolsizemedium ({})
+Cache write (will save 109.49ms): drilldown_datatransportmotorcyclegenericdrillfuelpetrolsizemedium
+  [4;35;1mCommute Create (17.5ms)[0m   [0mINSERT INTO `commutes` (`name`, `created_at`, `commute_type`, `project_id`, `updated_at`, `carbon_output_cache`, `amee_profile_item_id`) VALUES('Motorbike to work', '2009-11-24 12:13:04', 'motorbike', 2, '2009-11-24 12:13:04', 4.2312, '9C42D1BF6DB2')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/projects/2
+Completed in 769ms (DB: 28) | 302 Found [http://localhost/projects/2/commutes]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-11-24 12:13:05) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"projects"}
+  [4;36;1mClient Load (1.0ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;35;1mCommute Load (0.4ms)[0m   [0mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;36;1mEnergyConsumption Load (0.3ms)[0m   [0;1mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.project_id = 2) [0m
+  [4;35;1mCommute Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mEnergyConsumption Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `energy_consumptions`[0m
+Completed in 115ms (View: 50, DB: 11) | 200 OK [http://localhost/projects/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#index (for 127.0.0.1 at 2009-11-24 12:13:07) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"index", "controller"=>"commutes"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering commutes/index
+  [4;35;1mCommute Load (0.4ms)[0m   [0mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;36;1mCommute Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (5.4ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (4.9ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (4.6ms)
+Completed in 186ms (View: 27, DB: 10) | 200 OK [http://localhost/projects/2/commutes]
+  [4;35;1mCommute Load (0.4ms)[0m   [0mSELECT * FROM `commutes` ORDER BY commutes.id DESC LIMIT 1[0m
+  [4;36;1mCommute Load (0.3ms)[0m   [0;1mSELECT * FROM `commutes` ORDER BY commutes.id DESC LIMIT 1[0m
+  [4;35;1mCommute Load (0.2ms)[0m   [0mSELECT * FROM `commutes` WHERE (`commutes`.`id` = 28) [0m
+  [4;36;1mCommute Load (0.4ms)[0m   [0;1mSELECT * FROM `commutes` WHERE (`commutes`.`id` = 29) [0m
+  [4;35;1mCommute Load (0.2ms)[0m   [0mSELECT * FROM `commutes` WHERE (`commutes`.`id` = 28) [0m
+  [4;36;1mCommute Load (0.4ms)[0m   [0;1mSELECT * FROM `commutes` WHERE (`commutes`.`id` = 28) [0m
+  [4;35;1mCommute Load (0.2ms)[0m   [0mSELECT * FROM `commutes` WHERE (`commutes`.`id` = 28) [0m
+  [4;36;1mCommute Load (0.7ms)[0m   [0;1mSELECT * FROM `commutes` WHERE (`commutes`.`id` = 24) [0m
+  [4;35;1mCommute Load (0.2ms)[0m   [0mSELECT * FROM `commutes` WHERE (`commutes`.`id` = 28) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#edit (for 127.0.0.1 at 2009-11-24 15:26:55) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"edit", "id"=>"29", "controller"=>"commutes"}
+  [4;35;1mClient Load (0.5ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (30.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.5ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mCommute Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mCommute Load (0.3ms)[0m   [0mSELECT * FROM `commutes` WHERE (`commutes`.`id` = 29 AND (`commutes`.project_id = 2)) [0m
+Rendering template within layouts/application
+Rendering commutes/edit
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Completed in 1469ms (View: 437, DB: 38) | 200 OK [http://localhost/projects/2/commutes/29/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-11-24 15:27:03) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"projects"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;35;1mCommute Load (0.4ms)[0m   [0mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;36;1mEnergyConsumption Load (0.2ms)[0m   [0;1mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.project_id = 2) [0m
+  [4;35;1mCommute Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mEnergyConsumption Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `energy_consumptions`[0m
+Completed in 271ms (View: 183, DB: 10) | 200 OK [http://localhost/projects/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#index (for 127.0.0.1 at 2009-11-24 15:27:04) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"index", "controller"=>"commutes"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering commutes/index
+  [4;35;1mCommute Load (0.4ms)[0m   [0mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;36;1mCommute Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (5.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (5.3ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (4.6ms)
+Completed in 108ms (View: 27, DB: 9) | 200 OK [http://localhost/projects/2/commutes]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EnergyConsumptionsController#index (for 127.0.0.1 at 2009-11-24 15:27:07) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"index", "controller"=>"energy_consumptions"}
+  [4;35;1mClient Load (2.8ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering energy_consumptions/index
+  [4;36;1mEnergyConsumption Load (0.5ms)[0m   [0;1mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.project_id = 2) [0m
+  [4;35;1mEnergyConsumption Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `energy_consumptions`[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered energy_consumptions/_energy_consumption (18.1ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered energy_consumptions/_energy_consumption (5.4ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered energy_consumptions/_energy_consumption (5.2ms)
+Completed in 291ms (View: 134, DB: 12) | 200 OK [http://localhost/projects/2/energy_consumptions]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EnergyConsumptionsController#edit (for 127.0.0.1 at 2009-11-24 15:27:09) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"edit", "id"=>"2", "controller"=>"energy_consumptions"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mEnergyConsumption Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `energy_consumptions`[0m
+  [4;36;1mEnergyConsumption Load (0.3ms)[0m   [0;1mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.`id` = 2 AND (`energy_consumptions`.project_id = 2)) [0m
+Rendering template within layouts/application
+Rendering energy_consumptions/edit
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Completed in 410ms (View: 325, DB: 9) | 200 OK [http://localhost/projects/2/energy_consumptions/2/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing EnergyConsumptionsController#edit (for 127.0.0.1 at 2009-11-24 15:27:12) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"edit", "id"=>"1", "controller"=>"energy_consumptions"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mEnergyConsumption Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `energy_consumptions`[0m
+  [4;35;1mEnergyConsumption Load (0.3ms)[0m   [0mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.`id` = 1 AND (`energy_consumptions`.project_id = 2)) [0m
+Rendering template within layouts/application
+Rendering energy_consumptions/edit
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Completed in 357ms (View: 194, DB: 9) | 200 OK [http://localhost/projects/2/energy_consumptions/1/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#index (for 127.0.0.1 at 2009-11-24 15:45:38) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"index", "controller"=>"commutes"}
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (36.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.5ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering commutes/index
+  [4;35;1mCommute Load (0.4ms)[0m   [0mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;36;1mCommute Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (7.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (4.9ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (4.9ms)
+Completed in 236ms (View: 29, DB: 45) | 200 OK [http://localhost/projects/2/commutes]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#new (for 127.0.0.1 at 2009-11-24 15:45:40) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"new", "controller"=>"commutes"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mCommute Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+Rendering template within layouts/application
+Rendering commutes/new
+Completed in 128ms (View: 42, DB: 9) | 200 OK [http://localhost/projects/2/commutes/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#create (for 127.0.0.1 at 2009-11-24 15:46:06) [POST]
+  Parameters: {"commit"=>"Create Commute", "project_id"=>"2", "action"=>"create", "authenticity_token"=>"xn5QyqU15cvDfy3QiX9ieGLKwPPC7yFKGURrWZHok9Q=", "commute"=>{"name"=>"test - should fail", "commute_type"=>"bus", "amount"=>"1324"}, "controller"=>"commutes"}
+  [4;36;1mClient Load (0.6ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (8.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mCommute Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCommute Load (0.3ms)[0m   [0mSELECT `commutes`.id FROM `commutes` WHERE (`commutes`.`name` = BINARY 'test - should fail') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+
+NoMethodError (undefined method `amount_before_type_cast' for #<Commute:0x103680c78>):
+  app/controllers/commutes_controller.rb:18:in `create'
+
+Rendered rescues/_trace (173.5ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#new (for 127.0.0.1 at 2009-11-24 15:46:36) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"new", "controller"=>"commutes"}
+  [4;36;1mClient Load (0.5ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mCommute Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+Rendering template within layouts/application
+Rendering commutes/new
+Completed in 136ms (View: 24, DB: 9) | 200 OK [http://localhost/projects/2/commutes/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#new (for 127.0.0.1 at 2009-11-24 15:46:46) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"new", "controller"=>"commutes"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mCommute Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+Rendering template within layouts/application
+Rendering commutes/new
+Completed in 142ms (View: 53, DB: 9) | 200 OK [http://localhost/projects/2/commutes/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#new (for 127.0.0.1 at 2009-11-24 15:50:37) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"new", "controller"=>"commutes"}
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mCommute Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+Rendering template within layouts/application
+Rendering commutes/new
+Completed in 101ms (View: 14, DB: 9) | 200 OK [http://localhost/projects/2/commutes/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#create (for 127.0.0.1 at 2009-11-24 15:50:44) [POST]
+  Parameters: {"commit"=>"Create Commute", "project_id"=>"2", "action"=>"create", "authenticity_token"=>"xn5QyqU15cvDfy3QiX9ieGLKwPPC7yFKGURrWZHok9Q=", "commute"=>{"name"=>"adf", "commute_type"=>"bus", "units"=>"(fetching)", "amount"=>"3412"}, "controller"=>"commutes"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mCommute Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCommute Load (0.3ms)[0m   [0;1mSELECT `commutes`.id FROM `commutes` WHERE (`commutes`.`name` = BINARY 'adf') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+
+NoMethodError (undefined method `amount_before_type_cast' for #<Commute:0x1038587d0>):
+  app/controllers/commutes_controller.rb:18:in `create'
+
+Rendered rescues/_trace (93.8ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#create (for 127.0.0.1 at 2009-11-24 15:51:16) [POST]
+  Parameters: {"commit"=>"Create Commute", "project_id"=>"2", "action"=>"create", "authenticity_token"=>"xn5QyqU15cvDfy3QiX9ieGLKwPPC7yFKGURrWZHok9Q=", "commute"=>{"name"=>"adf", "commute_type"=>"bus", "units"=>"(fetching)", "amount"=>"3412"}, "controller"=>"commutes"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (1.5ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.5ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mCommute Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCommute Load (0.3ms)[0m   [0;1mSELECT `commutes`.id FROM `commutes` WHERE (`commutes`.`name` = BINARY 'adf') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/application
+Rendering commutes/new
+Completed in 206ms (View: 105, DB: 12) | 200 OK [http://localhost/projects/2/commutes]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#new (for 127.0.0.1 at 2009-11-24 15:57:40) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"new", "controller"=>"commutes"}
+  [4;35;1mClient Load (0.4ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (39.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mCommute Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+Rendering template within layouts/application
+Rendering commutes/new
+Completed in 218ms (View: 14, DB: 46) | 200 OK [http://localhost/projects/2/commutes/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#create (for 127.0.0.1 at 2009-11-24 15:57:55) [POST]
+  Parameters: {"commit"=>"Create Commute", "project_id"=>"2", "action"=>"create", "authenticity_token"=>"xn5QyqU15cvDfy3QiX9ieGLKwPPC7yFKGURrWZHok9Q=", "commute"=>{"name"=>"asdf", "commute_type"=>"bus", "units"=>"(fetching)", "amount"=>"231"}, "controller"=>"commutes"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mCommute Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCommute Load (0.3ms)[0m   [0mSELECT `commutes`.id FROM `commutes` WHERE (`commutes`.`name` = BINARY 'asdf') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering commutes/new
+Completed in 275ms (View: 105, DB: 9) | 200 OK [http://localhost/projects/2/commutes]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#create (for 127.0.0.1 at 2009-11-24 15:58:00) [POST]
+  Parameters: {"commit"=>"Create Commute", "project_id"=>"2", "action"=>"create", "authenticity_token"=>"xn5QyqU15cvDfy3QiX9ieGLKwPPC7yFKGURrWZHok9Q=", "commute"=>{"name"=>"asdf", "commute_type"=>"bus", "units"=>"(fetching)", "amount"=>"ee"}, "controller"=>"commutes"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mCommute Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCommute Load (0.3ms)[0m   [0mSELECT `commutes`.id FROM `commutes` WHERE (`commutes`.`name` = BINARY 'asdf') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering commutes/new
+Completed in 112ms (View: 21, DB: 9) | 200 OK [http://localhost/projects/2/commutes]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#new (for 127.0.0.1 at 2009-11-24 15:58:32) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"new", "controller"=>"commutes"}
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (36.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.5ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mCommute Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+Rendering template within layouts/application
+Rendering commutes/new
+Completed in 145ms (View: 23, DB: 44) | 200 OK [http://localhost/projects/2/commutes/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#create (for 127.0.0.1 at 2009-11-24 15:58:49) [POST]
+  Parameters: {"commit"=>"Create Commute", "project_id"=>"2", "action"=>"create", "authenticity_token"=>"xn5QyqU15cvDfy3QiX9ieGLKwPPC7yFKGURrWZHok9Q=", "commute"=>{"name"=>"Big train journey", "commute_type"=>"train", "units"=>"mi", "amount"=>"450"}, "controller"=>"commutes"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mCommute Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCommute Load (0.3ms)[0m   [0;1mSELECT `commutes`.id FROM `commutes` WHERE (`commutes`.`name` = BINARY 'Big train journey') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Cache miss: drilldown_datatransporttraingenericdrilltypenational ({})
+Cache write (will save 119.35ms): drilldown_datatransporttraingenericdrilltypenational
+  [4;36;1mCommute Create (0.3ms)[0m   [0;1mINSERT INTO `commutes` (`name`, `created_at`, `commute_type`, `project_id`, `updated_at`, `carbon_output_cache`, `amee_profile_item_id`) VALUES('Big train journey', '2009-11-24 15:58:51', 'train', 2, '2009-11-24 15:58:51', 41.786617, '8627F8D71663')[0m
+  [4;35;1mSQL (59.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/projects/2
+Completed in 1215ms (DB: 68) | 302 Found [http://localhost/projects/2/commutes]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-11-24 15:58:51) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"projects"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;36;1mCommute Load (20.0ms)[0m   [0;1mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;35;1mEnergyConsumption Load (0.4ms)[0m   [0mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.project_id = 2) [0m
+  [4;36;1mCommute Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mEnergyConsumption Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `energy_consumptions`[0m
+Completed in 210ms (View: 50, DB: 31) | 200 OK [http://localhost/projects/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#index (for 127.0.0.1 at 2009-11-24 15:58:53) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"index", "controller"=>"commutes"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering commutes/index
+  [4;36;1mCommute Load (0.4ms)[0m   [0;1mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;35;1mCommute Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (5.1ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (5.9ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (4.7ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (4.6ms)
+Completed in 192ms (View: 32, DB: 9) | 200 OK [http://localhost/projects/2/commutes]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#edit (for 127.0.0.1 at 2009-11-24 15:58:55) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"edit", "id"=>"30", "controller"=>"commutes"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mCommute Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mCommute Load (0.3ms)[0m   [0mSELECT * FROM `commutes` WHERE (`commutes`.`id` = 30 AND (`commutes`.project_id = 2)) [0m
+Rendering template within layouts/application
+Rendering commutes/edit
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Completed in 306ms (View: 222, DB: 9) | 200 OK [http://localhost/projects/2/commutes/30/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#update (for 127.0.0.1 at 2009-11-24 15:59:00) [PUT]
+  Parameters: {"commit"=>"Update Commute", "project_id"=>"2", "action"=>"update", "_method"=>"put", "authenticity_token"=>"xn5QyqU15cvDfy3QiX9ieGLKwPPC7yFKGURrWZHok9Q=", "id"=>"30", "commute"=>{"name"=>"Big train journey", "amount"=>"450.25"}, "controller"=>"commutes"}
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mCommute Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mCommute Load (0.3ms)[0m   [0;1mSELECT * FROM `commutes` WHERE (`commutes`.`id` = 30 AND (`commutes`.project_id = 2)) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCommute Load (0.3ms)[0m   [0;1mSELECT `commutes`.id FROM `commutes` WHERE (`commutes`.`name` = BINARY 'Big train journey' AND `commutes`.id <> 30) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mCommute Update (0.3ms)[0m   [0;1mUPDATE `commutes` SET `updated_at` = '2009-11-24 15:59:01', `carbon_output_cache` = 41.809832 WHERE `id` = 30[0m
+  [4;35;1mSQL (16.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/projects/2
+Completed in 533ms (DB: 26) | 302 Found [http://localhost/projects/2/commutes/30]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-11-24 15:59:01) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"projects"}
+  [4;35;1mClient Load (0.4ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;36;1mCommute Load (0.4ms)[0m   [0;1mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;35;1mEnergyConsumption Load (0.2ms)[0m   [0mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.project_id = 2) [0m
+  [4;36;1mCommute Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mEnergyConsumption Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `energy_consumptions`[0m
+Completed in 109ms (View: 48, DB: 11) | 200 OK [http://localhost/projects/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#index (for 127.0.0.1 at 2009-11-24 16:48:18) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"index", "controller"=>"commutes"}
+  [4;35;1mClient Load (5.9ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (42.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.5ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering commutes/index
+  [4;36;1mCommute Load (0.5ms)[0m   [0;1mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;35;1mCommute Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (7.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (5.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (4.7ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (5.4ms)
+Completed in 189ms (View: 34, DB: 57) | 200 OK [http://localhost/projects/2/commutes]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#new (for 127.0.0.1 at 2009-11-24 16:58:59) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"new", "controller"=>"commutes"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (39.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.5ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mCommute Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+Rendering template within layouts/application
+Rendering commutes/new
+Completed in 230ms (View: 16, DB: 48) | 200 OK [http://localhost/projects/2/commutes/new]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#create (for 127.0.0.1 at 2009-11-24 16:59:16) [POST]
+  Parameters: {"commit"=>"Create Commute", "project_id"=>"2", "action"=>"create", "authenticity_token"=>"xn5QyqU15cvDfy3QiX9ieGLKwPPC7yFKGURrWZHok9Q=", "commute"=>{"name"=>"pretty commute", "commute_type"=>"train", "units"=>"mi", "amount"=>"120"}, "controller"=>"commutes"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mCommute Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCommute Load (0.4ms)[0m   [0mSELECT `commutes`.id FROM `commutes` WHERE (`commutes`.`name` = BINARY 'pretty commute' AND `commutes`.project_id = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering commutes/new
+Completed in 231ms (View: 57, DB: 9) | 200 OK [http://localhost/projects/2/commutes]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#create (for 127.0.0.1 at 2009-11-24 16:59:35) [POST]
+  Parameters: {"commit"=>"Create Commute", "project_id"=>"2", "action"=>"create", "authenticity_token"=>"xn5QyqU15cvDfy3QiX9ieGLKwPPC7yFKGURrWZHok9Q=", "commute"=>{"name"=>"pretty commute", "commute_type"=>"train", "units"=>"km", "amount"=>"120"}, "controller"=>"commutes"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mCommute Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCommute Load (0.3ms)[0m   [0mSELECT `commutes`.id FROM `commutes` WHERE (`commutes`.`name` = BINARY 'pretty commute' AND `commutes`.project_id = 2) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Cache hit: drilldown_datatransporttraingenericdrilltypenational ({})
+  [4;35;1mClient Load (21.7ms)[0m   [0mSELECT * FROM `clients` WHERE (`clients`.`id` = 1) [0m
+  [4;36;1mCommute Create (0.3ms)[0m   [0;1mINSERT INTO `commutes` (`name`, `created_at`, `commute_type`, `project_id`, `updated_at`, `carbon_output_cache`, `amee_profile_item_id`) VALUES('pretty commute', '2009-11-24 16:59:38', 'train', 2, '2009-11-24 16:59:38', 6.924, '5A4DBA0F6C95')[0m
+  [4;35;1mSQL (57.7ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/projects/2
+Completed in 2956ms (DB: 88) | 302 Found [http://localhost/projects/2/commutes]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-11-24 16:59:38) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"projects"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;36;1mCommute Load (0.4ms)[0m   [0;1mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;35;1mEnergyConsumption Load (0.2ms)[0m   [0mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.project_id = 2) [0m
+  [4;36;1mCommute Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mEnergyConsumption Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `energy_consumptions`[0m
+Completed in 109ms (View: 49, DB: 10) | 200 OK [http://localhost/projects/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#index (for 127.0.0.1 at 2009-11-24 16:59:57) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"index", "controller"=>"commutes"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering commutes/index
+  [4;36;1mCommute Load (0.4ms)[0m   [0;1mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;35;1mCommute Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (5.5ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (5.2ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (4.7ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (4.8ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (4.6ms)
+Completed in 126ms (View: 37, DB: 10) | 200 OK [http://localhost/projects/2/commutes]
+  [4;35;1mSQL (0.7ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#edit (for 127.0.0.1 at 2009-11-24 16:59:59) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"edit", "id"=>"31", "controller"=>"commutes"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (2.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (1.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mCommute Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mCommute Load (1.1ms)[0m   [0;1mSELECT * FROM `commutes` WHERE (`commutes`.`id` = 31 AND (`commutes`.project_id = 2)) [0m
+Rendering template within layouts/application
+Rendering commutes/edit
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Completed in 322ms (View: 218, DB: 15) | 200 OK [http://localhost/projects/2/commutes/31/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#update (for 127.0.0.1 at 2009-11-24 17:00:04) [PUT]
+  Parameters: {"commit"=>"Update Commute", "project_id"=>"2", "action"=>"update", "_method"=>"put", "authenticity_token"=>"xn5QyqU15cvDfy3QiX9ieGLKwPPC7yFKGURrWZHok9Q=", "id"=>"31", "commute"=>{"name"=>"horrible commute", "amount"=>"120"}, "controller"=>"commutes"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.7ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.5ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mCommute Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mCommute Load (0.3ms)[0m   [0mSELECT * FROM `commutes` WHERE (`commutes`.`id` = 31 AND (`commutes`.project_id = 2)) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCommute Load (12.0ms)[0m   [0mSELECT `commutes`.id FROM `commutes` WHERE (`commutes`.`name` = BINARY 'horrible commute' AND `commutes`.project_id = 2 AND `commutes`.id <> 31) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mClient Load (0.7ms)[0m   [0mSELECT * FROM `clients` WHERE (`clients`.`id` = 1) [0m
+  [4;36;1mCommute Update (19.0ms)[0m   [0;1mUPDATE `commutes` SET `updated_at` = '2009-11-24 17:00:05', `name` = 'horrible commute' WHERE `id` = 31[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/projects/2
+Completed in 796ms (DB: 42) | 302 Found [http://localhost/projects/2/commutes/31]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-11-24 17:00:05) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"projects"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;36;1mCommute Load (0.4ms)[0m   [0;1mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;35;1mEnergyConsumption Load (15.4ms)[0m   [0mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.project_id = 2) [0m
+  [4;36;1mCommute Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mEnergyConsumption Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `energy_consumptions`[0m
+Completed in 205ms (View: 51, DB: 25) | 200 OK [http://localhost/projects/2]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mClient Columns (53.7ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mClient Create (12.1ms)[0m   [0mINSERT INTO `clients` (`name`, `created_at`, `updated_at`) VALUES('bob', '2009-11-24 17:11:30', '2009-11-24 17:11:30')[0m
+  [4;36;1mSQL (65.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mClient Load (0.5ms)[0m   [0mSELECT * FROM `clients` ORDER BY clients.id DESC LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mClient Destroy (18.7ms)[0m   [0mDELETE FROM `clients` WHERE `id` = 2[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#index (for 127.0.0.1 at 2009-11-24 17:13:43) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"index", "controller"=>"commutes"}
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering commutes/index
+  [4;36;1mCommute Load (0.4ms)[0m   [0;1mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;35;1mCommute Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (5.5ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (5.2ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (4.7ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (4.7ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (4.6ms)
+Completed in 277ms (View: 37, DB: 9) | 200 OK [http://localhost/projects/2/commutes]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#new (for 127.0.0.1 at 2009-11-24 17:13:45) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"new", "controller"=>"commutes"}
+  [4;36;1mClient Load (0.5ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (15.3ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mCommute Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+Rendering template within layouts/application
+Rendering commutes/new
+Completed in 116ms (View: 15, DB: 23) | 200 OK [http://localhost/projects/2/commutes/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#create (for 127.0.0.1 at 2009-11-24 17:13:58) [POST]
+  Parameters: {"commit"=>"Create Commute", "project_id"=>"2", "action"=>"create", "authenticity_token"=>"xn5QyqU15cvDfy3QiX9ieGLKwPPC7yFKGURrWZHok9Q=", "commute"=>{"name"=>"route 66", "commute_type"=>"bus", "units"=>"km", "amount"=>"1500"}, "controller"=>"commutes"}
+  [4;35;1mClient Load (0.5ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (21.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (2.9ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (215.5ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mCommute Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCommute Load (0.4ms)[0m   [0;1mSELECT `commutes`.id FROM `commutes` WHERE (`commutes`.`name` = BINARY 'route 66' AND `commutes`.project_id = 2) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Cache miss: drilldown_datatransportbusgenericdrilltypetypical ({})
+Cache write (will save 112.95ms): drilldown_datatransportbusgenericdrilltypetypical
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` WHERE (`clients`.`id` = 1) [0m
+  [4;35;1mCommute Create (0.3ms)[0m   [0mINSERT INTO `commutes` (`name`, `created_at`, `commute_type`, `project_id`, `updated_at`, `carbon_output_cache`, `amee_profile_item_id`) VALUES('route 66', '2009-11-24 17:13:59', 'bus', 2, '2009-11-24 17:13:59', 155.25, 'D399C81B56EB')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/projects/2
+Completed in 1301ms (DB: 248) | 302 Found [http://localhost/projects/2/commutes]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-11-24 17:13:59) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"projects"}
+  [4;36;1mClient Load (0.3ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;35;1mCommute Load (0.4ms)[0m   [0mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;36;1mEnergyConsumption Load (0.3ms)[0m   [0;1mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.project_id = 2) [0m
+  [4;35;1mCommute Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mEnergyConsumption Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `energy_consumptions`[0m
+Completed in 111ms (View: 50, DB: 10) | 200 OK [http://localhost/projects/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#index (for 127.0.0.1 at 2009-11-24 17:14:42) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"index", "controller"=>"commutes"}
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.3ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering commutes/index
+  [4;35;1mCommute Load (0.5ms)[0m   [0mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;36;1mCommute Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (6.1ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (5.3ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (6.6ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (5.2ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (4.8ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendered commutes/_commute (4.7ms)
+Completed in 215ms (View: 46, DB: 10) | 200 OK [http://localhost/projects/2/commutes]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#edit (for 127.0.0.1 at 2009-11-24 17:14:43) [GET]
+  Parameters: {"project_id"=>"2", "action"=>"edit", "id"=>"32", "controller"=>"commutes"}
+  [4;36;1mClient Load (0.4ms)[0m   [0;1mSELECT * FROM `clients` LIMIT 1[0m
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `clients`[0m
+  [4;36;1mProject Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `projects`[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;36;1mRole Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mRole Load (0.4ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mCommute Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `commutes`[0m
+  [4;36;1mCommute Load (0.3ms)[0m   [0;1mSELECT * FROM `commutes` WHERE (`commutes`.`id` = 32 AND (`commutes`.project_id = 2)) [0m
+Rendering template within layouts/application
+Rendering commutes/edit
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Completed in 350ms (View: 176, DB: 10) | 200 OK [http://localhost/projects/2/commutes/32/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CommutesController#update (for 127.0.0.1 at 2009-11-24 17:14:47) [PUT]
+  Parameters: {"commit"=>"Update Commute", "project_id"=>"2", "action"=>"update", "_method"=>"put", "authenticity_token"=>"xn5QyqU15cvDfy3QiX9ieGLKwPPC7yFKGURrWZHok9Q=", "id"=>"32", "commute"=>{"name"=>"route-66", "amount"=>"1500"}, "controller"=>"commutes"}
+  [4;35;1mClient Load (0.4ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.4ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;36;1mCommute Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mCommute Load (0.5ms)[0m   [0mSELECT * FROM `commutes` WHERE (`commutes`.`id` = 32 AND (`commutes`.project_id = 2)) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCommute Load (0.4ms)[0m   [0mSELECT `commutes`.id FROM `commutes` WHERE (`commutes`.`name` = BINARY 'route-66' AND `commutes`.project_id = 2 AND `commutes`.id <> 32) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+  [4;35;1mClient Load (0.3ms)[0m   [0mSELECT * FROM `clients` WHERE (`clients`.`id` = 1) [0m
+  [4;36;1mCommute Update (0.4ms)[0m   [0;1mUPDATE `commutes` SET `updated_at` = '2009-11-24 17:14:48', `name` = 'route-66' WHERE `id` = 32[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/projects/2
+Completed in 565ms (DB: 11) | 302 Found [http://localhost/projects/2/commutes/32]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-11-24 17:14:48) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"projects"}
+  [4;35;1mClient Load (0.5ms)[0m   [0mSELECT * FROM `clients` LIMIT 1[0m
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `clients`[0m
+  [4;35;1mProject Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `projects`[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM `projects` WHERE (`projects`.`id` = 2 AND (`projects`.client_id = 1)) [0m
+  [4;35;1mRole Columns (2.8ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.8ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'super_admin') AND (`roles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'company_admin') AND (`roles`.user_id = 1) [0m
+  [4;36;1mRole Load (0.2ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`role_type` = 'project_owner') AND (`roles`.user_id = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM `projects` WHERE (`projects`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering projects/show
+  [4;36;1mCommute Load (0.4ms)[0m   [0;1mSELECT * FROM `commutes` WHERE (`commutes`.project_id = 2) [0m
+  [4;35;1mEnergyConsumption Load (0.2ms)[0m   [0mSELECT * FROM `energy_consumptions` WHERE (`energy_consumptions`.project_id = 2) [0m
+  [4;36;1mCommute Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `commutes`[0m
+  [4;35;1mEnergyConsumption Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `energy_consumptions`[0m
+Completed in 115ms (View: 51, DB: 13) | 200 OK [http://localhost/projects/2]

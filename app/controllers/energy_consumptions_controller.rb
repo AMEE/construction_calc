@@ -24,21 +24,17 @@ class EnergyConsumptionsController < ApplicationController
     end
   end
   
-  def show
-    @energy_consumption = @project.energy_consumptions.find(params[:id])
-  end
-  
   def edit
     @energy_consumption = @project.energy_consumptions.find(params[:id])
   end
   
   def update
     @energy_consumption = @project.energy_consumptions.find(params[:id])
-    if @energy_consumption.update_attributes(params[:commute])
+    if @energy_consumption.update_attributes(params[:energy_consumption])
       flash[:notice] = "Energy Consumption updated"
       redirect_to project_path(@project)
     else
-      flash[:error] = "Unable to update commute"
+      flash[:error] = "Unable to update energy consumption"
       render :action => "edit"
     end
   end
