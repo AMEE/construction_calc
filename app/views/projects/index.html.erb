@@ -1,3 +1,7 @@
+<table>
 <% @projects.each do |project| %>
-    <%= link_to(project.name, project_path(project)) %>
+    <tr><td><%= link_to(project.name, project_path(project)) %></td></tr>
 <% end %>
+</table>
+
+<%= link_to("New Project", new_project_path) if current_user.admin? || current_user.client_admin?(@client) %>

@@ -20,13 +20,13 @@ class User < ActiveRecord::Base
 
   attr_protected :crypted_password, :salt, :remember_token, :remember_token_expires_at,
     :activation_code, :activated_at, :state, :deleted_at
-    
-  has_many :roles do
+  
+  has_many :roles, :dependent => :destroy do
     def admin
       find_by_role_type(Role::Type::SUPER_ADMIN)
     end
-    def company_admins
-      find_all_by_role_type(Role::Type::COMPANY_ADMIN)
+    def client_admins
+      find_all_by_role_type(Role::Type::CLIENT_ADMIN)
     end
     def project_owners
       find_all_by_role_type(Role::Type::PROJECT_OWNER)
@@ -34,7 +34,11 @@ class User < ActiveRecord::Base
     def readers
       find_all_by_role_type(Role::Type::READER)
     end
+    def accessible_by_user(user)
+      find(:all).select {|r| user.can_access_role?(r)}
+    end
   end
+  accepts_nested_attributes_for :roles, :reject_if => proc {|attributes| !attributes['user_id'].blank?}
 
   def self.authenticate(login, password)
     return nil if login.blank? || password.blank?
@@ -50,32 +54,86 @@ class User < ActiveRecord::Base
     write_attribute :email, (value ? value.downcase : nil)
   end
   
+  # Permission stuff
   def admin?
     !roles.admin.nil?
   end
   
-  def client_admin?(client)
-    roles.company_admins.map {|r| r.allowable}.include?(client)
+  def clients_admin
+    roles.client_admins.map {|r| r.allowable}
   end
-  # TODO common code/tidy up
+  
+  def projects_own
+    roles.project_owners.map {|r| r.allowable}
+  end
+  
+  def projects_read
+    roles.readers.map {|r| r.allowable}
+  end
+  
+  def client_admin?(client)
+    clients_admin.include?(client)
+  end
+  
+  def project_owner?(project)
+    projects_own.include?(project)
+  end
+  
+  def project_reader?(project)
+    projects_read.include?(project)
+  end
+  
+  def role_types_can_assign
+    if admin? || clients_admin.size > 0
+      [Role::Type::PROJECT_OWNER, Role::Type::READER]
+    elsif projects_own.size > 0
+      [Role::Type::READER]
+    else
+      []
+    end
+  end
+  
+  def can_create_other_users?
+    role_types_can_assign.size > 0
+  end
+  
+  def can_access_role?(role)
+    return true if admin? || clients_admin.size > 0 || role.user == self
+    
+    if project_owner?(role.allowable)
+      return true
+    elsif project_reader?(role.allowable)
+      return role.role_type == Role::Type::READER
+    else
+      return false
+    end
+  end
+  
+  def can_assign_role?(role_attrs)
+    role_types_can_assign.include?(role_attrs[:role_type])
+  end
+  
+  def can_assign_project_to_client?(client, role_attrs)
+    client.projects_assignable_by(self).include?(Project.find(role_attrs[:allowable_id]))
+  end
+  
   def can_read?(object)
     if can_write?(object)
       return true
     elsif object.is_a?(Project)
-      roles.readers.map {|r| r.allowable}.include?(object)
+      project_reader?(object)
     end
     
     return false
   end
-  # TODO write tests for code added here
+
   def can_write?(object)
     return true if admin?
     
     if object.is_a?(Client)
-      roles.company_superusers.map {|r| r.allowable}.include?(object)
+      client_admin?(object)
     elsif object.is_a?(Project)
-      roles.company_admins.map {|r| r.allowable.projects}.flatten.include?(object) ||
-        roles.project_owners.map {|r| r.allowable}.include?(object)
+      clients_admin.map {|c| c.projects}.flatten.include?(object) || project_owner?(object)
     else
       false
     end

@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
   
   belongs_to :client
-  #has_many :roles, :as => :allowable  # need this?
+  has_many :roles, :as => :allowable
   has_many :commutes
   has_many :deliveries
   has_many :materials

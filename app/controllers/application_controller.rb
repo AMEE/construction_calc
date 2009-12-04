@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :password_confirmation
   helper :all
   protect_from_forgery
+  rescue_responses['NotAllowed'] = :not_found
   
   protected
   # Hard-coded for now, could be nice to do as subdomains in SaaS model
@@ -18,35 +19,41 @@ class ApplicationController < ActionController::Base
     @project = @client.projects.find(params[:project_id])
   end
   
+  def admin_or_client_admin_required
+    current_user.admin? || current_user.client_admin?(@client)
+  end
+  
   def ensure_project_readable_by_user
-    raise ActiveRecord::RecordNotFound unless current_user.can_read?(@project)
+    raise NotAllowed unless current_user.can_read?(@project)
   end
 
   def ensure_project_writeable_by_user
-    raise ActiveRecord::RecordNotFound unless current_user.can_write?(@project)
+    raise NotAllowed unless current_user.can_write?(@project)
   end
 end
 
-# TODO notes in project.rb
-# TODO re-read paper docs - check got all requirements covered
+# TODO project validations
+# TODO once created project, need to add user
+# TODO requirements - reporting, calculations per floor area etc.  Do need?
+# TODO chase data in amee as depending how done can hold up (mappings area) + client choose units
 # TODO is way to have include out of models?
-# TODO auth errors throw something else and treat as 404
-# TODO create two in a minute - will it blow up??  Yes
+# TODO create two in a minute - blows up like a volcano.  Can used named items apparently (speak to Paul)
 # TODO user.rb TODO items
-# TODO whole user access/creation area - can use system use by unboxed and others for admin?
-# TODO write tests for access rights and test myself
-# TODO type mappings, not available = can't have, recycle/dispose types
+# TODO write tests for access rights.  Also go through auth system and specs for (made changes)
+# TODO flash messages and model error methods
 # TODO work on UI
 # TODO cap and cap-multistaging
 # TODO amee gem version, json so faster
-# TODO Go through auth system and specs for
 # TODO front page needs to warn if no JS (can view but not create)
+# TODO test not-allowed 404s in prod
 
 # - Assumptions on types
 #     What to use for freight train?
 #     LGV, HGV, articulated classifications - will be updated (email Andy)
 #     materials - notes in model
 #     waste mappings [+ do create, update, delete, check AMEE stored data test as can't do for this atm]
+#       also this has recycle/dispose which is a big requirement depending how implemented in AMEE
+#       looks like want volume for material.  Is that possible?
 # - Also we need to check units everything specified in make sense (eg liquid petrol and gas measured in same?) [some hints in dynamic50 stories]
 # 
 # Had to cache carbon data for each item and purge at weekend when plenty of time

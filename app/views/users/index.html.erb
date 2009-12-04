@@ -1,0 +1,7 @@
+<table>
+<%= render :partial => "user", :collection => @users %>
+</table>
+
+<% if current_user.can_create_other_users? %>
+    <%= link_to("Add user", new_user_path) %>
+<% end %>

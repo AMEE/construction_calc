@@ -1,4 +1,4 @@
-class WasteController < ApplicationController
+class WastesController < ApplicationController
   
   before_filter :login_required
   before_filter :find_project
@@ -6,7 +6,7 @@ class WasteController < ApplicationController
   before_filter :ensure_project_writeable_by_user, :except => [:index, :show]
   
   def index
-    @waste = @project.wastes
+    @wastes = @project.wastes
   end
 
   def new

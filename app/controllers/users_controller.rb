@@ -1,61 +1,47 @@
 class UsersController < ApplicationController
   
   # Protect these actions behind an admin login
-  before_filter :login_required, :only => [:suspend, :unsuspend, :destroy, :purge]
-  before_filter :admin_required, :only => [:suspend, :unsuspend, :destroy, :purge]
-  before_filter :find_user, :only => [:suspend, :unsuspend, :destroy, :purge]
+  before_filter :login_required
+  before_filter :find_user, :only => [:edit, :update, :destroy]
+  before_filter :ensure_current_user, :only => [:edit, :update]
+  before_filter :ensure_can_create_other_users, :only => [:new]
+  before_filter :ensure_allowed_to_create_user, :only => [:create]
+  before_filter :admin_or_client_admin_required, :only => [:destroy]
+  
+  def index
+    @users = @client.associated_users_readable_by(current_user)
+  end
   
   def new
     @user = User.new
+    @user.roles.build
   end
  
   def create
-    logout_keeping_session!
-    @user = User.new(params[:user])
-    @user.register! if @user && @user.valid?
-    success = @user && @user.valid?
-    if success && @user.errors.empty?
-      redirect_back_or_default('/')
-      flash[:notice] = "Thanks for signing up!  We're sending you an email with your activation code."
+    @user = User.new(user_and_role_params)
+    @user.register! && @user.activate! if @user.valid?
+    if @user.valid? && @user.errors.empty?
+      flash[:notice] = "Account created"
+      redirect_to user_roles_path(@user)
     else
-      flash[:error]  = "We couldn't set up that account, sorry.  Please try again."
-      render :action => 'new'
+      flash[:error]  = "We couldn't set up that account"
+      render :new
     end
   end
-
-  def activate
-    logout_keeping_session!
-    user = User.find_by_activation_code(params[:activation_code]) unless params[:activation_code].blank?
-    case
-    when (!params[:activation_code].blank?) && user && !user.active?
-      user.activate!
-      flash[:notice] = "Signup complete! Please sign in to continue."
-      redirect_to login_path
-    when params[:activation_code].blank?
-      flash[:error] = "The activation code was missing.  Please follow the URL from your email."
-      redirect_back_or_default('/')
-    else 
-      flash[:error]  = "We couldn't find a user with that activation code.  Have you already activated?"
-      redirect_back_or_default('/')
-    end
+  
+  def edit
   end
-
-  # def suspend
-  #   @user.suspend! 
-  #   redirect_to users_path
-  # end
-  # 
-  # def unsuspend
-  #   @user.unsuspend! 
-  #   redirect_to users_path
-  # end
-
+  
+  def update
+    if @user.update_attributes(params[:user])
+      flash[:notice] = "User profile updated"
+    else
+      flash[:error] = "Error updating profile"
+    end
+    render :action => "edit"
+  end
+  
   def destroy
-    @user.delete!
-    redirect_to users_path
-  end
-
-  def purge
     @user.destroy
     redirect_to users_path
   end
@@ -63,5 +49,23 @@ class UsersController < ApplicationController
   protected
   def find_user
     @user = User.find(params[:id])
+  end
+  
+  def ensure_current_user
+    raise NotAllowed if @user != current_user
+  end
+  
+  def ensure_can_create_other_users
+    raise NotAllowed unless current_user.can_create_other_users?
+  end
+  
+  def ensure_allowed_to_create_user
+    raise NotAllowed unless current_user.can_assign_role?(params[:user][:roles_attributes]["0"])
+    raise NotAllowed unless current_user.can_assign_project_to_client?(@client, params[:user][:roles_attributes]["0"])
+  end
+  
+  def user_and_role_params
+    params[:user][:roles_attributes]["0"].merge!(:allowable_type => "Project")
+    params[:user]
   end
 end

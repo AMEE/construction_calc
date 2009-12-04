@@ -1,9 +1,15 @@
 <h1><%= @project.name %></h1>
 
-Total Carbon: <%= @project.total_carbon %> kg/year
+<p>Name: <%= @project.name %></p>
+<p>Number: <%= @project.number %></p>
+<p>Value: <%= @project.value %></p>
+<p>Floor area: <%= @project.floor_area %></p>
+<p>Total Carbon: <%= @project.total_carbon %> kg/year</p>
 
 <p><%= link_to("Commutes", project_commutes_path(@project)) %></p>
 <p><%= link_to("Deliveries", project_deliveries_path(@project)) %></p>
 <p><%= link_to("Materials", project_materials_path(@project)) %></p>
 <p><%= link_to("Energy Consumptions", project_energy_consumptions_path(@project)) %></p>
-<p><%= link_to("Waste Consumptions", project_waste_consumptions_path(@project)) %></p>
+<p><%= link_to("Waste Management", project_wastes_path(@project)) %></p>
+
+<%= link_to("Edit project", edit_project_path(@project)) if current_user.admin? || current_user.client_admin?(@client) %>

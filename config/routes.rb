@@ -6,13 +6,14 @@ ActionController::Routing::Routes.draw do |map|
   # Signup routes
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
-  map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
   map.forgot_password '/forgot_password', :controller => 'passwords', :action => 'new'
   map.change_password '/change_password/:reset_code', :controller => 'passwords', :action => 'reset'
   map.update_password '/update_password', :controller => 'passwords', :action => 'update_after_forgetting'
 
   # Restful routes
-  map.resources :users
+  map.resources :users do |user|
+    user.resources :roles, :except => [:edit, :update]
+  end
   map.resources :passwords
   map.resource :session
   map.resources :units, :only => [:index]
@@ -22,6 +23,6 @@ ActionController::Routing::Routes.draw do |map|
     project.resources :deliveries, :except => [:show]
     project.resources :materials, :except => [:show]
     project.resources :energy_consumptions, :except => [:show]
-    project.resources :waste_consumptions, :except => [:show]
+    project.resources :wastes, :except => [:show]
   end
 end

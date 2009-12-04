@@ -2,8 +2,20 @@
     <head>
         <title><%= APP_CONFIG[:site_name] %></title>
         <%= javascript_include_tag :defaults %>
+        <%= stylesheet_link_tag ["main"] %>
     </head>
     <body>
+        <% if logged_in? %>
+            <div style="float:right">
+                <p><%= link_to("User Profile", edit_user_path(current_user)) %>
+                <% if current_user.can_create_other_users? %>
+                    | <%= link_to("User admin", users_path) %>
+                <% end %>
+                | <%= link_to("Logout", logout_path) %>
+                </p>
+            </div>
+        <% end %>
+        <h2>Construction Calculator</h2>
         <%= yield %>
         <script type="text/javascript" charset="utf-8">
            $(document).ready(function(){

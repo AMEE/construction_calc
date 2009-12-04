@@ -1,3 +1,4 @@
-Your account has been created with username <%=h @user.login %>
+An account has been created on <%= APP_CONFIG[:site_name] %> (<%= @url %>) with the following details:
 
-Visit this url to activate your account: <%=h @url %>
+Username: <%=h @user.login %>
+Password: <%= @password %>

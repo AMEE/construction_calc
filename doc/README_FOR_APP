@@ -2,9 +2,25 @@ Notes on the application
 ------------------------
 - Application needs javascript, user is warned on front page if they don't have it switched on
 - See lib/tasks/cronjobs for cronjobs that need to be setup along with this application
-
+- Before starting you need to create an admin user account (creat a user instance and do
+  user.roles << Role.create(:role_type => Role::Type::SUPER_ADMIN) ).  This can then be used
+  to create a client admin through the /users page.
+- At the moment there's no interface for creating clients so this must be done manually
 
 Code notes
 ----------
 - AmeeCarbonStore#amee_profile_item_field assumes the field entered is going to be a number.  If the application is extended to support fields that are non-numbers this area will need to be revisited
 - Material::Type[:particle_board] is called "Chipboard" as only UK market at the moment.  In the US this is called "Particle Board"
+
+
+Future work
+-----------
+- A user account isn't tied to a client but currently the only way to add a user to projects
+  is to be associated with an existing client project.  Therefore we need a way to match
+  user on email at create time (and if exists in system skip straight to user_roles page) or 
+  allow a user to request access to a client.  Also the roles list should remove roles that
+  the viewing user isn't allowed to see.
+- Add a client admin through the UI - may need to look at RolesController#create code.
+- We've assumed one client admin and one project owner but not hard coded this.  This means
+  if you have more than one for each of these roles they can remove each other.  Not sure if
+  this is a good idea or not.

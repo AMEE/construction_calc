@@ -1,0 +1,7 @@
+$('#role<%= @role.id %>').attr('style', 'background:#ffbbba;');
+<%= update_page do |page|
+    page.visual_effect :fade, "role#{@role.id}", :duration => 1.5
+    page.delay(2) do
+        page.remove "role#{@role.id}"
+    end
+end %>
