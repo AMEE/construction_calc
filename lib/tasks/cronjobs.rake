@@ -7,6 +7,9 @@ namespace :cronjobs do
   desc "Update the cached carbon output values"
   task :update_carbon_cache => :environment do
     Commute.update_carbon_caches
+    Delivery.update_carbon_caches
+    Material.update_carbon_caches
     EnergyConsumption.update_carbon_caches
+    Waste.update_carbon_caches
   end
 end

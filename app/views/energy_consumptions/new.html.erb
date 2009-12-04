@@ -11,5 +11,9 @@
     <% EnergyConsumption::TYPE.keys.each do |key| %>
         units['<%= key.to_s %>'] = '<%= options_for_select(EnergyConsumption::TYPE[key].unit_options).gsub("\n", "") %>';
     <% end %>
+    
     updateUnits('energy_consumption');
+    <% if @energy_consumption.units %>
+        selectUnits('energy_consumption', '<%= @energy_consumption.units %>');
+    <% end %>
 <% end %>

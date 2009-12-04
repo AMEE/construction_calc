@@ -27,13 +27,13 @@ class ApplicationController < ActionController::Base
   end
 end
 
-# TODO do other types
 # TODO notes in project.rb
 # TODO re-read paper docs - check got all requirements covered
 # TODO is way to have include out of models?
 # TODO auth errors throw something else and treat as 404
 # TODO create two in a minute - will it blow up??  Yes
 # TODO user.rb TODO items
+# TODO whole user access/creation area - can use system use by unboxed and others for admin?
 # TODO write tests for access rights and test myself
 # TODO type mappings, not available = can't have, recycle/dispose types
 # TODO work on UI
@@ -42,13 +42,16 @@ end
 # TODO Go through auth system and specs for
 # TODO front page needs to warn if no JS (can view but not create)
 
-# TODO meeting notes:
-#   - Assumptions on types
-#       What to use for freight train
-#       LGV, HGV, articulated classifications - differences and mappings
-#       waste mappings
-#       material assumptions + missing two
-#   - Also we need to decide units everything specified in
+# - Assumptions on types
+#     What to use for freight train?
+#     LGV, HGV, articulated classifications - will be updated (email Andy)
+#     materials - notes in model
+#     waste mappings [+ do create, update, delete, check AMEE stored data test as can't do for this atm]
+# - Also we need to check units everything specified in make sense (eg liquid petrol and gas measured in same?) [some hints in dynamic50 stories]
+# 
+# Had to cache carbon data for each item and purge at weekend when plenty of time
+# Can't cache by category as transport spans multiple classes = major fail
+# Other factors paging through results and manual ask for carbon value each time update or delete
 
 # AMEE badly documented:
 # - data/profile category

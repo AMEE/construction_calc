@@ -9,7 +9,7 @@ module AmeeCarbonStore
 
       validates_uniqueness_of :name, :scope => :project_id
       validates_format_of :name, :with => /\A[\w -]+\Z/, :message => "Name must be letters, numbers or underscores only"
-      validates_length_of :name, :maximum => 100
+      validates_length_of :name, :maximum => 250
       validates_numericality_of :amount
       validate_on_create :units_are_valid
   
@@ -117,12 +117,8 @@ module AmeeCarbonStore
     def create_amee_profile
       category = AMEE::Profile::Category.get(project.amee_connection, 
         "#{project.profile_path}#{amee_category.path}")
-      AMEE::Profile::Item.create(category, amee_data_category_uid, :name => get_name_for_amee,
+      AMEE::Profile::Item.create(category, amee_data_category_uid, :name => self.name,
         amount_symbol => self.amount, amount_unit_symbol => self.units, :get_item => true)
-    end
-    
-    def get_name_for_amee
-      "#{project.client.name}-#{project.id}-#{self.name}"
     end
 
     def amee_data_category_uid
@@ -133,7 +129,7 @@ module AmeeCarbonStore
 
     def update_amee
       result = AMEE::Profile::Item.update(project.amee_connection, amee_profile_item_path, 
-        :name => get_name_for_amee, amount_symbol => self.amount, :get_item => true)
+        :name => self.name, amount_symbol => self.amount, :get_item => true)
       self.carbon_output_cache = result.total_amount
       return true
     end

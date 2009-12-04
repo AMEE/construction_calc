@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091123105445) do
+ActiveRecord::Schema.define(:version => 20091125112211) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -22,11 +22,24 @@ ActiveRecord::Schema.define(:version => 20091123105445) do
     t.string   "name"
     t.string   "amee_profile_item_id"
     t.string   "commute_type"
+    t.float    "carbon_output_cache"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "commutes", ["project_id"], :name => "index_commutes_on_project_id"
+
+  create_table "deliveries", :force => true do |t|
+    t.integer  "project_id"
+    t.string   "name"
+    t.string   "amee_profile_item_id"
+    t.string   "delivery_type"
+    t.float    "carbon_output_cache"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "deliveries", ["project_id"], :name => "index_deliveries_on_project_id"
 
   create_table "energy_consumptions", :force => true do |t|
     t.integer  "project_id"
@@ -39,6 +52,18 @@ ActiveRecord::Schema.define(:version => 20091123105445) do
   end
 
   add_index "energy_consumptions", ["project_id"], :name => "index_energy_consumptions_on_project_id"
+
+  create_table "materials", :force => true do |t|
+    t.integer  "project_id"
+    t.string   "name"
+    t.string   "amee_profile_item_id"
+    t.string   "material_type"
+    t.float    "carbon_output_cache"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "materials", ["project_id"], :name => "index_materials_on_project_id"
 
   create_table "passwords", :force => true do |t|
     t.integer  "user_id"
@@ -90,5 +115,17 @@ ActiveRecord::Schema.define(:version => 20091123105445) do
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
+
+  create_table "wastes", :force => true do |t|
+    t.integer  "project_id"
+    t.string   "name"
+    t.string   "amee_profile_item_id"
+    t.string   "waste_type"
+    t.float    "carbon_output_cache"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "wastes", ["project_id"], :name => "index_wastes_on_project_id"
 
 end

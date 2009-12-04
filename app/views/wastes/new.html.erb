@@ -1,0 +1,19 @@
+<% form_for @waste, :url => project_wastes_path do |f| %>
+    <%= f.label :name %> <%= f.text_field :name %>
+    <%= f.label :waste_type %> <%= f.select :waste_type, options_for_waste_type_select, {}, :onchange => "updateUnits('waste');" %>
+    <%= f.label :amount %> <%= f.text_field :amount %>
+    <%= f.select :units, ["(fetching)"] %>
+    <%= submit_tag "Create Waste Management" %>
+<% end %>
+
+<% content_for :page_javascript do %>
+    units = new Array();
+    <% Waste::TYPE.keys.each do |key| %>
+        units['<%= key.to_s %>'] = '<%= options_for_select(Waste::TYPE[key].unit_options).gsub("\n", "") %>';
+    <% end %>
+    
+    updateUnits('waste');
+    <% if @waste.units %>
+        selectUnits('waste', '<%= @waste.units %>');
+    <% end %>
+<% end %>

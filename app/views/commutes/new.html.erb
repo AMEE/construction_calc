@@ -11,5 +11,9 @@
     <% Commute::TYPE.keys.each do |key| %>
         units['<%= key.to_s %>'] = '<%= options_for_select(Commute::TYPE[key].unit_options).gsub("\n", "") %>';
     <% end %>
+    
     updateUnits('commute');
+    <% if @commute.units %>
+        selectUnits('commute', '<%= @commute.units %>');
+    <% end %>
 <% end %>

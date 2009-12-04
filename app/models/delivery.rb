@@ -1,14 +1,21 @@
 class Delivery < ActiveRecord::Base
+
+  belongs_to :project
+
+  include AmeeCarbonStore  
+  has_carbon_data_stored_in_amee
   
   TYPE = {
     :van => AmeeCategory.new("Van", :distance, "/transport/van/generic", :fuel => "diesel (by size class)", :size => "1.305 to 1.740 tonnes"),
+    :non_articulated => AmeeCategory.new("Non-Articulated Lorry", :distance, "/transport/lgv/generic", :fuel => "diesel", :size => "non articulated"),
+    :articulated => AmeeCategory.new("Articulated Lorry", :distance, "/transport/lgv/generic", :fuel => "diesel", :size => "articulated"),
     
-    # Need clarification on these from client
-    :lgv => AmeeCategory.new("LGV", :distance, "/transport/motorcycle/generic", :fuel => "petrol", :size => "medium"),
-    :hgv => AmeeCategory.new("HGV", :distance, "/transport/car/generic", :fuel => "petrol", :size => "medium"),
-    :lorry => AmeeCategory.new("Articulated Lorry", :distance, "/transport/train/generic", :type => "national"),
-    
-    # Not sure if freight train right one to use in AMEE due to US data
-    :rail => AmeeCategory.new("Rail", :distance, "/transport/train/generic", :type => "underground")
+    # Not sure if freight train right one to use in AMEE due to GHGP
+    # has two variables - which will break stuff
+    :rail => AmeeCategory.new("Rail", :distance, "/transport/train/generic/freight/ghgp/other", :type => "train")
   }
+  
+  def amee_category
+    TYPE[delivery_type.to_sym]
+  end
 end

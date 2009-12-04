@@ -19,6 +19,9 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :projects do |project|
     project.resources :commutes, :except => [:show]
+    project.resources :deliveries, :except => [:show]
+    project.resources :materials, :except => [:show]
     project.resources :energy_consumptions, :except => [:show]
+    project.resources :waste_consumptions, :except => [:show]
   end
 end

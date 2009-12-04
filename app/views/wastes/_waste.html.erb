@@ -1,0 +1,1 @@
+<tr><td><%= waste.id %></td><td><%= link_to(waste.name, edit_project_waste_path(waste.project, waste)) %></td><td><%= button_to("delete", project_waste_path(waste.project, waste), :method => :delete, :confirm => "Are you sure?") %></td></tr>

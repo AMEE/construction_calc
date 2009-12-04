@@ -1,0 +1,7 @@
+<% form_for @waste, :url => project_waste_path(@waste.project, @waste), :html => {:method => :put} do |f| %>
+    <%= f.label :name %> <%= f.text_field :name %>
+    <%= @waste.amee_category.name %>
+    <%= f.label :amount %> <%= f.text_field :amount %>
+    <%= units_name_from_amee_unit(@waste) %>
+    <%= submit_tag "Update Waste Management" %>
+<% end %>

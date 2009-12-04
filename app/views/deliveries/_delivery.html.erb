@@ -1,0 +1,1 @@
+<tr><td><%= delivery.id %></td><td><%= link_to(delivery.name, edit_project_delivery_path(delivery.project, delivery)) %></td><td><%= button_to("delete", project_delivery_path(delivery.project, delivery), :method => :delete, :confirm => "Are you sure?") %></td></tr>

@@ -1,4 +1,9 @@
 class Waste < ActiveRecord::Base
+
+  belongs_to :project
+
+  include AmeeCarbonStore
+  has_carbon_data_stored_in_amee
   
   TYPE = {
     :cardboard => AmeeCategory.new("Example", :weight, "/transport/bus/generic", :type => "typical"),
@@ -20,4 +25,8 @@ class Waste < ActiveRecord::Base
     :glass => 
     # TODO waiting to be added to AMEE - actually seems to be in /home/waste
   }
+  
+  def amee_category
+    TYPE[waste_type.to_sym]
+  end
 end

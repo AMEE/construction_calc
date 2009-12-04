@@ -1,0 +1,1 @@
+<tr><td><%= material.id %></td><td><%= link_to(material.name, edit_project_material_path(material.project, material)) %></td><td><%= button_to("delete", project_material_path(material.project, material), :method => :delete, :confirm => "Are you sure?") %></td></tr>
