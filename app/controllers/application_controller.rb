@@ -32,23 +32,29 @@ class ApplicationController < ActionController::Base
   end
 end
 
-# TODO go through project, user, roles flows
-# TODO flash messages and model error methods
-# TODO work on UI
+# TODO when new/edit for a type and it fails doesn't show form [can sort this somehow].  Also when creating new
+#      adds an item should show list.  Can do all this with JS somehow - eg on success render partial list
+# TODO password reset, roles, users screens, rest of types
 
+# TODO test changing unit type on one where type depends on selection in dropdown 
+# TODO powered by amee logo
+# TODO IE7 is the critical one
+# TODO destroy project
+# TODO pull out main UI page into partials
+# TODO google_chart_image in project tidy up
 # TODO on profile create add /metadata to profile with UK country (even though default)
 # TODO project - start date, when start project or enter as field?
 # TODO project limit 10 per client??
 # TODO is way to have include out of models?
+# TODO signup, password reset emails text
 # TODO create two in a minute - blows up like a volcano.  Can used named items apparently (speak to Paul)
-# TODO user.rb TODO items
 # TODO amee gem version, json so faster
 # TODO requirements - reporting, calculations per floor area etc.  Do need?
 # TODO cap and cap-multistaging, cronjob for purging cache
-# TODO front page needs to warn if no JS (can view but not create)
+# TODO front page needs to warn if no JS (can view but not create) - actually needed for all site
 # TODO test not-allowed 404s in prod
 # TODO will have recycle/dispose option issue for waste
-# TODO write tests for access rights.  Also go through auth system and specs for (made changes)
+# TODO write tests for access rights - see RolesControllerSpec for progress
 
 # - Assumptions on types
 #     What to use for freight train?

@@ -9,6 +9,7 @@ class AddWasteConsumptions < ActiveRecord::Migration
       t.timestamps
     end
     add_index :wastes, :project_id
+    add_index :wastes, :created_at
   end
 
   def self.down

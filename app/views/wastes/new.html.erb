@@ -1,3 +1,5 @@
+<% @show_model_errors = @waste %>
+
 <% form_for @waste, :url => project_wastes_path do |f| %>
     <%= f.label :name %> <%= f.text_field :name %>
     <%= f.label :waste_type %> <%= f.select :waste_type, options_for_waste_type_select, {}, :onchange => "updateUnits('waste');" %>

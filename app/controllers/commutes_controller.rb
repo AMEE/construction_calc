@@ -6,7 +6,7 @@ class CommutesController < ApplicationController
   before_filter :ensure_project_writeable_by_user, :except => [:index, :show]
   
   def index
-    @commutes = @project.commutes
+    @commutes = @project.commutes.paginate :page => params[:page], :order => 'created_at DESC'
   end
 
   def new
@@ -17,11 +17,10 @@ class CommutesController < ApplicationController
     @commute = @project.commutes.new(params[:commute])
     if @commute.save
       flash[:notice] = "Commute created"
-      redirect_to project_path(@project)
     else
-      flash[:error] = "Unable to create commute"
-      render :action => "new"
+      flash[:error] = ["Unable to create commute"] + @commute.errors.full_messages
     end
+    redirect_to project_path(@project)
   end
   
   def edit
@@ -32,11 +31,10 @@ class CommutesController < ApplicationController
     @commute = @project.commutes.find(params[:id])
     if @commute.update_attributes(params[:commute])
       flash[:notice] = "Commute updated"
-      redirect_to project_path(@project)
     else
-      flash[:error] = "Unable to update commute"
-      render :action => "edit"
+      flash[:error] = ["Unable to update commute"] + @commute.errors.full_messages
     end
+    redirect_to project_path(@project)
   end
   
   def destroy

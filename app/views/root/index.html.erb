@@ -1,5 +1,0 @@
-<% if logged_in? %>
-    Logged In as <%= current_user.login %>.  <%= link_to("Projects", projects_path) %>
-<% else %>
-    Not logged in :(  <%= link_to("Login", login_path) %>
-<% end %>

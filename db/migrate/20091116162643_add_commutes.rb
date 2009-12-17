@@ -9,6 +9,7 @@ class AddCommutes < ActiveRecord::Migration
       t.timestamps
     end
     add_index :commutes, :project_id
+    add_index :commutes, :created_at
   end
 
   def self.down

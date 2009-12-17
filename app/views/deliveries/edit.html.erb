@@ -1,7 +1,0 @@
-<% form_for @delivery, :url => project_delivery_path(@delivery.project, @delivery), :html => {:method => :put} do |f| %>
-    <%= f.label :name %> <%= f.text_field :name %>
-    <%= @delivery.amee_category.name %>
-    <%= f.label :amount %> <%= f.text_field :amount %>
-    <%= units_name_from_amee_unit(@delivery) %>
-    <%= submit_tag "Update Delivery" %>
-<% end %>

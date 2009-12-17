@@ -9,6 +9,7 @@ class AddEnergyTracking < ActiveRecord::Migration
       t.timestamps
     end
     add_index :energy_consumptions, :project_id
+    add_index :energy_consumptions, :created_at
   end
 
   def self.down

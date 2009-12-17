@@ -14,9 +14,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users do |user|
     user.resources :roles, :except => [:edit, :update]
   end
+  map.resources :sessions, :only => [:create]
   map.resources :passwords
-  map.resource :session
-  map.resources :units, :only => [:index]
   
   map.resources :projects do |project|
     project.resources :commutes, :except => [:show]

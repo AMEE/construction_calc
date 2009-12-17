@@ -5,6 +5,7 @@ class Commute < ActiveRecord::Base
   include AmeeCarbonStore  
   has_carbon_data_stored_in_amee
 
+  COLOUR = "#86CE66"
   TYPE = {
     :bus => AmeeCategory.new("Bus", :distance, "/transport/bus/generic", :type => "typical"),
     :cycling => AmeeCategory.new("Cycling", :distance, "/transport/other", :type => "cycling"),

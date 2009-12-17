@@ -9,6 +9,7 @@ class AddDeliveries < ActiveRecord::Migration
       t.timestamps
     end
     add_index :deliveries, :project_id
+    add_index :deliveries, :created_at
   end
 
   def self.down

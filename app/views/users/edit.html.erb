@@ -1,4 +1,4 @@
-<%= error_messages_for :user %>
+<% @show_model_errors = @user %>
 
 <h1>Edit Profile</h1>
 <% @user.password = @user.password_confirmation = nil %>

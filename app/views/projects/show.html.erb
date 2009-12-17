@@ -1,15 +1,72 @@
-<h1><%= @project.name %></h1>
+<div class="project-info">
+    <h3><%= @project.name %></h3>
+    <div class="item"><div class="label">Number: </div><div class="value"><%= @project.number %></div></div>
+    <div class="item"><div class="label">Value: </div><div class="value">£<%= @project.value %></div></div>
+    <div class="item"><div class="label">Floor Area: </div><div class="value"><%= @project.floor_area %>sq.&nbsp;m</div></div>
+    <div class="item"><div class="label">Start Date: </div><div class="value"><%= @project.created_at.to_date %></div></div>
+    <div class="item">
+        <% if current_user.admin? || current_user.client_admin?(@client) %>
+            <div class="adminlinks">
+                <%= link_to("Edit project", edit_project_path(@project)) %> |
+                <%= link_to("New project", new_project_path) %>
+            </div>
+        <% end %>
+    </div>
+</div>
 
-<p>Name: <%= @project.name %></p>
-<p>Number: <%= @project.number %></p>
-<p>Value: <%= @project.value %></p>
-<p>Floor area: <%= @project.floor_area %></p>
-<p>Total Carbon: <%= @project.total_carbon %> kg/year</p>
+<div class="co2-output">
+    <p class="label">Total CO&sup2; output:</p>
+    <p class="amount"> <%= @project.total_carbon.to_i %> kg</p>
+</div>
 
-<p><%= link_to("Commutes", project_commutes_path(@project)) %></p>
-<p><%= link_to("Deliveries", project_deliveries_path(@project)) %></p>
-<p><%= link_to("Materials", project_materials_path(@project)) %></p>
-<p><%= link_to("Energy Consumptions", project_energy_consumptions_path(@project)) %></p>
-<p><%= link_to("Waste Management", project_wastes_path(@project)) %></p>
+<div class="chart">
+    <% if @project.total_carbon == 0 %>
+        <div class="no-chart-message">
+            <h4>No pie chart available</h4>
+            <p class="summary">You have not entered any carbon tracking data</p>
+            <p>In order to see a pie chart of carbon distribution you need to add carbon tracking data.  This can be done by clicking the 'Add' link under the appropriate category below.</p>
+        </div>
+    <% else %>
+        <%= image_tag(@project.google_chart_image) %>
+    <% end %>
+</div>
 
-<%= link_to("Edit project", edit_project_path(@project)) if current_user.admin? || current_user.client_admin?(@client) %>
+<div class="legend">
+    <h3>Legend</h3>
+    <div class="item"><div class="colour deliveries-background"></div><div class="words">Deliveries - <%= two_decimal_place_float(@project.deliveries_carbon) %>kg</div></div>
+    <div class="item"><div class="colour materials-background"></div><div class="words">Materials - <%= two_decimal_place_float(@project.materials_carbon) %>kg</div></div>
+    <div class="item"><div class="colour waste-background"></div><div class="words">Waste - <%= two_decimal_place_float(@project.waste_management_carbon) %>kg</div></div>
+    <div class="item"><div class="colour energy-background"></div><div class="words">Energy - <%= two_decimal_place_float(@project.energy_consumption_carbon) %>kg</div></div>
+    <div class="item"><div class="colour commuting-background"></div><div class="words">Commuting - <%= two_decimal_place_float(@project.commutes_carbon) %>kg</div></div>
+</div>
+
+<div class="types">
+    <div class="first container deliveries" id="delivery-type">
+        <div class="name">Deliveries</div>
+        <div class="percentage deliveries-background"><p><%= delivery_carbon_percentage(@project) %>%</p></div>
+        <div class="links"><%= link_to_remote("Add", :url => new_project_delivery_path(@project), :method => :get, :html => {:class => "add deliveries delivery-add"}) %> <%= link_to_remote("List", :url => project_deliveries_path(@project), :method => :get, :html => {:class => "list deliveries delivery-list"}) %></div>
+    </div>
+    <div class="container materials" id="material-type">
+        <div class="name">Materials</div>
+        <div class="percentage materials-background"><p><%= materials_carbon_percentage(@project) %>%</p></div>
+        <div class="links"><%= link_to_remote("Add", :url => new_project_material_path(@project), :method => :get, :html => {:class => "add materials material-add"}) %> <%= link_to_remote("List", :url => project_materials_path(@project), :html => {:class => "list materials material-list"}) %></div>
+    </div>
+    <div class="container waste" id="waste-type">
+        <div class="name">Waste Management</div>
+        <div class="percentage waste-background"><p><%= waste_management_carbon_percentage(@project) %>%</p></div>
+        <div class="links"><%= link_to_remote("Add", :url => new_project_waste_path(@project), :method => :get, :html => {:class => "add waste waste-add"}) %> <%= link_to_remote("List", :url => project_wastes_path(@project), :method => :get, :html => {:class => "list waste waste-list"}) %></div>
+    </div>
+    <div class="container energy" id="energy-type">
+        <div class="name">Energy Consumption</div>
+        <div class="percentage energy-background"><p><%= energy_consumption_carbon_percentage(@project) %>%</p></div>
+        <div class="links"><%= link_to_remote("Add", :url => new_project_energy_consumption_path(@project), :method => :get, :html => {:class => "add energy energy-add"}) %> <%= link_to_remote("List", :url => project_energy_consumptions_path(@project), :method => :get, :html => {:class => "list energy energy-list"}) %></div>
+    </div>
+    <div class="last container commuting" id="commute-type">
+        <div class="name">Commuting</div>
+        <div class="percentage commuting-background"><p><%= commutes_carbon_percentage(@project) %>%</p></div>
+        <div class="links"><%= link_to_remote("Add", :url => new_project_commute_path(@project), :method => :get, :html => {:class => "add commuting commute-add"}) %> <%= link_to_remote("List", :url => project_commutes_path(@project), :method => :get, :html => {:class => "list commuting commute-list"}) %></div>
+    </div>
+    <div id="types-content-area" class="content-container"></div>
+</div>
+
+<div class="footer">Powered by AMEE</div>

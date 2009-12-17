@@ -1,14 +1,19 @@
 module AmeeCarbonStore
   def self.included(base)
     base.extend ClassMethods
+    
+    base.module_eval do 
+      @@per_page = 10
+    end
   end
 
   module ClassMethods
     def has_carbon_data_stored_in_amee
       attr_writer :amount, :units
+      cattr_reader :per_page
 
       validates_uniqueness_of :name, :scope => :project_id
-      validates_format_of :name, :with => /\A[\w -]+\Z/, :message => "Name must be letters, numbers or underscores only"
+      validates_format_of :name, :with => /\A[\w -]+\Z/, :message => "must be letters, numbers or underscores only"
       validates_length_of :name, :maximum => 250
       validates_numericality_of :amount
       validate_on_create :units_are_valid

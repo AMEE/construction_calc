@@ -6,7 +6,7 @@ class MaterialsController < ApplicationController
   before_filter :ensure_project_writeable_by_user, :except => [:index, :show]
   
   def index
-    @materials = @project.materials
+    @materials = @project.materials.paginate :page => params[:page], :order => 'created_at DESC'
   end
 
   def new
@@ -17,11 +17,10 @@ class MaterialsController < ApplicationController
     @material = @project.materials.new(params[:material])
     if @material.save
       flash[:notice] = "Material created"
-      redirect_to project_path(@project)
     else
-      flash[:error] = "Unable to create material"
-      render :action => "new"
+      flash[:error] = ["Unable to create material"] + @material.errors.full_messages
     end
+    redirect_to project_path(@project)
   end
   
   def edit
@@ -32,11 +31,10 @@ class MaterialsController < ApplicationController
     @material = @project.materials.find(params[:id])
     if @material.update_attributes(params[:material])
       flash[:notice] = "Material updated"
-      redirect_to project_path(@project)
     else
-      flash[:error] = "Unable to update material"
-      render :action => "edit"
+      flash[:error] = ["Unable to update material"] + @material.errors.full_messages
     end
+    redirect_to project_path(@project)
   end
   
   def destroy

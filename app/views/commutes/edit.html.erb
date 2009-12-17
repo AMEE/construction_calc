@@ -1,3 +1,5 @@
+<% @show_model_errors = @commute %>
+
 <% form_for @commute, :url => project_commute_path(@commute.project, @commute), :html => {:method => :put} do |f| %>
     <%= f.label :name %> <%= f.text_field :name %>
     <%= @commute.amee_category.name %>

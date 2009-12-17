@@ -1,3 +1,5 @@
+<% @show_model_errors = @role %>
+
 <% remote_form_for @role, :url => user_roles_path(@user) do |f| %>
     <%= f.label :allowable_id, "Project" %>  <%= f.select(:allowable_id, @client.projects_assignable_by(current_user).map{|p| [p.name, p.id]}) %>
     <%= f.label :role_type, "Access Level" %> <%= f.select(:role_type, roles_user_can_assign(current_user)) %>

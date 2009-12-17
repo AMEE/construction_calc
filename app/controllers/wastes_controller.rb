@@ -6,7 +6,7 @@ class WastesController < ApplicationController
   before_filter :ensure_project_writeable_by_user, :except => [:index, :show]
   
   def index
-    @wastes = @project.wastes
+    @wastes = @project.wastes.paginate :page => params[:page], :order => 'created_at DESC'
   end
 
   def new
@@ -17,11 +17,10 @@ class WastesController < ApplicationController
     @waste = @project.wastes.new(params[:waste])
     if @waste.save
       flash[:notice] = "Waste management created"
-      redirect_to project_path(@project)
     else
-      flash[:error] = "Unable to create waste management"
-      render :action => "new"
+      flash[:error] = ["Unable to create waste management"] + @waste.errors.full_messages
     end
+    redirect_to project_path(@project)
   end
   
   def edit
@@ -32,11 +31,10 @@ class WastesController < ApplicationController
     @waste = @project.wastes.find(params[:id])
     if @waste.update_attributes(params[:waste])
       flash[:notice] = "Waste updated"
-      redirect_to project_path(@project)
     else
-      flash[:error] = "Unable to update waste"
-      render :action => "edit"
+      flash[:error] = ["Unable to update waste management"] + @waste.errors.full_messages
     end
+    redirect_to project_path(@project)
   end
   
   def destroy

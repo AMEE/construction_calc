@@ -2,29 +2,32 @@
     <head>
         <title><%= APP_CONFIG[:site_name] %></title>
         <%= javascript_include_tag :defaults %>
-        <%= stylesheet_link_tag ["main"] %>
+        <%= stylesheet_link_tag ["main", "message_block"] %>
+        <!--[if IE 7]>
+            <link rel="stylesheet" type="text/css" href="/stylesheets/ie7.css" />
+        <![endif]-->
     </head>
     <body>
-        <% if logged_in? %>
-            <div style="float:right">
-                <p><%= link_to("User Profile", edit_user_path(current_user)) %>
-                <% if current_user.can_create_other_users? %>
-                    | <%= link_to("User admin", users_path) %>
-                <% end %>
-                | <%= link_to("Logout", logout_path) %>
-                </p>
+        <div class="wrapper">
+            <div class="header">
+                <div class="logo">
+                    <%= image_tag("overbury-logo.png") %>
+                </div>
+                <div class="user">
+                    <%= render :partial => "layouts/user_bar", :locals => {:project => @project} %>
+                </div>
             </div>
-        <% end %>
-        <h2>Construction Calculator</h2>
-        <%= yield %>
-        <script type="text/javascript" charset="utf-8">
-           $(document).ready(function(){
-               <%= yield :jquery_onload %>
-           });
-           window.onload = function () {
-               <%= yield :window_onload %>
-           }
-           <%= yield :page_javascript %>
-    	</script>
+            <%= flash_and_model_messages unless @no_flash_messages %>
+            <%= yield %>
+            <script type="text/javascript" charset="utf-8">
+               $(document).ready(function(){
+                   <%= yield :jquery_onload %>
+               });
+               window.onload = function () {
+                   <%= yield :window_onload %>
+               }
+               <%= yield :page_javascript %>
+        	</script>
+        </div>
     </body>
 </html>

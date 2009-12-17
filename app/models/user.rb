@@ -106,12 +106,14 @@ class User < ActiveRecord::Base
     
     if (role.allowable.is_a?(Client))
       client_admin?(role.allowable)
-    elsif project_owner?(role.allowable)
-      return true
-    elsif project_reader?(role.allowable)
-      return role.role_type == Role::Type::READER
-    else
-      return false
+    elsif (role.allowable.is_a?(Project))
+      if project_owner?(role.allowable)
+        true
+      elsif project_reader?(role.allowable)
+        role.role_type == Role::Type::READER
+      else
+        client_admin?(role.allowable.client)
+      end
     end
   end
   

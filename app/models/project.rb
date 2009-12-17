@@ -17,8 +17,43 @@ class Project < ActiveRecord::Base
     "/profiles/#{amee_profile}"
   end
   
+  def commutes_carbon
+    commutes.map{|c| c.carbon_output_cache}.sum
+  end
+  
+  def deliveries_carbon
+    deliveries.map{|d| d.carbon_output_cache}.sum
+  end
+  
+  def materials_carbon
+    materials.map{|m| m.carbon_output_cache}.sum
+  end
+  
+  def energy_consumption_carbon
+    energy_consumptions.map{|e| e.carbon_output_cache}.sum
+  end
+  
+  def waste_management_carbon
+    wastes.map{|w| w.carbon_output_cache}.sum
+  end
+  
   def total_carbon
-    types = commutes + deliveries + materials + energy_consumptions + wastes
-    types.map {|i| i.carbon_output_cache}.sum
+    commutes_carbon + deliveries_carbon + materials_carbon + energy_consumption_carbon + waste_management_carbon
+  end
+  
+  def google_chart_image
+    # TODO add names to class as well?  Currently class doesn't match
+    # TODO tidy up google url line
+    classes = [Commute, Delivery, Material, EnergyConsumption, Waste]
+    "http://chart.apis.google.com/chart?cht=p3&chd=t:#{type_percents.join(',')}&chl=#{classes.map{|c| c.to_s.underscore.humanize}.join('|')}&chs=530x200&chco=#{classes.map {|c| c::COLOUR[1,6]}.join(',')}"
+  end
+  
+  private
+  def type_percents
+    percents = []
+    [commutes, deliveries, materials, energy_consumptions, wastes].each do |type|
+      percents << (100 * type.map {|i| i.carbon_output_cache}.sum) / total_carbon.to_f
+    end
+    percents
   end
 end

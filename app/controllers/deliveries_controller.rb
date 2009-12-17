@@ -6,7 +6,7 @@ class DeliveriesController < ApplicationController
   before_filter :ensure_project_writeable_by_user, :except => [:index, :show]
   
   def index
-    @deliveries = @project.deliveries
+    @deliveries = @project.deliveries.paginate :page => params[:page], :order => 'created_at DESC'
   end
 
   def new
@@ -17,11 +17,10 @@ class DeliveriesController < ApplicationController
     @delivery = @project.deliveries.new(params[:delivery])
     if @delivery.save
       flash[:notice] = "Delivery created"
-      redirect_to project_path(@project)
     else
-      flash[:error] = "Unable to create delivery"
-      render :action => "new"
+      flash[:error] = ["Unable to create delivery"] + @delivery.errors.full_messages
     end
+    redirect_to project_path(@project)
   end
   
   def edit
@@ -32,11 +31,10 @@ class DeliveriesController < ApplicationController
     @delivery = @project.deliveries.find(params[:id])
     if @delivery.update_attributes(params[:delivery])
       flash[:notice] = "Delivery updated"
-      redirect_to project_path(@project)
     else
-      flash[:error] = "Unable to update delivery"
-      render :action => "edit"
+      flash[:error] = ["Unable to update delivery"] + @delivery.errors.full_messages
     end
+    redirect_to project_path(@project)
   end
   
   def destroy

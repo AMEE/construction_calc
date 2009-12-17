@@ -1,7 +1,0 @@
-<table>
-<%= render :partial => "delivery", :collection => @deliveries %>
-</table>
-<p>Total Carbon: <%= @deliveries.map{|c| c.carbon_output_cache }.sum %></p>
-<p>Total Deliveries: <%= @deliveries.size %></p>
-
-<p><%= link_to("Add Delivery", new_project_delivery_path) %></p>

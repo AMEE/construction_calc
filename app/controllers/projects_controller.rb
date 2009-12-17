@@ -5,17 +5,16 @@ class ProjectsController < ApplicationController
   before_filter :ensure_project_readable_by_user, :only => [:show]
   before_filter :admin_or_client_admin_required, :only => [:new, :create, :edit, :update]
   
-  def index
-    @projects = @client.projects.readable_by_user(current_user)
-  end
+  # def index
+  #   @projects = @client.projects.readable_by_user(current_user)
+  # end
   
   def new
-    @project = Project.new(params[:project])
+    @project = @client.projects.new(params[:project])
   end
   
   def create
-    @project = Project.new(params[:project])
-    @project.client = @client
+    @project = @client.projects.new(params[:project])
     if @project.save
       @users = @client.associated_users_readable_by(current_user)
       render

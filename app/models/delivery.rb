@@ -5,6 +5,7 @@ class Delivery < ActiveRecord::Base
   include AmeeCarbonStore  
   has_carbon_data_stored_in_amee
   
+  COLOUR = "#FFBA4E"
   TYPE = {
     :van => AmeeCategory.new("Van", :distance, "/transport/van/generic", :fuel => "diesel (by size class)", :size => "1.305 to 1.740 tonnes"),
     :non_articulated => AmeeCategory.new("Non-Articulated Lorry", :distance, "/transport/lgv/generic", :fuel => "diesel", :size => "non articulated"),

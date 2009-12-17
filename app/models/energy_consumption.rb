@@ -5,6 +5,7 @@ class EnergyConsumption < ActiveRecord::Base
   include AmeeCarbonStore
   has_carbon_data_stored_in_amee
   
+  COLOUR = "#CD3A3D"
   TYPE = {
     :electricity => AmeeCategory.new("Electricity", :energy, "/home/energy/quantity", :type => "electricity"),
     :gas => AmeeCategory.new("Gas", :volumable_energy, "/home/energy/quantity", :type => "gas"),

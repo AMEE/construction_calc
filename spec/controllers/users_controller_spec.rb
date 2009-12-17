@@ -1,183 +1,173 @@
 require File.dirname(__FILE__) + '/../spec_helper'
-  
-# Be sure to include AuthenticatedTestHelper in spec/spec_helper.rb instead
-# Then, you can remove it from this and the units test.
-include AuthenticatedTestHelper
 
 describe UsersController do
-  fixtures :users
 
-  it 'allows signup' do
-    lambda do
+  before(:each) do
+    setup_initial_project_and_client
+    @user = super_admin_user
+    login_as(@user)
+  end
+
+  describe "the user index page" do
+    it "should render a list of users" do
+      get :index
+      response.should be_success
+    end
+  end
+
+  describe "the new user page" do
+    it "should render the page if a role type and allowable are specified" do
+      @project2 = project(@client)
+      get :new, :roles_attributes => {"0" => {:role_type => Role::Type::READER, :allowable_id => @project2.id}}
+      response.should be_success
+    end
+    
+    it "should require a user who is permitted to create other users" do
+      get :new
+      response.should be_success
+    end
+    
+    it "should raise an error if the user isn't permitted to create other users" do
+      lambda {
+        @reader = reader_user(@project)
+        login_as(@reader)
+        get :new
+      }.should raise_error(NotAllowed)
+    end
+  end
+
+  describe 'on signup' do
+    it "should ensure creating user can assign role level" do
+      lambda {
+        @reader = reader_user(@project)
+        login_as(@reader)
+        create_user
+      }.should raise_error(NotAllowed)
+    end
+    
+    it "should ensure creating user can assign project to client" do
+      lambda {
+        @project2 = project(@client)
+        @project_owning_user = project_owning_user(@project2)
+        login_as(@project_owning_user)
+        create_user
+      }.should raise_error(NotAllowed)
+    end
+    
+    it "should require a user to be logged in" do
+      login_as(nil)
       create_user
-      response.should be_redirect
-    end.should change(User, :count).by(1)
-  end
+      response.should redirect_to(login_path)
+    end
 
-  
-  it 'signs up user in pending state' do
-    create_user
-    assigns(:user).reload
-    assigns(:user).should be_pending
-  end
+    it 'should be successful if all fields are present' do
+      lambda do
+        create_user
+        response.should be_redirect
+      end.should change(User, :count).by(1)
+    end
 
-  it 'signs up user with activation code' do
-    create_user
-    assigns(:user).reload
-    assigns(:user).activation_code.should_not be_nil
-  end
-  it 'requires login on signup' do
-    lambda do
-      create_user(:login => nil)
-      assigns[:user].errors.on(:login).should_not be_nil
-      response.should be_success
-    end.should_not change(User, :count)
-  end
+    it 'should require a login field' do
+      lambda do
+        create_user(:login => nil)
+        assigns[:user].errors.on(:login).should_not be_nil
+        response.should be_success
+      end.should_not change(User, :count)
+    end
   
-  it 'requires password on signup' do
-    lambda do
-      create_user(:password => nil)
-      assigns[:user].errors.on(:password).should_not be_nil
-      response.should be_success
-    end.should_not change(User, :count)
-  end
+    it 'should require a password field' do
+      lambda do
+        create_user(:password => nil)
+        assigns[:user].errors.on(:password).should_not be_nil
+        response.should be_success
+      end.should_not change(User, :count)
+    end
   
-  it 'requires password confirmation on signup' do
-    lambda do
-      create_user(:password_confirmation => nil)
-      assigns[:user].errors.on(:password_confirmation).should_not be_nil
-      response.should be_success
-    end.should_not change(User, :count)
-  end
+    it 'should require a password confirmation field' do
+      lambda do
+        create_user(:password_confirmation => nil)
+        assigns[:user].errors.on(:password_confirmation).should_not be_nil
+        response.should be_success
+      end.should_not change(User, :count)
+    end
 
-  it 'requires email on signup' do
-    lambda do
-      create_user(:email => nil)
-      assigns[:user].errors.on(:email).should_not be_nil
+    it 'should require an email field' do
+      lambda do
+        create_user(:email => nil)
+        assigns[:user].errors.on(:email).should_not be_nil
+        response.should be_success
+      end.should_not change(User, :count)
+    end
+  
+    it "should create a role for the user" do
+      create_user
+      User.find_by_login("quire").roles.first.role_type.should == Role::Type::PROJECT_OWNER
+      User.find_by_login("quire").roles.first.allowable.should == @project
+    end
+  end
+  
+  describe "the edit user page" do
+    it "should render the edit profile form" do
+      get :edit, :id => @user.id
       response.should be_success
-    end.should_not change(User, :count)
+    end
+    
+    it "should not render the page if the viewing user doesn't own the page" do
+      lambda {
+        @user2 = reader_user(@project)
+        get :edit, :id => @user2.id
+      }.should raise_error(NotAllowed)
+    end
   end
   
-  
-  it 'activates user' do
-    User.authenticate('aaron', 'monkey').should be_nil
-    get :activate, :activation_code => users(:aaron).activation_code
-    response.should redirect_to('/login')
-    flash[:notice].should_not be_nil
-    flash[:error ].should     be_nil
-    User.authenticate('aaron', 'monkey').should == users(:aaron)
+  describe "the update user page" do
+    it "should render after updating" do
+      put :update, :id => @user.id, :user => {:email => "newemail"}
+      response.should be_success
+    end
+    
+    it "should not render the page if the viewing user doesn't own the page" do
+      lambda {
+        @user2 = reader_user(@project)
+        get :edit, :id => @user2.id
+      }.should raise_error(NotAllowed)
+    end
   end
   
-  it 'does not activate user without key' do
-    get :activate
-    flash[:notice].should     be_nil
-    flash[:error ].should_not be_nil
-  end
-  
-  it 'does not activate user with blank key' do
-    get :activate, :activation_code => ''
-    flash[:notice].should     be_nil
-    flash[:error ].should_not be_nil
-  end
-  
-  it 'does not activate user with bogus key' do
-    get :activate, :activation_code => 'i_haxxor_joo'
-    flash[:notice].should     be_nil
-    flash[:error ].should_not be_nil
+  describe "the destroy user action" do
+    it "should redirect after deleting a user" do
+      @user2 = reader_user(@project)
+      delete :destroy, :id => @user2.id
+      response.should redirect_to(users_path)
+    end
+    
+    it "should not allow a user to delete themselves" do
+      lambda {
+        delete :destroy, :id => @user.id
+      }.should raise_error(NotAllowed)
+    end
+    
+    it "should not allow a project owner to delete a user" do
+      lambda {
+        @user2 = project_owning_user(@project)
+        login_as(@user2)
+        delete :destroy, :id => @user.id
+      }.should raise_error(NotAllowed)
+    end
+    
+    it "should not allow a reader to delete a user" do
+      lambda {
+        @user2 = reader_user(@project)
+        login_as(@user2)
+        delete :destroy, :id => @user.id
+      }.should raise_error(NotAllowed)
+    end
   end
   
   def create_user(options = {})
     post :create, :user => { :login => 'quire', :email => 'quire@example.com',
-      :password => 'quire69', :password_confirmation => 'quire69' }.merge(options)
+      :password => 'quire69', :password_confirmation => 'quire69',
+      :roles_attributes => {"0" => {:role_type => Role::Type::PROJECT_OWNER, 
+      :allowable_id => @project}} }.merge(options)
   end
-end
-
-describe UsersController do
-  describe "route generation" do
-    it "should route users's 'index' action correctly" do
-      route_for(:controller => 'users', :action => 'index').should == "/users"
-    end
-    
-    it "should route users's 'show' action correctly" do
-      route_for(:controller => 'users', :action => 'show', :id => '1').should == "/users/1"
-    end
-    
-    it "should route users's 'edit' action correctly" do
-      route_for(:controller => 'users', :action => 'edit', :id => '1').should == "/users/1/edit"
-    end
-    
-    # These will never work - need writing properly 
-    # it "should route users's 'update' action correctly" do
-    #   route_for(:controller => 'users', :action => 'update', :id => '1').should == "/users/1"
-    # end
-    # 
-    # it "should route users's 'destroy' action correctly" do
-    #   route_for(:controller => 'users', :action => 'destroy', :id => '1').should == "/users/1"
-    # end
-  end
-  
-  describe "route recognition" do
-    it "should generate params for users's index action from GET /users" do
-      params_from(:get, '/users').should == {:controller => 'users', :action => 'index'}
-      params_from(:get, '/users.xml').should == {:controller => 'users', :action => 'index', :format => 'xml'}
-      params_from(:get, '/users.json').should == {:controller => 'users', :action => 'index', :format => 'json'}
-    end
-    
-    it "should generate params for users's new action from GET /users" do
-      params_from(:get, '/users/new').should == {:controller => 'users', :action => 'new'}
-      params_from(:get, '/users/new.xml').should == {:controller => 'users', :action => 'new', :format => 'xml'}
-      params_from(:get, '/users/new.json').should == {:controller => 'users', :action => 'new', :format => 'json'}
-    end
-    
-    it "should generate params for users's create action from POST /users" do
-      params_from(:post, '/users').should == {:controller => 'users', :action => 'create'}
-      params_from(:post, '/users.xml').should == {:controller => 'users', :action => 'create', :format => 'xml'}
-      params_from(:post, '/users.json').should == {:controller => 'users', :action => 'create', :format => 'json'}
-    end
-    
-    it "should generate params for users's show action from GET /users/1" do
-      params_from(:get , '/users/1').should == {:controller => 'users', :action => 'show', :id => '1'}
-      params_from(:get , '/users/1.xml').should == {:controller => 'users', :action => 'show', :id => '1', :format => 'xml'}
-      params_from(:get , '/users/1.json').should == {:controller => 'users', :action => 'show', :id => '1', :format => 'json'}
-    end
-    
-    it "should generate params for users's edit action from GET /users/1/edit" do
-      params_from(:get , '/users/1/edit').should == {:controller => 'users', :action => 'edit', :id => '1'}
-    end
-    
-    it "should generate params {:controller => 'users', :action => update', :id => '1'} from PUT /users/1" do
-      params_from(:put , '/users/1').should == {:controller => 'users', :action => 'update', :id => '1'}
-      params_from(:put , '/users/1.xml').should == {:controller => 'users', :action => 'update', :id => '1', :format => 'xml'}
-      params_from(:put , '/users/1.json').should == {:controller => 'users', :action => 'update', :id => '1', :format => 'json'}
-    end
-    
-    it "should generate params for users's destroy action from DELETE /users/1" do
-      params_from(:delete, '/users/1').should == {:controller => 'users', :action => 'destroy', :id => '1'}
-      params_from(:delete, '/users/1.xml').should == {:controller => 'users', :action => 'destroy', :id => '1', :format => 'xml'}
-      params_from(:delete, '/users/1.json').should == {:controller => 'users', :action => 'destroy', :id => '1', :format => 'json'}
-    end
-  end
-  
-  describe "named routing" do
-    before(:each) do
-      get :new
-    end
-    
-    it "should route users_path() to /users" do
-      users_path().should == "/users"
-    end
-    
-    it "should route new_user_path() to /users/new" do
-      new_user_path().should == "/users/new"
-    end
-    
-    it "should route user_(:id => '1') to /users/1" do
-      user_path(:id => '1').should == "/users/1"
-    end
-    
-    it "should route edit_user_path(:id => '1') to /users/1/edit" do
-      edit_user_path(:id => '1').should == "/users/1/edit"
-    end
-  end
-  
 end

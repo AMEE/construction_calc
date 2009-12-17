@@ -9,6 +9,7 @@ class AddMaterials < ActiveRecord::Migration
       t.timestamps
     end
     add_index :materials, :project_id
+    add_index :materials, :created_at
   end
 
   def self.down

@@ -1,4 +1,6 @@
-<% form_for @project do |form| %>
+<% @show_model_errors = @project %>
+
+<% form_for @project, :html => {:class => "project-form"} do |form| %>
     <%= render :partial => "form", :locals => {:form => form} %>
-    <%= form.submit "Update Project" %>
+    <div class="submit"><%= form.submit "Update Project" %></div>
 <% end %>

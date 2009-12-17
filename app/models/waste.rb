@@ -5,6 +5,7 @@ class Waste < ActiveRecord::Base
   include AmeeCarbonStore
   has_carbon_data_stored_in_amee
   
+  COLOUR = "#5694ED"
   TYPE = {
     # :cardboard => AmeeCategory.new("Example", :weight, "/transport/bus/generic", :type => "typical"),
     # :carpet_tiles => ,

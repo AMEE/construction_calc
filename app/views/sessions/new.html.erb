@@ -1,14 +1,6 @@
-<h1>Log In</h1>
-
-<% form_tag session_path do -%>
-    <p><%= label_tag 'login' %><br />
-    <%= text_field_tag 'login', @login %></p>
-
-    <p><%= label_tag 'password' %><br/>
-    <%= password_field_tag 'password', nil %></p>
-
-    <p><%= label_tag 'remember_me', 'Remember me' %>
-    <%= check_box_tag 'remember_me', '1', @remember_me %></p>
-
-    <p><%= submit_tag 'Log in' %></p>
+<% form_tag sessions_path, :class => "login-form" do -%>
+    <div class="labelfield"><div class="label"><%= label_tag 'login' %></div><div class="field"><%= text_field_tag 'login', @login %></div></div>
+    <div class="labelfield"><div class="label"><%= label_tag 'password' %></div><div class="field"><%= password_field_tag 'password', nil %></div></div>
+    <div class="labelfield"><%= label_tag 'remember_me', 'Remember me' %> <%= check_box_tag 'remember_me', '1', @remember_me %></div>
+    <div class="submit"><%= submit_tag 'Log in' %></div>
 <% end -%>
