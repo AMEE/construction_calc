@@ -49,7 +49,7 @@
     <div class="container materials" id="material-type">
         <div class="name">Materials</div>
         <div class="percentage materials-background"><p><%= materials_carbon_percentage(@project) %>%</p></div>
-        <div class="links"><%= link_to_remote("Add", :url => new_project_material_path(@project), :method => :get, :html => {:class => "add materials material-add"}) %> <%= link_to_remote("List", :url => project_materials_path(@project), :html => {:class => "list materials material-list"}) %></div>
+        <div class="links"><%= link_to_remote("Add", :url => new_project_material_path(@project), :method => :get, :html => {:class => "add materials material-add"}) %> <%= link_to_remote("List", :url => project_materials_path(@project), :method => :get, :html => {:class => "list materials material-list"}) %></div>
     </div>
     <div class="container waste" id="waste-type">
         <div class="name">Waste Management</div>

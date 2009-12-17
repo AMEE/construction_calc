@@ -1,7 +1,0 @@
-<table>
-<%= render :partial => "waste", :collection => @wastes %>
-</table>
-<p>Total Carbon: <%= @wastes.map{|c| c.carbon_output_cache }.sum %></p>
-<p>Total Waste Managements: <%= @wastes.size %></p>
-
-<p><%= link_to("Add Waste Management", new_project_waste_path) %></p>

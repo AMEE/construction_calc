@@ -46,7 +46,7 @@ function showTabBorder(type) {
     } else if (type == "commuting") {
         resetSideBorders();
         resetBottomBorders();
-        addBottomBorder('commuting-bottom-border', '#commuting-type');
+        addBottomBorder('commuting-bottom-border', '#commute-type');
         $('#commute-type').addClass('commuting-side-border');
     }
 }

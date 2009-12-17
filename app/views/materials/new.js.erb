@@ -1,2 +1,15 @@
+<%= update_page do |page|
+    page.remove "content"
+    page.insert_html :append, "types-content-area", :partial => "form"
+end %>
 showTabBorder("material");
-// just doing an example here
+
+units = new Array();
+<% Material::TYPE.keys.each do |key| %>
+    units['<%= key.to_s %>'] = '<%= options_for_select(Material::TYPE[key].unit_options).gsub("\n", "") %>';
+<% end %>
+
+updateUnits('material');
+<% if @material.units %>
+    selectUnits('material', '<%= @material.units %>');
+<% end %>

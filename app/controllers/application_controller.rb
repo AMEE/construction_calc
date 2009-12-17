@@ -32,39 +32,46 @@ class ApplicationController < ActionController::Base
   end
 end
 
-# TODO overbury - clarification around plaster general for ceiling tiles (not composite or metal though)
-# TODO when new/edit for a type and it fails doesn't show form [can sort this somehow].  Also when creating new
-#      adds an item should show list.  Can do all this with JS somehow - eg on success render partial list
-# TODO password reset, roles, users screens, rest of types
+# TODO go through and doc assumptions made in code
+#      for big email see Jamie's notes:
+#  for the refrigerant gases, assume volume of gas
+#  do split up cans and bottles please
+#  ditto with ferrous and non-ferrous metals
+#  i'll ask about the floor tiles
 
-# TODO test changing unit type on one where type depends on selection in dropdown 
-# TODO powered by amee logo
-# TODO IE7 is the critical one
-# TODO destroy project
-# TODO pull out main UI page into partials
-# TODO google_chart_image in project tidy up
-# TODO on profile create add /metadata to profile with UK country (even though default)
+# TODO will have recycle/dispose option issue for waste.  Need to do whole of waste section in fact - could just pull out into controller
+#      + do create, update, delete, check AMEE stored data test as can't do for this atm.  Also column headings for index
+# TODO IE7 will need more work
 # TODO project - start date, when start project or enter as field?
 # TODO project limit 10 per client??
+# TODO amee gem version, json so faster
+# TODO create two in a minute - blows up like a volcano.  Can used named items apparently (speak to Paul)
+# TODO test and make sure going into AMEE correctly
+
+# TODO when new/edit for a type and it fails doesn't show form [can sort this somehow].  Also when creating new
+#      adds an item should show list.  Can do all this with JS somehow - eg on success render partial list
+# TODO password reset, roles, users screens
+
+# TODO powered by amee logo
+# TODO 100% height causing a problem when ajax expands to be greater than window height
+# TODO edit, delete buttons have spacing on table index
+# TODO destroy project
+# TODO pull out main UI page into partials
+# TODO on profile create add /metadata to profile with UK country (even though default)
 # TODO is way to have include out of models?
 # TODO signup, password reset emails text
-# TODO create two in a minute - blows up like a volcano.  Can used named items apparently (speak to Paul)
-# TODO amee gem version, json so faster
 # TODO running against staging server still?  Will break materials if move ot prod?
-# TODO requirements - reporting, calculations per floor area etc.  Do need?
+# TODO requirements - reporting, calculations per floor area etc.  Do need?  Don't think so but need pdf
 # TODO cap and cap-multistaging, cronjob for purging cache
 # TODO front page needs to warn if no JS (can view but not create) - actually needed for all site
 # TODO test not-allowed 404s in prod
-# TODO will have recycle/dispose option issue for waste
 # TODO write tests for access rights - see RolesControllerSpec for progress
 
 # - Assumptions on types
 #     What to use for freight train?  Said ralk regarding
-#     articulated, non-articulated lorry decide on which data to use
 #     materials - ceiling tile data
 #               - copper went for upper bound
-#     waste mappings [+ do create, update, delete, check AMEE stored data test as can't do for this atm]
-#       also this has recycle/dispose which is a big requirement depending how implemented in AMEE
+#     waste mappings
 #       looks like want volume for material.  Is that possible?
 # - Also we need to check units everything specified in make sense (eg liquid petrol and gas measured in same?) [some hints in dynamic50 stories]
 

@@ -1,9 +1,0 @@
-<% @show_model_errors = @energy_consumption %>
-
-<% form_for @energy_consumption, :url => project_energy_consumption_path(@energy_consumption.project, @energy_consumption), :html => {:method => :put} do |f| %>
-    <%= f.label :name %> <%= f.text_field :name %>
-    <%= @energy_consumption.amee_category.name %>
-    <%= f.label :amount %> <%= f.text_field :amount %>
-    <%= units_name_from_amee_unit(@energy_consumption) %>
-    <%= submit_tag "Update Energy Consumption" %>
-<% end %>

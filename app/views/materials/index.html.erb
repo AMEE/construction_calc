@@ -1,7 +1,0 @@
-<table>
-<%= render :partial => "material", :collection => @materials %>
-</table>
-<p>Total Carbon: <%= @materials.map{|c| c.carbon_output_cache }.sum %></p>
-<p>Total Materials: <%= @materials.size %></p>
-
-<p><%= link_to("Add Material", new_project_material_path) %></p>

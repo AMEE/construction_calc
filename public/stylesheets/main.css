@@ -429,6 +429,16 @@ td.middle {
             margin-right: 5px;
         }
         
+        .types .content-container input.weight {
+            width: 60px;
+            margin-right: 5px;
+        }
+        
+        .types .content-container input.amount {
+            width: 60px;
+            margin-right: 5px;
+        }
+        
         .types .content-container select {
             float: left;
             font-size: 14px;
@@ -511,6 +521,7 @@ td.middle {
     width: 230px;
     padding: 5px;
     float: left;
+    margin: 0 345px;
 }
 
 .project-form {
@@ -518,6 +529,7 @@ td.middle {
     width: 350px;
     padding: 5px;
     float: left;
+    margin: 0 285px;
 }
 
     .project-form .labelfield .label {

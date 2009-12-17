@@ -1,9 +1,0 @@
-<% @show_model_errors = @material %>
-
-<% form_for @material, :url => project_material_path(@material.project, @material), :html => {:method => :put} do |f| %>
-    <%= f.label :name %> <%= f.text_field :name %>
-    <%= @material.amee_category.name %>
-    <%= f.label :amount %> <%= f.text_field :amount %>
-    <%= units_name_from_amee_unit(@material) %>
-    <%= submit_tag "Update Material" %>
-<% end %>
