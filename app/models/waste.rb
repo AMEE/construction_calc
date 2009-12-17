@@ -25,7 +25,7 @@ class Waste < ActiveRecord::Base
     # :septic_tank_waste => ,
     # :glass => 
     
-    # TODO waiting to be added to AMEE - actually seems to be in /home/waste
+    # TODO /home/waste/lifecyclewaste is area
     # TODO needs recycle, dispose option
   }
   

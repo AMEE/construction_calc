@@ -32,6 +32,7 @@ class ApplicationController < ActionController::Base
   end
 end
 
+# TODO overbury - clarification around plaster general for ceiling tiles (not composite or metal though)
 # TODO when new/edit for a type and it fails doesn't show form [can sort this somehow].  Also when creating new
 #      adds an item should show list.  Can do all this with JS somehow - eg on success render partial list
 # TODO password reset, roles, users screens, rest of types
@@ -49,6 +50,7 @@ end
 # TODO signup, password reset emails text
 # TODO create two in a minute - blows up like a volcano.  Can used named items apparently (speak to Paul)
 # TODO amee gem version, json so faster
+# TODO running against staging server still?  Will break materials if move ot prod?
 # TODO requirements - reporting, calculations per floor area etc.  Do need?
 # TODO cap and cap-multistaging, cronjob for purging cache
 # TODO front page needs to warn if no JS (can view but not create) - actually needed for all site
@@ -57,9 +59,10 @@ end
 # TODO write tests for access rights - see RolesControllerSpec for progress
 
 # - Assumptions on types
-#     What to use for freight train?
-#     LGV, HGV, articulated classifications - will be updated (email Andy)
-#     materials - notes in model
+#     What to use for freight train?  Said ralk regarding
+#     articulated, non-articulated lorry decide on which data to use
+#     materials - ceiling tile data
+#               - copper went for upper bound
 #     waste mappings [+ do create, update, delete, check AMEE stored data test as can't do for this atm]
 #       also this has recycle/dispose which is a big requirement depending how implemented in AMEE
 #       looks like want volume for material.  Is that possible?
@@ -69,6 +72,10 @@ end
 # Had to cache carbon data for each item and purge at weekend when plenty of time
 # Can't cache by category as transport spans multiple classes = major fail
 # Other factors paging through results and manual ask for carbon value each time update or delete
+#
+# Leasons learnt:
+#  - AJAX can slow things up when time is tight
+#  - need to get client category to amee categories mapped out up front
 #
 # AMEE badly documented:
 # - data/profile category
