@@ -1,0 +1,24 @@
+<div id="content" class="content narrow">
+    <% if @energy_consumption.new_record? %>
+        <h3 class="energy">New Energy Consumption</h3>
+    <% else %>
+        <h3 class="energy">Update Energy Consumption</h3>
+    <% end %>
+    
+    <% form_for [@project, @energy_consumption] do |f| %>
+        <%= f.label :name, "Energy Consumption Name" %> <%= f.text_field :name, :class => "generic" %>
+        <%= f.label :energy_consumption_type, "Energy Consumption Type" %> 
+        <% if @energy_consumption.new_record? %>
+            <%= f.select :energy_consumption_type, options_for_energy_consumption_type_select, {}, :onchange => "updateUnits('energy_consumption');" %>
+        <% else %>
+            <p><%= @energy_consumption.amee_category.name %></p>
+        <% end %>
+        <%= f.label :amount, "Amount" %> <%= f.text_field :amount, :class => "generic amount" %>
+        <% if @energy_consumption.new_record? %>
+            <%= f.select :units, ["(fetching)"] %>
+        <% else %>
+            <p><%= units_name_from_amee_unit(@energy_consumption) %></p>
+        <% end %>
+        <%= submit_tag @energy_consumption.new_record? ? "Create" : "Update", :class => "button" %>
+    <% end %>
+</div>

@@ -1,0 +1,10 @@
+<div id="content" class="content">
+    <table><tr class="list-header wastes-background"><td>Waste Name</td><td>Waste Mode</td><td>Weight</td><td>Emissions</td><td></td><td></td></tr>
+        <% if @wastes.size > 0 %>
+            <%= render :partial => "waste", :collection => @wastes %>
+        <% else %>
+            <tr><td></td><td colspan="5">No waste management - click 'Add' to get started</td></tr>
+        <% end %>
+    </table>
+    <%= will_paginate @wastes %>
+</div>

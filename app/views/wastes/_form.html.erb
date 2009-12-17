@@ -1,0 +1,24 @@
+<div id="content" class="content narrow">
+    <% if @waste.new_record? %>
+        <h3 class="waste">New Waste Management</h3>
+    <% else %>
+        <h3 class="waste">Update Waste Management</h3>
+    <% end %>
+    
+    <% form_for [@project, @waste] do |f| %>
+        <%= f.label :name, "Waste Name" %> <%= f.text_field :name, :class => "generic" %>
+        <%= f.label :waste_type, "Waste Mode" %> 
+        <% if @waste.new_record? %>
+            <%= f.select :waste_type, options_for_waste_type_select, {}, :onchange => "updateUnits('waste');" %>
+        <% else %>
+            <p><%= @waste.amee_category.name %></p>
+        <% end %>
+        <%= f.label :amount, "Weight" %> <%= f.text_field :amount, :class => "generic weight" %>
+        <% if @waste.new_record? %>
+            <%= f.select :units, ["(fetching)"] %>
+        <% else %>
+            <p><%= units_name_from_amee_unit(@waste) %></p>
+        <% end %>
+        <%= submit_tag @waste.new_record? ? "Create" : "Update", :class => "button" %>
+    <% end %>
+</div>

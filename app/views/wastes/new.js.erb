@@ -1,0 +1,15 @@
+<%= update_page do |page|
+    page.remove "content"
+    page.insert_html :append, "types-content-area", :partial => "form"
+end %>
+showTabBorder("waste");
+
+units = new Array();
+<% Waste::TYPE.keys.each do |key| %>
+    units['<%= key.to_s %>'] = '<%= options_for_select(Waste::TYPE[key].unit_options).gsub("\n", "") %>';
+<% end %>
+
+updateUnits('waste');
+<% if @waste.units %>
+    selectUnits('waste', '<%= @waste.units %>');
+<% end %>

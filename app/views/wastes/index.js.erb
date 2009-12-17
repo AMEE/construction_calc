@@ -1,0 +1,6 @@
+<%= update_page do |page|
+    page.remove "content"
+    page.insert_html :append, "types-content-area", :partial => "wastes"
+end %>
+showTabBorder("waste");
+enableAjaxPagination();

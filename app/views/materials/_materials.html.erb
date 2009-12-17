@@ -1,0 +1,10 @@
+<div id="content" class="content">
+    <table><tr class="list-header materials-background"><td>Delivery Name</td><td>Delivery Mode</td><td>Weight</td><td>Emissions</td><td></td><td></td></tr>
+        <% if @materials.size > 0 %>
+            <%= render :partial => "material", :collection => @materials %>
+        <% else %>
+            <tr><td></td><td colspan="5">No materials - click 'Add' to start creating materials</td></tr>
+        <% end %>
+    </table>
+    <%= will_paginate @materials %>
+</div>

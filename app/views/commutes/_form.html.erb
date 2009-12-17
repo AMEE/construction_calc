@@ -1,0 +1,24 @@
+<div id="content" class="content narrow">
+    <% if @commute.new_record? %>
+        <h3 class="commuting">New Commute</h3>
+    <% else %>
+        <h3 class="commuting">Update Commute</h3>
+    <% end %>
+    
+    <% form_for [@project, @commute] do |f| %>
+        <%= f.label :name, "Commute Name" %> <%= f.text_field :name, :class => "generic" %>
+        <%= f.label :commute_type, "Transport Mode" %> 
+        <% if @commute.new_record? %>
+            <%= f.select :commute_type, options_for_commute_type_select, {}, :onchange => "updateUnits('commute');" %>
+        <% else %>
+            <p><%= @commute.amee_category.name %></p>
+        <% end %>
+        <%= f.label :amount, "Distance Travelled" %> <%= f.text_field :amount, :class => "generic distance" %>
+        <% if @commute.new_record? %>
+            <%= f.select :units, ["(fetching)"] %>
+        <% else %>
+            <p><%= units_name_from_amee_unit(@commute) %></p>
+        <% end %>
+        <%= submit_tag @commute.new_record? ? "Create" : "Update", :class => "button" %>
+    <% end %>
+</div>

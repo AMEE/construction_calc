@@ -1,0 +1,24 @@
+<div id="content" class="content narrow">
+    <% if @material.new_record? %>
+        <h3 class="materials">New Material</h3>
+    <% else %>
+        <h3 class="materials">Update Material</h3>
+    <% end %>
+    
+    <% form_for [@project, @material] do |f| %>
+        <%= f.label :name, "Material Name" %> <%= f.text_field :name, :class => "generic" %>
+        <%= f.label :material_type, "Material Type" %> 
+        <% if @material.new_record? %>
+            <%= f.select :material_type, options_for_material_type_select, {}, :onchange => "updateUnits('material');" %>
+        <% else %>
+            <p><%= @material.amee_category.name %></p>
+        <% end %>
+        <%= f.label :amount, "Weight" %> <%= f.text_field :amount, :class => "generic weight" %>
+        <% if @material.new_record? %>
+            <%= f.select :units, ["(fetching)"] %>
+        <% else %>
+            <p><%= units_name_from_amee_unit(@material) %></p>
+        <% end %>
+        <%= submit_tag @material.new_record? ? "Create" : "Update", :class => "button" %>
+    <% end %>
+</div>
