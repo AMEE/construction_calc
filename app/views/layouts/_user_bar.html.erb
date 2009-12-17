@@ -1,0 +1,18 @@
+<% if logged_in? %>
+    <p>
+    <% if @project && !@project.new_record? %>
+        <% form_tag(project_path(@project), :method => :get, :id => "switch_project_form") do %>
+            <%= select_tag(:project_switch_id, options_for_select(@client.projects.readable_by_user(current_user).map {|p| [p.name, p.id]}, :selected => @project.id), :onchange => "switchProject();") %>
+        <% end %>
+    <% else %>
+        <% form_tag(project_path(:id => 0), :method => :get, :id => "switch_project_form") do %>
+            <%= select_tag(:project_switch_id, options_for_select(@client.projects.readable_by_user(current_user).map {|p| [p.name, p.id]}.unshift(["Select a project...", 0]), :selected => 0), :onchange => "switchProject();") %>
+        <% end %>
+    <% end %>
+    | <%= link_to("User Profile", edit_user_path(current_user)) %>
+    <% if current_user.can_create_other_users? %>
+        | <%= link_to("User admin", users_path) %>
+    <% end %>
+    | <%= link_to("Logout", logout_path) %>
+    </p>
+<% end %>

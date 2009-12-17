@@ -1,0 +1,15 @@
+<%= update_page do |page|
+    page.remove "content"
+    page.insert_html :append, "types-content-area", :partial => "form"
+end %>
+showTabBorder("delivery");
+
+units = new Array();
+<% Delivery::TYPE.keys.each do |key| %>
+    units['<%= key.to_s %>'] = '<%= options_for_select(Delivery::TYPE[key].unit_options).gsub("\n", "") %>';
+<% end %>
+
+updateUnits('delivery');
+<% if @delivery.units %>
+    selectUnits('delivery', '<%= @delivery.units %>');
+<% end %>

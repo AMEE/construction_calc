@@ -1,0 +1,6 @@
+<div id="content" class="content">
+    <table><tr class="list-header deliveries-background"><td>Delivery Name</td><td>Delivery Mode</td><td>Distance</td><td>Emissions</td><td></td><td></td></tr>
+        <%= render :partial => "delivery", :collection => @deliveries %>
+    </table>
+    <%= will_paginate @deliveries %>
+</div>

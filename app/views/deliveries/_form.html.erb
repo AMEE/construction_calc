@@ -1,0 +1,24 @@
+<div id="content" class="content narrow">
+    <% if @delivery.new_record? %>
+        <h3 class="deliveries">New Delivery</h3>
+    <% else %>
+        <h3 class="deliveries">Update Delivery</h3>
+    <% end %>
+    
+    <% form_for [@project, @delivery] do |f| %>
+        <%= f.label :name, "Delivery Name" %> <%= f.text_field :name, :class => "generic" %>
+        <%= f.label :delivery_type, "Delivery Mode" %> 
+        <% if @delivery.new_record? %>
+            <%= f.select :delivery_type, options_for_delivery_type_select, {}, :onchange => "updateUnits('delivery');" %>
+        <% else %>
+            <p><%= @delivery.amee_category.name %></p>
+        <% end %>
+        <%= f.label :amount, "Distance Travelled" %> <%= f.text_field :amount, :class => "generic distance" %>
+        <% if @delivery.new_record? %>
+            <%= f.select :units, ["(fetching)"] %>
+        <% else %>
+            <p><%= units_name_from_amee_unit(@delivery) %></p>
+        <% end %>
+        <%= submit_tag @delivery.new_record? ? "Create" : "Update", :class => "button" %>
+    <% end %>
+</div>
