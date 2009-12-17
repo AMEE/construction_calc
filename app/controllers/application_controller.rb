@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
   
   def admin_or_client_admin_required
-    current_user.admin? || current_user.client_admin?(@client)
+    raise NotAllowed unless current_user.admin? || current_user.client_admin?(@client)
   end
   
   def ensure_project_readable_by_user
@@ -32,22 +32,23 @@ class ApplicationController < ActionController::Base
   end
 end
 
-# TODO *** chase data in amee as depending how done can hold up (mappings area) + client choose units ***
-# TODO improvements on paper from yesterdays session with James Smith
-# TODO project - start date, when start project or enter as field?
+# TODO go through project, user, roles flows
+# TODO flash messages and model error methods
+# TODO work on UI
+
 # TODO on profile create add /metadata to profile with UK country (even though default)
+# TODO project - start date, when start project or enter as field?
 # TODO project limit 10 per client??
-# TODO requirements - reporting, calculations per floor area etc.  Do need?
 # TODO is way to have include out of models?
 # TODO create two in a minute - blows up like a volcano.  Can used named items apparently (speak to Paul)
 # TODO user.rb TODO items
-# TODO write tests for access rights.  Also go through auth system and specs for (made changes)
-# TODO flash messages and model error methods
-# TODO work on UI
-# TODO cap and cap-multistaging
 # TODO amee gem version, json so faster
+# TODO requirements - reporting, calculations per floor area etc.  Do need?
+# TODO cap and cap-multistaging, cronjob for purging cache
 # TODO front page needs to warn if no JS (can view but not create)
 # TODO test not-allowed 404s in prod
+# TODO will have recycle/dispose option issue for waste
+# TODO write tests for access rights.  Also go through auth system and specs for (made changes)
 
 # - Assumptions on types
 #     What to use for freight train?
@@ -57,11 +58,12 @@ end
 #       also this has recycle/dispose which is a big requirement depending how implemented in AMEE
 #       looks like want volume for material.  Is that possible?
 # - Also we need to check units everything specified in make sense (eg liquid petrol and gas measured in same?) [some hints in dynamic50 stories]
-# 
+
+
 # Had to cache carbon data for each item and purge at weekend when plenty of time
 # Can't cache by category as transport spans multiple classes = major fail
 # Other factors paging through results and manual ask for carbon value each time update or delete
-
+#
 # AMEE badly documented:
 # - data/profile category
 # - metadata

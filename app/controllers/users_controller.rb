@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   before_filter :ensure_current_user, :only => [:edit, :update]
   before_filter :ensure_can_create_other_users, :only => [:new]
   before_filter :ensure_allowed_to_create_user, :only => [:create]
-  before_filter :admin_or_client_admin_required, :only => [:destroy]
+  before_filter :ensure_allowed_to_delete_user, :only => [:destroy]
   
   def index
     @users = @client.associated_users_readable_by(current_user)
@@ -59,9 +59,18 @@ class UsersController < ApplicationController
     raise NotAllowed unless current_user.can_create_other_users?
   end
   
+  # Can create a user if:
+  # - User can assign the role level
+  # - User is allowed to assign the project to the client
   def ensure_allowed_to_create_user
     raise NotAllowed unless current_user.can_assign_role?(params[:user][:roles_attributes]["0"])
-    raise NotAllowed unless current_user.can_assign_project_to_client?(@client, params[:user][:roles_attributes]["0"])
+    raise NotAllowed unless current_user.allowed_to_assign_project_to_client?(@client, params[:user][:roles_attributes]["0"])
+  end
+  
+  # User can't delete themeselves and must be an admin or client admin to action
+  def ensure_allowed_to_delete_user
+    raise NotAllowed if @user == current_user
+    admin_or_client_admin_required
   end
   
   # We need to specify it's a project

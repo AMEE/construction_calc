@@ -25,6 +25,7 @@ class Waste < ActiveRecord::Base
     # :glass => 
     
     # TODO waiting to be added to AMEE - actually seems to be in /home/waste
+    # TODO needs recycle, dispose option
   }
   
   def amee_category

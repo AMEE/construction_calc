@@ -79,6 +79,10 @@ class User < ActiveRecord::Base
     projects_own.include?(project)
   end
   
+  def a_project_owner?
+    projects_own.size > 0
+  end
+  
   def project_reader?(project)
     projects_read.include?(project)
   end
@@ -86,7 +90,7 @@ class User < ActiveRecord::Base
   def role_types_can_assign
     if admin? || clients_admin.size > 0
       [Role::Type::PROJECT_OWNER, Role::Type::READER]
-    elsif projects_own.size > 0
+    elsif a_project_owner?
       [Role::Type::READER]
     else
       []
@@ -98,9 +102,11 @@ class User < ActiveRecord::Base
   end
   
   def can_access_role?(role)
-    return true if admin? || clients_admin.size > 0 || role.user == self
+    return true if admin? || role.user == self
     
-    if project_owner?(role.allowable)
+    if (role.allowable.is_a?(Client))
+      client_admin?(role.allowable)
+    elsif project_owner?(role.allowable)
       return true
     elsif project_reader?(role.allowable)
       return role.role_type == Role::Type::READER
@@ -113,7 +119,7 @@ class User < ActiveRecord::Base
     role_types_can_assign.include?(role_attrs[:role_type])
   end
   
-  def can_assign_project_to_client?(client, role_attrs)
+  def allowed_to_assign_project_to_client?(client, role_attrs)
     client.projects_assignable_by(self).include?(Project.find(role_attrs[:allowable_id]))
   end
   
@@ -133,7 +139,7 @@ class User < ActiveRecord::Base
     if object.is_a?(Client)
       client_admin?(object)
     elsif object.is_a?(Project)
-      clients_admin.map {|c| c.projects}.flatten.include?(object) || project_owner?(object)
+      clients_admin.include?(object.client) || project_owner?(object)
     else
       false
     end
