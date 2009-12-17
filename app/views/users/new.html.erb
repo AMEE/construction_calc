@@ -20,7 +20,7 @@
     <p>Initial access right:</p>
     <% f.fields_for :roles do |rf| %>
         
-        <p><%= rf.label :allowable_id, "Project" %>  <%= rf.select(:allowable_id, @client.projects_assignable_by(current_user).map{|p| [p.name, p.id]}) %></p>
+        <p><%= rf.label :allowable_id, "Project" %>  <%= rf.select(:allowable_id, @client.projects_assignable_by(current_user).map{|p| [p.name, p.id.to_s]}) %></p>
 
         <p><%= rf.label :role_type, "Access Level" %> <%= rf.select(:role_type, roles_user_can_assign(current_user)) %></p>
     <% end %>

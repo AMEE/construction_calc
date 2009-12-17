@@ -1,0 +1,8 @@
+<%= @project.name %> project created.  Choose a user to become the project owner (or add a <%= link_to("new user", new_user_path(:user => {:roles_attributes => {"0" => {:allowable_id => @project.id, :role_type => Role::Type::PROJECT_OWNER}}} )) %>):
+
+<% form_for :user, :url => user_roles_path(@users.first), :method => :post, :html => {:id => "project_owner_form"} do |f| %>
+    <%= select_tag("user_id", options_for_select(@users.map {|u| [u.login, u.id]}), :onchange => "udpateProjectOwnerFormAction();") %>
+    <%= hidden_field_tag("role[role_type]", Role::Type::PROJECT_OWNER) %>
+    <%= hidden_field_tag("role[allowable_id]", @project.id) %>
+    <%= f.submit("Assign user as project owner") %>
+<% end %>

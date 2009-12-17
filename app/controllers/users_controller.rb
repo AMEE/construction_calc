@@ -13,8 +13,8 @@ class UsersController < ApplicationController
   end
   
   def new
-    @user = User.new
-    @user.roles.build
+    @user = User.new(params[:user])
+    @user.roles.build unless params[:user] && params[:user][:roles_attributes]
   end
  
   def create
@@ -64,6 +64,7 @@ class UsersController < ApplicationController
     raise NotAllowed unless current_user.can_assign_project_to_client?(@client, params[:user][:roles_attributes]["0"])
   end
   
+  # We need to specify it's a project
   def user_and_role_params
     params[:user][:roles_attributes]["0"].merge!(:allowable_type => "Project")
     params[:user]

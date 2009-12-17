@@ -16,7 +16,20 @@ class RolesController < ApplicationController
   
   def create
     @role = @user.roles.new(params[:role].merge({:allowable_type => "Project"}))
-    @role.save ? render : render(:create_error)
+    if !@role.save
+      respond_to do |format|
+        format.html {redirect_to user_roles_path(@user)}
+        format.js {render}
+      end
+    else
+      respond_to do |format|
+        format.html {
+          flash.now[:error] = "Error assigning roles"
+          redirect_to user_roles_path(@user)
+        }
+        format.js {render(:create_error)}
+      end
+    end
   end
   
   def destroy

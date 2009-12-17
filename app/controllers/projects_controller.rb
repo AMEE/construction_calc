@@ -17,8 +17,8 @@ class ProjectsController < ApplicationController
     @project = Project.new(params[:project])
     @project.client = @client
     if @project.save
-      flash[:notice] = "Project created"
-      redirect_to projects_path
+      @users = @client.associated_users_readable_by(current_user)
+      render
     else
       render :new
     end

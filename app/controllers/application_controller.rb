@@ -32,10 +32,12 @@ class ApplicationController < ActionController::Base
   end
 end
 
-# TODO project validations
-# TODO once created project, need to add user
+# TODO *** chase data in amee as depending how done can hold up (mappings area) + client choose units ***
+# TODO improvements on paper from yesterdays session with James Smith
+# TODO project - start date, when start project or enter as field?
+# TODO on profile create add /metadata to profile with UK country (even though default)
+# TODO project limit 10 per client??
 # TODO requirements - reporting, calculations per floor area etc.  Do need?
-# TODO chase data in amee as depending how done can hold up (mappings area) + client choose units
 # TODO is way to have include out of models?
 # TODO create two in a minute - blows up like a volcano.  Can used named items apparently (speak to Paul)
 # TODO user.rb TODO items
