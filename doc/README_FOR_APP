@@ -15,6 +15,10 @@ Code notes
 
 Future work
 -----------
+- For types where extra fields are required (for example waste) the METHOD hash uses a name
+  inferred from the key name converted to a string and capitalised.  Whilst this works well
+  in this example, it is unsure whether this well for future additions.  A fuller solution
+  may need to be explored using an approach similar to TYPE
 - A user account isn't tied to a client but currently the only way to add a user to projects
   is to be associated with an existing client project.  Therefore we need a way to match
   user on email at create time (and if exists in system skip straight to user_roles page) or 

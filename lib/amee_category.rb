@@ -42,10 +42,6 @@ class AmeeCategory
     return nil
   end
   
-  def item_value_unit_name(amee_unit)
-    (item_value_name(amee_unit).to_s + "Unit").to_sym
-  end
-  
   private
   def item_value_units
     item_value_names.map{|t| AMEE_ITEM_VALUE_UNITS[t]}.flatten

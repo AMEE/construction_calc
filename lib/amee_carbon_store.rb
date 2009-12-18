@@ -59,12 +59,13 @@ module AmeeCarbonStore
       raise "Must be implemented in model"
     end
     
+    # Override this if the amount symbol isn't inferable from the units
     def amount_symbol
       amee_category.item_value_name(self.units)
     end
 
     def amount_unit_symbol
-      amee_category.item_value_unit_name(self.units)
+      (amount_symbol.to_s + "Unit").to_sym
     end
 
     private
@@ -99,6 +100,7 @@ module AmeeCarbonStore
       matches
     end
 
+    # override if not inferable from units
     def possible_amount_field_names
       amee_category.item_value_names
     end
@@ -122,7 +124,7 @@ module AmeeCarbonStore
     def create_amee_profile
       category = AMEE::Profile::Category.get(project.amee_connection, 
         "#{project.profile_path}#{amee_category.path}")
-      AMEE::Profile::Item.create(category, amee_data_category_uid, :name => self.name,
+      AMEE::Profile::Item.create(category, amee_data_category_uid, :name => self.name, 
         amount_symbol => self.amount, amount_unit_symbol => self.units, :get_item => true)
     end
 

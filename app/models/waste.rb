@@ -15,11 +15,6 @@ class Waste < ActiveRecord::Base
   #   - paint and adhesive -> ???
   #   - refrigerant gases -> ???
   #   - septic tank waste -> other organic
-  
-  # TODO how handle recycle, landfill?  
-  
-  # additional_options method in here that passes through (for now needs to set everything to 0)
-  # TODO guess need to change weight to something else as field names are different
   COLOUR = "#5694ED"
   TYPE = {
     :cardboard_and_paper => AmeeCategory.new("Cardboard and Paper", :weight, "/home/waste/lifecyclewaste", :wasteType => "paper and Card"),
@@ -42,12 +37,20 @@ class Waste < ActiveRecord::Base
     :septic_tank_waste => AmeeCategory.new("Septic Tank Waste", :weight, "/home/waste/lifecyclewaste", :wasteType => "other organic"),
     :glass => AmeeCategory.new("Glass", :weight, "/home/waste/lifecyclewaste", :wasteType => "glass")
   }
-  # METHOD = {
-  #   :landfill => ,
-  #   :recycle => 
-  # }
+  METHOD = {
+    :landfill => "quantityLandfill",
+    :recycle => "quantityClosedLoop"
+  }
   
   def amee_category
     TYPE[waste_type.to_sym]
+  end
+  
+  def amount_symbol
+    METHOD[waste_method.to_sym]
+  end
+  
+  def possible_amount_field_names
+    [METHOD[:landfill], METHOD[:recycle]]
   end
 end

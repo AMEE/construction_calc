@@ -4,7 +4,7 @@ module WasteHelper
   end
   
   def options_for_waste_method_select
-    Waste::
+    Waste::METHOD.map {|i| [i[0].to_s.capitalize, i[0].to_s]}
   end
   
   def waste_management_carbon_percentage(project)

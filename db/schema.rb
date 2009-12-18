@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091125112211) do
+ActiveRecord::Schema.define(:version => 20091218142732) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(:version => 20091125112211) do
     t.float    "carbon_output_cache"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "waste_method"
   end
 
   add_index "wastes", ["project_id"], :name => "index_wastes_on_project_id"
