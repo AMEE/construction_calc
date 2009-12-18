@@ -67,6 +67,7 @@ end
 # TODO is way to have include out of models?
 # TODO signup, password reset emails text
 # TODO write up wiki page
+# TODO email from local server
 # TODO setup amee info needed to run against production
 # TODO Also we need to check units everything specified in make sense (eg liquid petrol and gas measured in same?) [some hints in dynamic50 stories]
 # TODO front page needs to warn if no JS support in browser

@@ -12,7 +12,12 @@ set :deploy_to, "/var/www/apps/#{application}"
 
 # Deployment Tasks
 namespace :deploy do
-    
+  
+  task :default do
+    migrations
+    cleanup
+  end
+  
   desc "Symlink shared configs and folders on each release."
   task :symlink_shared do
     # amee.yml
@@ -25,7 +30,6 @@ namespace :deploy do
     run "rm -rf  #{current_path}/config/settings.yml"
     run "ln -nfs #{shared_path}/config/settings.yml #{release_path}/config/settings.yml"
   end
-
 end
 
 after 'deploy:update_code', 'deploy:symlink_shared'
