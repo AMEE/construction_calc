@@ -32,21 +32,24 @@ class ApplicationController < ActionController::Base
   end
 end
 
-# TODO go through and doc assumptions made in code
-#      for big email see Jamie's notes:
-#  for the refrigerant gases, assume volume of gas
-#  do split up cans and bottles please
-#  ditto with ferrous and non-ferrous metals
-#  i'll ask about the floor tiles
-
+# TODO unapproved assumptions: 
+#       - ceiling tiles split into metal and mineral fibre in materials
+#       - combined paper&card in waste
+#       - split out ferrous&non-ferrous metals in waste
+#       - split out cans and bottles in waste
+# TODO remove config/database.yml if dig hasn't already
 # TODO will have recycle/dispose option issue for waste.  Need to do whole of waste section in fact - could just pull out into controller
 #      + do create, update, delete, check AMEE stored data test as can't do for this atm.  Also column headings for index
 # TODO IE7 will need more work
 # TODO project - start date, when start project or enter as field?
 # TODO project limit 10 per client??
-# TODO amee gem version, json so faster
+# TODO material - in volume?
 # TODO create two in a minute - blows up like a volcano.  Can used named items apparently (speak to Paul)
 # TODO test and make sure going into AMEE correctly
+# TODO cronjob
+# TODO requirements - reporting, calculations per floor area etc.  Do need?  Don't think so but need pdf
+# TODO cap and cap-multistaging
+# TODO UAT - want assumptions sending to them?  Also have unapproved assumptions
 
 # TODO when new/edit for a type and it fails doesn't show form [can sort this somehow].  Also when creating new
 #      adds an item should show list.  Can do all this with JS somehow - eg on success render partial list
@@ -60,26 +63,19 @@ end
 # TODO on profile create add /metadata to profile with UK country (even though default)
 # TODO is way to have include out of models?
 # TODO signup, password reset emails text
+# TODO write up wiki page
 # TODO running against staging server still?  Will break materials if move ot prod?
-# TODO requirements - reporting, calculations per floor area etc.  Do need?  Don't think so but need pdf
-# TODO cap and cap-multistaging, cronjob for purging cache
+# TODO Also we need to check units everything specified in make sense (eg liquid petrol and gas measured in same?) [some hints in dynamic50 stories]
 # TODO front page needs to warn if no JS (can view but not create) - actually needed for all site
 # TODO test not-allowed 404s in prod
 # TODO write tests for access rights - see RolesControllerSpec for progress
 
 # - Assumptions on types
-#     What to use for freight train?  Said ralk regarding
+#     What to use for freight train?
 #     materials - ceiling tile data
-#               - copper went for upper bound
+#     looks like want volume for material.  Is that possible?
 #     waste mappings
-#       looks like want volume for material.  Is that possible?
-# - Also we need to check units everything specified in make sense (eg liquid petrol and gas measured in same?) [some hints in dynamic50 stories]
 
-
-# Had to cache carbon data for each item and purge at weekend when plenty of time
-# Can't cache by category as transport spans multiple classes = major fail
-# Other factors paging through results and manual ask for carbon value each time update or delete
-#
 # Leasons learnt:
 #  - AJAX can slow things up when time is tight
 #  - need to get client category to amee categories mapped out up front

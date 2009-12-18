@@ -7,11 +7,13 @@
     
     <% form_for [@project, @waste] do |f| %>
         <%= f.label :name, "Waste Name" %> <%= f.text_field :name, :class => "generic" %>
-        <%= f.label :waste_type, "Waste Mode" %> 
+        <%= f.label :waste_type, "Waste Type" %> 
         <% if @waste.new_record? %>
             <%= f.select :waste_type, options_for_waste_type_select, {}, :onchange => "updateUnits('waste');" %>
+            <%= f.select :waste_method, options_for_waste_method_select %>
         <% else %>
             <p><%= @waste.amee_category.name %></p>
+            <p><%= @waste. %></p>
         <% end %>
         <%= f.label :amount, "Weight" %> <%= f.text_field :amount, :class => "generic weight" %>
         <% if @waste.new_record? %>

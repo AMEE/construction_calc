@@ -12,6 +12,7 @@ Rails::Initializer.run do |config|
 
   # Specify gems that this application depends on and have them installed with rake gems:install
   config.gem 'mysql'
+  config.gem 'json'
   config.gem "amee", :version => "2.0.28"
   config.gem 'rubyist-aasm', :lib => 'aasm'
   

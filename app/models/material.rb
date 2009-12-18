@@ -5,6 +5,11 @@ class Material < ActiveRecord::Base
   include AmeeCarbonStore  
   has_carbon_data_stored_in_amee
   
+  # Assumptions on types:
+  #   - steel - uk typical makeup of new/recycled
+  #   - aluminium - uk typical makeup of new/recycled
+  #   - copper - maximum carbon output range
+  #   - ceiling tiles - ????
   COLOUR = "#9A5AAB"
   TYPE = {
     :timber => AmeeCategory.new("Timber", :weight, "/embodied/ice", :material => "timber", :type => "general"),
@@ -21,7 +26,8 @@ class Material < ActiveRecord::Base
     :mdf => AmeeCategory.new("MDF", :weight, "/embodied/ice", :material => "timber", :type => "MDF"),
     :particle_board => AmeeCategory.new("Chipboard", :weight, "/embodied/ice", :material => "timber", :type => "particle board"),
     :copper => AmeeCategory.new("Copper", :weight, "/embodied/ice", :material => "copper", :type => "general", :subtype => "maximum value"),
-    #:ceiling_tiles => ,
+    :mineral_fibre_ceiling_tiles => AmeeCategory.new("Mineral Fibre Ceiling Tiles", :weight, "/embodied/ice", :material => "insulation", :type => "mineral wool"),
+    :metal_ceiling_tiles => AmeeCategory.new("Metal Ceiling Tiles", :weight, "/embodied/ice", :material => "steel", :type => "sheet"),
     :ceramic_tiles => AmeeCategory.new("Ceramic Tiles", :weight, "/embodied/ice", :material => "ceramics", :type => "tile"),
     :marble_tiles => AmeeCategory.new("Marble Tiles", :weight, "/embodied/ice", :material => "stone", :type => "marble tile")
   }

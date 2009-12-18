@@ -2,7 +2,7 @@ Notes on the application
 ------------------------
 - Application needs javascript, user is warned on front page if they don't have it switched on
 - See lib/tasks/cronjobs for cronjobs that need to be setup along with this application
-- Before starting you need to create an admin user account (creat a user instance and do
+- Before starting you need to create an admin user account (create a user instance and do
   user.roles << Role.create(:role_type => Role::Type::SUPER_ADMIN) ).  This can then be used
   to create a client admin through the /users page.
 - At the moment there's no interface for creating clients so this must be done manually
