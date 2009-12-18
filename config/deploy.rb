@@ -24,12 +24,6 @@ namespace :deploy do
     # settings.yml
     run "rm -rf  #{current_path}/config/settings.yml"
     run "ln -nfs #{shared_path}/config/settings.yml #{release_path}/config/settings.yml"
-    # Logs
-    run "rm -rf  #{current_path}/log"
-    run "ln -nfs #{shared_path}/log #{release_path}/log"
-    # Tmp
-    run "rm -rf  #{current_path}/tmp"
-    run "ln -nfs #{shared_path}/tmp #{release_path}/tmp"
   end
 
 end
