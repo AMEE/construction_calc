@@ -8,11 +8,13 @@
     <% form_for [@project, @energy_consumption] do |f| %>
         <%= f.label :name, "Energy Consumption Name" %> <%= f.text_field :name, :class => "generic" %>
         <%= f.label :energy_consumption_type, "Energy Consumption Type" %> 
+        <div class="single-row">
         <% if @energy_consumption.new_record? %>
             <%= f.select :energy_consumption_type, options_for_energy_consumption_type_select, {}, :onchange => "updateUnits('energy_consumption');" %>
         <% else %>
             <p><%= @energy_consumption.amee_category.name %></p>
         <% end %>
+        </div>
         <%= f.label :amount, "Amount" %> <%= f.text_field :amount, :class => "generic amount" %>
         <% if @energy_consumption.new_record? %>
             <%= f.select :units, ["(fetching)"] %>

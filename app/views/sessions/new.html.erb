@@ -2,5 +2,5 @@
     <div class="labelfield"><div class="label"><%= label_tag 'login' %></div><div class="field"><%= text_field_tag 'login', @login %></div></div>
     <div class="labelfield"><div class="label"><%= label_tag 'password' %></div><div class="field"><%= password_field_tag 'password', nil %></div></div>
     <div class="labelfield"><%= label_tag 'remember_me', 'Remember me' %> <%= check_box_tag 'remember_me', '1', @remember_me %></div>
-    <div class="submit"><%= submit_tag 'Log in' %></div>
+    <div class="labelfield"><div class="submit"><%= submit_tag 'Log in' %></div></div>
 <% end -%>

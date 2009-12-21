@@ -2,5 +2,7 @@
 
 <% form_for @project, :html => {:class => "project-form"} do |form| %>
     <%= render :partial => "form", :locals => {:form => form} %>
-    <div class="submit"><%= form.submit "Update Project" %></div>
+    <div class="labelfield">
+        <div class="submit"><%= form.submit "Update Project" %></div>
+    </div>
 <% end %>

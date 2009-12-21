@@ -8,11 +8,13 @@
     <% form_for [@project, @delivery] do |f| %>
         <%= f.label :name, "Delivery Name" %> <%= f.text_field :name, :class => "generic" %>
         <%= f.label :delivery_type, "Delivery Mode" %> 
+        <div class="single-row">
         <% if @delivery.new_record? %>
             <%= f.select :delivery_type, options_for_delivery_type_select, {}, :onchange => "updateUnits('delivery');" %>
         <% else %>
             <p><%= @delivery.amee_category.name %></p>
         <% end %>
+        </div>
         <%= f.label :amount, "Distance Travelled" %> <%= f.text_field :amount, :class => "generic distance" %>
         <% if @delivery.new_record? %>
             <%= f.select :units, ["(fetching)"] %>

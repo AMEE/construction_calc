@@ -15,7 +15,6 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	outline: 0;
 	font-size: 100%;
     vertical-align: baseline;
-	background: transparent;
 }
 body {
     line-height: 1;
@@ -414,6 +413,10 @@ td.middle {
             padding: 4px;
             margin: 15px 0 5px 0;
         }
+        
+        .types .content-container div.single-row {
+            width: 100%;
+        }
     
         .types .content-container input.generic {
             border: 1px solid #dedede;
@@ -481,12 +484,14 @@ td.middle {
     margin-top: 20px;
     float:left;
     clear: both;
+    width: 100%;
 }
 
 .labelfield {
     float: left;
     clear: left;
     margin: 5px 0;
+    width: 100%;
 }
 
     .labelfield .label {
@@ -518,7 +523,7 @@ td.middle {
 
 .login-form {
     border: 3px solid #aaa;
-    width: 230px;
+    width: 250px;
     padding: 5px;
     float: left;
     margin: 0 345px;
@@ -526,7 +531,7 @@ td.middle {
 
 .project-form {
     border: 3px solid #aaa;
-    width: 350px;
+    width: 375px;
     padding: 5px;
     float: left;
     margin: 0 285px;

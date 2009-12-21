@@ -7,12 +7,14 @@
     
     <% form_for [@project, @commute] do |f| %>
         <%= f.label :name, "Commute Name" %> <%= f.text_field :name, :class => "generic" %>
-        <%= f.label :commute_type, "Transport Mode" %> 
+        <%= f.label :commute_type, "Transport Mode" %>
+        <div class="single-row">
         <% if @commute.new_record? %>
             <%= f.select :commute_type, options_for_commute_type_select, {}, :onchange => "updateUnits('commute');" %>
         <% else %>
             <p><%= @commute.amee_category.name %></p>
         <% end %>
+        </div>
         <%= f.label :amount, "Distance Travelled" %> <%= f.text_field :amount, :class => "generic distance" %>
         <% if @commute.new_record? %>
             <%= f.select :units, ["(fetching)"] %>

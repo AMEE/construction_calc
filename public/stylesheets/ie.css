@@ -1,0 +1,51 @@
+body {
+    text-align: center;
+}
+
+div.wrapper {
+    text-align: left;
+    width: 960px;
+}
+
+.chart .no-chart-message {
+    padding-bottom: 50px;
+}
+
+#types-content-area {
+    text-align: center;
+}
+
+#content {
+    text-align: left;
+}
+
+.types .content-container .delete-button {
+    text-transform: capitalize;
+}
+
+.types .container .name {
+   height: 14px;
+}
+
+.types .content-container table tr td {
+    border-bottom: 1px solid #aaaaaa;
+}
+
+.types .content-container select {
+    margin-top: 0;
+}
+
+.types .content-container input.generic {
+    width: 392px;
+}
+
+/* These have to be redefined, even though the values are the same, as the above is redefined */
+.types .content-container input.distance {
+    width: 60px;
+}
+.types .content-container input.weight {
+    width: 60px;
+}
+.types .content-container input.amount {
+    width: 60px;
+}

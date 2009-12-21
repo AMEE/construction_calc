@@ -38,26 +38,26 @@ end
 #       - split out ferrous&non-ferrous metals in waste
 #       - split out cans and bottles in waste
 # TODO have possible... - good idea?  Note on method if ok to override.  Also is better way to do this?
-# TODO go through digs docs
+
+# TODO jamie -> no volume for material, deploy IE7 work
+# TODO creating energy in gallons doesn't work
 
 # TODO *****remaining assumptions email*****
-# TODO IE7 will need more work
+# TODO test and make sure going into AMEE correctly + available units + edit, delete correctly [done waste]
 # TODO project - start date, when start project or enter as field?
 # TODO project limit 10 per client??
-# TODO creating energy in gallons doesn't work
-# TODO material - want specify in volume?
-# TODO test and make sure going into AMEE correctly + available unites + edit, delete correctly [done waste]
 # TODO create two in a minute - blows up like a volcano.  Can used named items apparently (speak to Paul)
 # TODO cronjob
 # TODO test not-allowed 404s in staging
+# TODO powered by amee logo
 # TODO reporting pdf
-# TODO notes from readme to wiki and reference there?
+# TODO go through digs doc and check.  Add notes from readme to wiki and reference there?
 # TODO UAT - want assumptions sending to them?  Also have unapproved assumptions
+# TODO 404, 500 pages esp with permission denied
 
-# TODO password reset, roles, users screens
+# TODO password reset, roles, users screens - IE7/8 test
 # TODO when new/edit for a type and it fails doesn't show form [can sort this somehow].  Also when creating new
 #      adds an item should show list.  Can do all this with JS somehow - eg on success render partial list
-# TODO powered by amee logo
 # TODO 100% height causing a problem when ajax expands to be greater than window height
 # TODO edit, delete buttons have spacing on table index
 # TODO destroy project
