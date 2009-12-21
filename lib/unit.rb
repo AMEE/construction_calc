@@ -7,7 +7,7 @@ class Unit
     :tonnes => "tonnes",
     :kwh => "kWh",
     :litres => "litres",
-    :uk_gallons => "UK Gallons",
+    :uk_gallons => "UK Gallons"
   }
 
   AMEE_API_UNITS = {

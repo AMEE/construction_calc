@@ -127,12 +127,12 @@ class User < ActiveRecord::Base
   
   def can_read?(object)
     if can_write?(object)
-      return true
+      true
     elsif object.is_a?(Project)
       project_reader?(object)
+    else
+      false
     end
-    
-    return false
   end
 
   def can_write?(object)
