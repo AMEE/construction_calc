@@ -39,9 +39,6 @@ end
 #       - split out cans and bottles in waste
 # TODO have possible... - good idea?  Note on method if ok to override.  Also is better way to do this?
 
-# TODO jamie -> no volume for material, deploy IE7 work
-# TODO creating energy in gallons doesn't work -> never supported!
-
 # TODO *****remaining assumptions email*****
 # TODO test and make sure going into AMEE correctly + available units + edit, delete correctly [done waste]
 # TODO project - start date, when start project or enter as field?
