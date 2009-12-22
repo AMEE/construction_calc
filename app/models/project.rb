@@ -11,7 +11,11 @@ class Project < ActiveRecord::Base
   has_many :energy_consumptions
   has_many :wastes
   
+  before_create :check_client_project_limit
+  
   has_amee_profile
+  
+  DATE_FORMAT = "%d/%m/%Y"
   
   def profile_path
     "/profiles/#{amee_profile}"
@@ -41,6 +45,15 @@ class Project < ActiveRecord::Base
     commutes_carbon + deliveries_carbon + materials_carbon + energy_consumption_carbon + waste_management_carbon
   end
   
+  def start_date
+    date = read_attribute(:start_date) || Date.today
+    date.strftime(DATE_FORMAT)
+  end
+  
+  def start_date=(date_string)
+    write_attribute(:start_date, Date.strptime(date_string, DATE_FORMAT))
+  end
+  
   def google_chart_image
     # TODO add names to class as well?  Currently class doesn't match
     # TODO tidy up google url line
@@ -55,5 +68,12 @@ class Project < ActiveRecord::Base
       percents << (100 * type.map {|i| i.carbon_output_cache}.sum) / total_carbon.to_f
     end
     percents
+  end
+  
+  def check_client_project_limit
+    if client.projects.size >= Client::PROJECT_LIMIT
+      errors.add_to_base "You are limited to #{Client::PROJECT_LIMIT} projects"
+      return false
+    end
   end
 end

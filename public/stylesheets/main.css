@@ -485,7 +485,12 @@ td.middle {
     float:left;
     clear: both;
     width: 100%;
+    border-top: 1px solid #aaaaaa;
 }
+
+    .footer .amee-logo {
+        margin-top: 5px;
+    }
 
 .labelfield {
     float: left;
@@ -509,6 +514,7 @@ td.middle {
 
         .labelfield .field input {
             font-size: 14px;
+            width: 175px;
         }
 
 .submit {
@@ -531,10 +537,10 @@ td.middle {
 
 .project-form {
     border: 3px solid #aaa;
-    width: 375px;
+    width: 300px;
     padding: 5px;
     float: left;
-    margin: 0 285px;
+    margin: 0 320px;
 }
 
     .project-form .labelfield .label {

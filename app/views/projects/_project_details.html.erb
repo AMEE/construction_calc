@@ -1,0 +1,20 @@
+<div class="project-info">
+    <h3><%= project.name %></h3>
+    <div class="item"><div class="label">Number: </div><div class="value"><%= project.number %></div></div>
+    <div class="item"><div class="label">Value: </div><div class="value">£<%= project.value %></div></div>
+    <div class="item"><div class="label">Floor Area: </div><div class="value"><%= project.floor_area %>sq.&nbsp;m</div></div>
+    <div class="item"><div class="label">Start Date: </div><div class="value"><%= project.start_date %></div></div>
+    <div class="item">
+        <% if current_user.admin? || current_user.client_admin?(@client) %>
+            <div class="adminlinks">
+                <%= link_to("Edit project", edit_project_path(project)) %> |
+                <%= link_to("New project", new_project_path) %>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+<div class="co2-output">
+    <p class="label">Total CO&sup2; output:</p>
+    <p class="amount"> <%= @project.total_carbon.to_i %> kg</p>
+</div>

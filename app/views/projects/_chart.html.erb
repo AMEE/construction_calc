@@ -1,0 +1,11 @@
+<div class="chart">
+    <% if project.total_carbon == 0 %>
+        <div class="no-chart-message">
+            <h4>No pie chart available</h4>
+            <p class="summary">You have not entered any carbon tracking data</p>
+            <p>In order to see a pie chart of carbon distribution you need to add carbon tracking data.  This can be done by clicking the 'Add' link under the appropriate category below.</p>
+        </div>
+    <% else %>
+        <%= image_tag(project.google_chart_image) %>
+    <% end %>
+</div>

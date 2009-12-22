@@ -2,3 +2,21 @@
 <div class="labelfield"><div class="label"><%= form.label :number %></div><div class="field"><%= form.text_field :number %></div></div>
 <div class="labelfield"><div class="label"><%= form.label :value %></div><div class="field"><%= form.text_field :value %></div></div>
 <div class="labelfield"><div class="label"><%= form.label :floor_area %></div><div class="field"><%= form.text_field :floor_area %>&nbsp;sq.&nbsp;m</div></div>
+<div class="labelfield"><div class="label"><%= form.label :start_date %></div><div class="field"><%= text_field_tag("project[start_date]", @project.start_date) %></div></div>
+
+<% content_for :jquery_onload do %>
+    $('#project_start_date').DatePicker({
+    	format:'d/m/Y',
+    	date: $('#project_start_date').val(),
+    	current: $('#project_start_date').val(),
+    	starts: 1,
+    	position: 'r',
+    	onBeforeShow: function(){
+    		$('#project_start_date').DatePickerSetDate($('#project_start_date').val(), true);
+    	},
+    	onChange: function(formated, dates){
+    		$('#project_start_date').val(formated);
+    		$('#project_start_date').DatePickerHide();
+    	}
+    });
+<% end %>

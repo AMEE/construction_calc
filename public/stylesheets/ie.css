@@ -49,3 +49,20 @@ div.wrapper {
 .types .content-container input.amount {
     width: 60px;
 }
+
+.labelfield .field input {
+    width: 150px;
+}
+
+/* Date picker overrides */
+div.datepicker {
+	height: 135px;
+}
+
+.datepickerBorderT, .datepickerBorderB {
+    width: 160px;
+}
+
+.datepickerBorderL, .datepickerBorderR {
+	height: 136px;
+}

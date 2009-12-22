@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091218142732) do
+ActiveRecord::Schema.define(:version => 20091221163455) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20091218142732) do
     t.string   "amee_profile"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "start_date"
   end
 
   add_index "projects", ["client_id"], :name => "index_projects_on_client_id"

@@ -10,6 +10,8 @@ class Client < ActiveRecord::Base
     end
   end
   
+  PROJECT_LIMIT = 10
+  
   def associated_users_readable_by(viewing_user)
     if viewing_user.admin? || viewing_user.client_admin?(self)
       (associated_client_admins + associated_projects_users).uniq

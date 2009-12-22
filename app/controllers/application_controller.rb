@@ -40,35 +40,30 @@ end
 # TODO have possible... - good idea?  Note on method if ok to override.  Also is better way to do this?
 
 # TODO *****remaining assumptions email*****
-# TODO test and make sure going into AMEE correctly + available units + edit, delete correctly [done waste]
-# TODO project - start date, when start project or enter as field?
-# TODO project limit 10 per client??
-# TODO create two in a minute - blows up like a volcano.  Can used named items apparently (speak to Paul)
+# TODO deploy - setup default project dates, check ned to enter number for floor area
 # TODO cronjob
-# TODO test not-allowed 404s in staging
-# TODO powered by amee logo
-# TODO reporting pdf
+# TODO change units first it goes back to default if then change waste type option
+# TODO 100% height causing a problem when ajax expands to be greater than window height
 # TODO go through digs doc and check.  Add notes from readme to wiki and reference there?
+# TODO create two in a minute - blows up like a volcano.  Can used named items apparently (speak to Paul) or just have limitation on site
+# TODO reporting pdf
 # TODO UAT - want assumptions sending to them?  Also have unapproved assumptions
-# TODO 404, 500 pages esp with permission denied
 
 # TODO password reset, roles, users screens - IE7/8 test
 # TODO when new/edit for a type and it fails doesn't show form [can sort this somehow].  Also when creating new
 #      adds an item should show list.  Can do all this with JS somehow - eg on success render partial list
-# TODO 100% height causing a problem when ajax expands to be greater than window height
 # TODO edit, delete buttons have spacing on table index
 # TODO destroy project
-# TODO change units first it goes back to default if then change waste type option
-# TODO pull out main UI page into partials
+# TODO project#google_chart_image tidy up
 # TODO on profile create add /metadata to profile with UK country (even though default)
 # TODO is way to have include out of models?
+# TODO calendar got white bit on bottom in IE.  Demo on their site works fine though
 # TODO signup, password reset emails text
 # TODO write up wiki page
-# TODO email from local server
-# TODO setup amee info needed to run against production
+# TODO email from local server - seems to work but should check how it's working
+# TODO setup amee.yml info needed to run against production
 # TODO Also we need to check units everything specified in make sense (eg liquid petrol and gas measured in same?) [some hints in dynamic50 stories]
 # TODO front page needs to warn if no JS support in browser
-# TODO server setup
 # TODO write tests for access rights - see RolesControllerSpec for progress
 
 # - Assumptions on types
