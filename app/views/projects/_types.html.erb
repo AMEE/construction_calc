@@ -2,27 +2,27 @@
     <div class="first container deliveries" id="delivery-type">
         <div class="name">Deliveries</div>
         <div class="percentage deliveries-background"><p><%= delivery_carbon_percentage(project) %>%</p></div>
-        <div class="links"><%= link_to_remote("Add", :url => new_project_delivery_path(project), :method => :get, :html => {:class => "add deliveries delivery-add"}) %> <%= link_to_remote("List", :url => project_deliveries_path(project), :method => :get, :html => {:class => "list deliveries delivery-list"}) %></div>
+        <div class="links"><%= link_to_remote("Add", :url => new_project_delivery_path(project), :method => :get, :html => {:class => "add deliveries delivery-add"}) if current_user.can_write?(@project) %> <%= link_to_remote("List", :url => project_deliveries_path(project), :method => :get, :html => {:class => "list deliveries delivery-list"}) %></div>
     </div>
     <div class="container materials" id="material-type">
         <div class="name">Materials</div>
         <div class="percentage materials-background"><p><%= materials_carbon_percentage(project) %>%</p></div>
-        <div class="links"><%= link_to_remote("Add", :url => new_project_material_path(project), :method => :get, :html => {:class => "add materials material-add"}) %> <%= link_to_remote("List", :url => project_materials_path(project), :method => :get, :html => {:class => "list materials material-list"}) %></div>
+        <div class="links"><%= link_to_remote("Add", :url => new_project_material_path(project), :method => :get, :html => {:class => "add materials material-add"}) if current_user.can_write?(@project) %> <%= link_to_remote("List", :url => project_materials_path(project), :method => :get, :html => {:class => "list materials material-list"}) %></div>
     </div>
     <div class="container waste" id="waste-type">
         <div class="name">Waste Management</div>
         <div class="percentage waste-background"><p><%= waste_management_carbon_percentage(project) %>%</p></div>
-        <div class="links"><%= link_to_remote("Add", :url => new_project_waste_path(project), :method => :get, :html => {:class => "add waste waste-add"}) %> <%= link_to_remote("List", :url => project_wastes_path(project), :method => :get, :html => {:class => "list waste waste-list"}) %></div>
+        <div class="links"><%= link_to_remote("Add", :url => new_project_waste_path(project), :method => :get, :html => {:class => "add waste waste-add"}) if current_user.can_write?(@project) %> <%= link_to_remote("List", :url => project_wastes_path(project), :method => :get, :html => {:class => "list waste waste-list"}) %></div>
     </div>
     <div class="container energy" id="energy-type">
         <div class="name">Energy Consumption</div>
         <div class="percentage energy-background"><p><%= energy_consumption_carbon_percentage(project) %>%</p></div>
-        <div class="links"><%= link_to_remote("Add", :url => new_project_energy_consumption_path(project), :method => :get, :html => {:class => "add energy energy-add"}) %> <%= link_to_remote("List", :url => project_energy_consumptions_path(project), :method => :get, :html => {:class => "list energy energy-list"}) %></div>
+        <div class="links"><%= link_to_remote("Add", :url => new_project_energy_consumption_path(project), :method => :get, :html => {:class => "add energy energy-add"}) if current_user.can_write?(@project) %> <%= link_to_remote("List", :url => project_energy_consumptions_path(project), :method => :get, :html => {:class => "list energy energy-list"}) %></div>
     </div>
     <div class="last container commuting" id="commute-type">
         <div class="name">Commuting</div>
         <div class="percentage commuting-background"><p><%= commutes_carbon_percentage(project) %>%</p></div>
-        <div class="links"><%= link_to_remote("Add", :url => new_project_commute_path(project), :method => :get, :html => {:class => "add commuting commute-add"}) %> <%= link_to_remote("List", :url => project_commutes_path(project), :method => :get, :html => {:class => "list commuting commute-list"}) %></div>
+        <div class="links"><%= link_to_remote("Add", :url => new_project_commute_path(project), :method => :get, :html => {:class => "add commuting commute-add"}) if current_user.can_write?(@project) %> <%= link_to_remote("List", :url => project_commutes_path(project), :method => :get, :html => {:class => "list commuting commute-list"}) %></div>
     </div>
     <div id="types-content-area" class="content-container"></div>
 </div>

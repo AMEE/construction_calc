@@ -22,7 +22,7 @@
             </div>
             <%= flash_and_model_messages unless @no_flash_messages %>
             <%= yield %>
-            <div class="footer"><%= image_tag("amee.png", :class => "amee-logo") %></div>
+            <div class="footer"><%= link_to(image_tag("amee.png", :class => "amee-logo"), "http://www.amee.com") %></div>
             <script type="text/javascript" charset="utf-8">
                $(document).ready(function(){
                    <%= yield :jquery_onload %>

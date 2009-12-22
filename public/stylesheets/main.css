@@ -285,12 +285,12 @@ td.middle {
             
             .types .container .links a.add {
                 padding: 3px 0 0 20px;
-                margin: 0 0 0 5px;
+                margin: 0 23px 0 5px;
             }
             
             .types .container .links a.list {
                 padding: 3px 0 0 20px; 
-                margin: 0 0 0 23px;
+                margin: 0 0 0 0;
             }
             
             .types .container .links a.delivery-add {

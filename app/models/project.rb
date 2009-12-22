@@ -2,6 +2,7 @@ class Project < ActiveRecord::Base
   
   validates_uniqueness_of :name, :scope => :client_id
   validates_numericality_of :floor_area
+  validates_numericality_of :value
   
   belongs_to :client
   has_many :roles, :as => :allowable, :dependent => :destroy

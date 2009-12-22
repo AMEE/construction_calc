@@ -40,7 +40,7 @@ end
 # TODO have possible... - good idea?  Note on method if ok to override.  Also is better way to do this?
 
 # TODO *****remaining assumptions email*****
-# TODO deploy - setup default project dates, check ned to enter number for floor area
+# TODO deploy - setup default project dates, check value is a number, check need to enter number for floor area
 # TODO cronjob
 # TODO change units first it goes back to default if then change waste type option
 # TODO 100% height causing a problem when ajax expands to be greater than window height
