@@ -1,14 +1,6 @@
-Notes on the application
-------------------------
-- Application needs javascript, user is warned on front page if they don't have it switched on
-- See lib/tasks/cronjobs for cronjobs that need to be setup along with this application
-- Before starting you need to create an admin user account:
-  User.create(:login => "", :email => "", :name => "", :password => "", :password_confirmation => "")
-  User.first.register!
-  User.first.activate!
-  User.first.roles << Role.create(:role_type => Role::Type::SUPER_ADMIN)
-  You can then login and create a project and assign users to it
-- At the moment there's no interface for creating clients so this must be done manually
+Initial Setup
+-------------
+Please see wiki article: https://sites.google.com/a/amee.cc/knowledge-base/home/overbury/initial-setup
 
 Code notes
 ----------

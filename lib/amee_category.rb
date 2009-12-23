@@ -13,7 +13,7 @@ class AmeeCategory
     :distance => [Unit.km, Unit.miles],
     :mass => [Unit.kg, Unit.tonnes],
     :energyConsumption => [Unit.kwh],
-    :volumePerTime => [Unit.litres]#, Unit.uk_gallons] 
+    :volumePerTime => [Unit.litres],
   }
   
   def initialize(name, type, profile_category_path, path_options = {}, *args)

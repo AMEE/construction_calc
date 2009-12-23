@@ -25,15 +25,14 @@ class Waste < ActiveRecord::Base
     :non_ferrous_metals => AmeeCategory.new("Non-ferrous metals", :weight, "/home/waste/lifecyclewaste", :wasteType => "non-ferrous metal"),
     :plasterboard => AmeeCategory.new("Plasterboard", :weight, "/home/waste/lifecyclewaste", :wasteType => "other waste"),
     :plastics => AmeeCategory.new("Plastics", :weight, "/home/waste/lifecyclewaste", :wasteType => "plastic (dense)"),
-    # :raised_access_floor_tiles => ,
+    :raised_access_floor_tiles => AmeeCategory.new("Raised Access Floor Tiles", :weight, "/home/waste/lifecyclewaste", :wasteType => "other waste"),
     :wood => AmeeCategory.new("Wood", :weight, "/home/waste/lifecyclewaste", :wasteType => "wood"),
     :cans => AmeeCategory.new("Cans", :weight, "/home/waste/lifecyclewaste", :wasteType => "non-ferrous metal"),
     :plastic_bottles => AmeeCategory.new("Plastics", :weight, "/home/waste/lifecyclewaste", :wasteType => "plastic (dense)"),
     :asbestos => AmeeCategory.new("Asbestos", :weight, "/home/waste/lifecyclewaste", :wasteType => "other waste"),
-    # :fluorescent_tubes => ,
-    # :paint_and_adhesive => ,
-    # TODO volumen needed for gases?
-    # :refrigerant_gases => AmeeCategory.new("Refrigerant Gases", :volume, "/planet/greenhousegases/gwp", :wasteType => ""),
+    :fluorescent_tubes => AmeeCategory.new("Fluorescent Tubes", :weight, "/home/waste/lifecyclewaste", :wasteType => "other waste"),
+    :paint_and_adhesive => AmeeCategory.new("Paint and Adhesives", :weight, "/home/waste/lifecyclewaste", :wasteType => "other waste"),
+    :refrigerant_gases => AmeeCategory.new("Refrigerant Gases", :weight, "/planet/greenhousegases/gwp", :gas => "HFC-134a"),
     :septic_tank_waste => AmeeCategory.new("Septic Tank Waste", :weight, "/home/waste/lifecyclewaste", :wasteType => "other organic"),
     :glass => AmeeCategory.new("Glass", :weight, "/home/waste/lifecyclewaste", :wasteType => "glass")
   }
@@ -47,10 +46,18 @@ class Waste < ActiveRecord::Base
   end
   
   def amount_symbol
-    METHOD[waste_method.to_sym]
+    if waste_type.to_sym == :refrigerant_gases
+      "emissionRate"
+    else
+      METHOD[waste_method.to_sym]
+    end
   end
   
   def possible_amount_field_names
-    [METHOD[:landfill], METHOD[:recycle]]
+    if waste_type.to_sym == :refrigerant_gases
+      ["emissionRate"]
+    else
+      [METHOD[:landfill], METHOD[:recycle]]
+    end
   end
 end

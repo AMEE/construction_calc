@@ -10,10 +10,14 @@
         <%= f.label :waste_type, "Waste Type" %> 
         <div class="single-row">
         <% if @waste.new_record? %>
-            <%= f.select :waste_type, options_for_waste_type_select, {}, :onchange => "updateUnits('waste');" %>
+            <%= f.select :waste_type, options_for_waste_type_select, {}, :onchange => "updateUnits('waste');adjustWasteDisposeMethod();" %>
             <p>&nbsp;in&nbsp;</p> <%= f.select :waste_method, options_for_waste_method_select %>
         <% else %>
-            <p><%= @waste.amee_category.name %> in <%= @waste.waste_method.capitalize %></p>
+            <% if @waste.waste_method.blank? %>
+                <p><%= @waste.amee_category.name %></p>
+            <% else %>
+                <p><%= @waste.amee_category.name %> in <%= @waste.waste_method.capitalize %></p>
+            <% end %>
         <% end %>
         </div>
         <%= f.label :amount, "Weight" %> <%= f.text_field :amount, :class => "generic weight" %>
