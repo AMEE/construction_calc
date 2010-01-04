@@ -380,7 +380,7 @@ td.middle {
                 padding: 3px;
             }
         
-        .types .content-container .delete-button {
+        .types .content-container .delete-button, .users-container .delete-button, .edit-access-rights .delete-button {
             background: url('../images/delete-button.png') no-repeat top left;
             border: none;
             text-indent: -9999px;
@@ -498,6 +498,10 @@ td.middle {
     margin: 5px 0;
     width: 100%;
 }
+    .formintro {
+        font-size: 13px;
+        margin-top: 0;
+    }
 
     .labelfield .label {
         font-size: 14px;
@@ -532,7 +536,7 @@ td.middle {
     width: 250px;
     padding: 5px;
     float: left;
-    margin: 0 345px;
+    margin: 0 335px;
 }
 
 .project-form {
@@ -540,19 +544,151 @@ td.middle {
     width: 300px;
     padding: 5px;
     float: left;
-    margin: 0 320px;
+    margin: 0 310px;
 }
 
     .project-form .labelfield .label {
         width: 80px;
     }
-    
+
+.profile-form {
+    border: 3px solid #aaa;
+    width: 310px;
+    padding: 5px;
+    float: left;
+    margin: 0 305px;
+}
+
+    .profile-form .labelfield .label {
+        width: 130px;
+    }
+
 .created-project-form {
     border: 3px solid #aaa;
     width: 650px;
     padding: 5px;
     float: left;
     font-size: 14px;
+}
+
+.user-form {
+    border: 3px solid #aaa;
+    width: 330px;
+    padding: 5px;
+    float: left;
+    margin: 0 295px; 
+}
+
+    .user-form .labelfield .label {
+        width: 150px;
+    }
+    
+    .uneditable {
+        font-size: 14px;
+        padding: 2px 0;
+    }
+    
+    .access-rights-intro {
+        margin-top: 5px;
+        padding-top: 5px;
+        border-top: 1px solid #aaa;
+        font-size: 14px;
+        line-height: 16px;
+    }
+    
+    .edit-access-rights {
+        margin: 8px 0 0 5px;
+    }
+    
+    .edit-access-rights table {
+    }
+    
+    .edit-access-rights table tr {
+        color: #444;
+        border-bottom: 1px solid #aaaaaa;
+    }
+    
+    .edit-access-rights table td {
+        padding: 3px;
+        vertical-align: middle;
+    }
+
+    .edit-access-rights table tr.list-header {
+        font-size: 14px;
+        border-top: 1px solid #aaaaaa;
+    }
+    
+    .edit-access-rights table tr.list-header td {
+        padding: 3px;
+    }
+    
+    a.add-right-link {
+        text-decoration: none;
+        color: #666;
+        font-size: 13px;
+        background: url('../images/user-add.png') no-repeat top left;
+        padding: 3px 0 3px 20px;
+        display: block;
+        margin: 8px 0 0 5px;
+    }
+    
+    a.add-right-link:hover {
+        text-decoration: underline;
+    }
+
+.edit-user-roles {
+    width: 350px;
+    margin: 0 285px;
+}
+
+.add-right-form {
+    margin: 10px 0 2px 0;
+}
+
+    .add-right-form .field {
+        display: inline;
+        margin-right: 3px;
+    }
+
+a.add-user-link {
+    text-decoration: none;
+    color: #666;
+    font-size: 13px;
+    background: url('../images/user-add.png') no-repeat top left;
+    padding: 3px 0 3px 20px;
+    display: block;
+}
+
+a.add-user-link:hover {
+    text-decoration: underline;
+}
+
+.users-container table {
+    width: 600px;
+    margin: 5px 0 0 10px;
+}
+
+    .users-container table tr {
+       border-bottom: 1px solid #aaaaaa;
+    }
+
+    .users-container table td {
+        padding: 3px;
+        vertical-align: middle;
+    }
+
+    .users-container table tr.list-header {
+        border: none;
+        font-size: 14px;
+        color: #ffffff;
+    }
+    
+    .users-container table tr.list-header td {
+        padding: 3px;
+    }
+
+.add-user-link {
+    margin: 10px 0 0 10px;
 }
 
 /* Colour taken from the type classes */
@@ -620,4 +756,7 @@ td.middle {
 }
 .commuting-background {
     background-color: #86CE66;
+}
+.users-background {
+    background-color: #AAA;
 }

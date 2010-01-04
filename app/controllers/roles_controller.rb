@@ -16,7 +16,7 @@ class RolesController < ApplicationController
   
   def create
     @role = @user.roles.new(params[:role].merge({:allowable_type => "Project"}))
-    if !@role.save
+    if @role.save
       respond_to do |format|
         format.html {redirect_to user_roles_path(@user)}
         format.js {render}

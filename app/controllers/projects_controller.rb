@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
   before_filter :login_required
   before_filter :find_project, :only => [:show]
   before_filter :ensure_project_readable_by_user, :only => [:show]
-  before_filter :admin_or_client_admin_required, :only => [:new, :create, :edit, :update]
+  before_filter :admin_or_client_admin_required, :only => [:new, :create, :edit, :update, :destroy]
   
   # def index
   #   @projects = @client.projects.readable_by_user(current_user)
@@ -39,6 +39,13 @@ class ProjectsController < ApplicationController
     else
       render :edit
     end
+  end
+  
+  def destroy
+    @project = @client.projects.find(params[:id])
+    @project.destroy
+    flash[:notice] = "Project deleted"
+    redirect_to root_path
   end
   
   private

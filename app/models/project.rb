@@ -56,8 +56,6 @@ class Project < ActiveRecord::Base
   end
   
   def google_chart_image
-    # TODO add names to class as well?  Currently class doesn't match
-    # TODO tidy up google url line
     classes = [Commute, Delivery, Material, EnergyConsumption, Waste]
     "http://chart.apis.google.com/chart?cht=p3&chd=t:#{type_percents.join(',')}&chl=#{classes.map{|c| c.to_s.underscore.humanize}.join('|')}&chs=530x200&chco=#{classes.map {|c| c::COLOUR[1,6]}.join(',')}"
   end

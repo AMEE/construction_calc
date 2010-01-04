@@ -1,15 +1,5 @@
-<h1>Forgot Your Password?</h1>
-
-<% form_for(@password) do |f| %>
-  <%= f.error_messages %>
-
-  <p>Enter your email address and we'll send you a link to reset your password.</p>
-
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.submit "Submit" %>
-  </p>
+<% form_for @password, :html => {:class => "login-form"} do |f| %> 
+    <div class="labelfield formintro">Enter your email address and we'll send you a link to reset your password</div>
+    <div class="labelfield"><div class="label"><%= f.label :email %></div><div class="field"><%= f.text_field :email %></div></div>
+    <div class="labelfield"><div class="submit"><%= submit_tag 'Reset my password' %></div></div>
 <% end %>

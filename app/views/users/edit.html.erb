@@ -1,21 +1,11 @@
 <% @show_model_errors = @user %>
-
-<h1>Edit Profile</h1>
 <% @user.password = @user.password_confirmation = nil %>
 
-<% form_for @user do |f| -%>
-
-    <p><%= label_tag 'name' %><br/>
-    <%= f.text_field :name %></p>
-
-    <p><%= label_tag 'email' %><br/>
-    <%= f.text_field :email %></p>
-
-    <p><%= label_tag 'password', 'Change Password' %><br/>
-    <%= f.password_field :password %></p>
-
-    <p><%= label_tag 'password_confirmation', 'Confirm Password' %><br/>
-    <%= f.password_field :password_confirmation %></p>
-
-    <p><%= submit_tag 'Update Details' %></p>
-<% end -%>
+<% form_for @user, :html => {:class => "profile-form"} do |f| -%>
+    <div class="labelfield"><div class="label"><%= f.label :name %></div><div class="field"><%= f.text_field :name %></div></div>
+    <div class="labelfield"><div class="label"><%= f.label :email %></div><div class="field"><%= f.text_field :email %></div></div>
+    <div class="labelfield"><div class="label"><%= f.label :password, 'Change Password' %></div><div class="field"><%= f.text_field :password %></div></div>
+    <div class="labelfield"><div class="label"><%= f.label :password_confirmation, 'Confirm Password' %></div><div class="field"><%= f.text_field :password_confirmation %></div></div>
+    
+    <div class="labelfield"><div class="submit"><%= submit_tag 'Update Details' %></div></div>
+<% end %>

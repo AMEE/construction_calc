@@ -43,7 +43,6 @@ class PasswordsController < ApplicationController
         flash[:notice] = "Password was successfully updated.  Please log in"
         format.html { redirect_to login_path}
       else
-        flash[:notice] = 'There was a problem resetting your password.  Please try again'
         format.html { render :action => :reset, :reset_code => params[:reset_code] }
       end
     end

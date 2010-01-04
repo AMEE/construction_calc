@@ -40,36 +40,34 @@ end
 #       - Train 1tonne fixed weight (no idea if this includes train itself)
 #       - fluorescent tubes waste, Paint and adhesive waste, raised floor tiles all mapped to general waste for now
 #       - fridge gas - gas HFC-134a
-#       - Also other assumptions (approved) and make clear staging env do data will be lost
+
+# TODO front page needs to warn if no JS support in browser
 # TODO 100% height causing a problem when ajax expands to be greater than window height
 # TODO change units first it goes back to default if then change waste type option
+# TODO decide on footer blurb
+# TODO calendar got white bit on bottom in IE.  Demo on their site works fine though, so must be some overbury css code
+# TODO signup, password reset emails text
 
-# TODO have possible... - good idea?  Note on method if ok to override.  Also is better way to do this?
-# TODO extend additional options to update?
-# TODO reporting pdf
-# TODO password reset, roles, users screens - IE7/8 test
-# TODO when new/edit for a type and it fails doesn't show form [can sort this somehow].  Also when creating new
-#      adds an item should show list.  Can do all this with JS somehow - eg on success render partial list
-# TODO edit, delete buttons have spacing on table index
-# TODO destroy project
-# TODO project#google_chart_image tidy up
+# TODO bug report
 # TODO on profile create add /metadata to profile with UK country (even though default)
 # TODO is way to have include out of models?
-# TODO calendar got white bit on bottom in IE.  Demo on their site works fine though
-# TODO signup, password reset emails text
+# TODO have possible... - good idea?  Note on method if ok to override.  Also is better way to do this?
+# TODO extend additional options to update?
+# TODO Also we need to check units everything specified in make sense (eg liquid petrol and gas measured in same?) [some hints in dynamic50 stories]
+# TODO reporting pdf
+# TODO when new/edit for a type and it fails doesn't show form [can sort this somehow].  Also when creating new
+#      adds an item should show list.  Can do all this with JS somehow - eg on success render partial list
+
 # TODO write up wiki page
 # TODO email from local server - seems to work but should check how it's working
 # TODO setup amee.yml info needed to run against production
 # TODO any more wiki notes: https://sites.google.com/a/amee.cc/knowledge-base/home/overbury
-# TODO Also we need to check units everything specified in make sense (eg liquid petrol and gas measured in same?) [some hints in dynamic50 stories]
-# TODO front page needs to warn if no JS support in browser
 # TODO write tests for access rights - see RolesControllerSpec for progress
-
-# - Assumptions on types
-#     What to use for freight train?
-#     materials - ceiling tile data
-#     looks like want volume for material.  Is that possible?
-#     waste mappings
+# TODO Assumptions on types
+#      What to use for freight train?
+#      materials - ceiling tile data
+#      looks like want volume for material.  Is that possible?
+#      waste mappings
 
 # Leasons learnt:
 #  - AJAX can slow things up when time is tight

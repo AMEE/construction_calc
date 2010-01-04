@@ -19,7 +19,7 @@ div.wrapper {
     text-align: left;
 }
 
-.types .content-container .delete-button {
+.types .content-container .delete-button, .users-container .delete-button, .edit-access-rights .delete-button {
     text-transform: capitalize;
 }
 
@@ -52,6 +52,18 @@ div.wrapper {
 
 .labelfield .field input {
     width: 150px;
+}
+
+.users-container table tr td {
+    border-bottom: 1px solid #aaaaaa; 
+}
+
+.edit-access-rights table tr td {
+    border-bottom: 1px solid #aaaaaa; 
+}
+
+.edit-access-rights table tr.list-header td {
+    border-top: 1px solid #aaaaaa;
 }
 
 /* Date picker overrides */

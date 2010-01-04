@@ -1,22 +1,9 @@
-<h1>Reset your password</h1>
+<% @show_model_errors = [@user] %>
 
-<% form_for(:user, :url => update_password_path) do |f| %>
-  <%= f.error_messages %>
-
-  <p>Please enter a new password and confirm it.</p>
-
-  <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </p>
-
-  <p>
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </p>
-
-  <p>
+<% form_for :user, :url => update_password_path, :html => {:class => "login-form"} do |f| %>
+    <div class="labelfield formintro">Enter a new password</div>
+    <div class="labelfield"><div class="label"><%= f.label :password %></div><div class="field"><%= f.password_field :password %></div></div>
+    <div class="labelfield"><div class="label"><%= f.label :password_confirmation %></div><div class="field"><%= f.password_field :password_confirmation %></div></div>
     <%= hidden_field_tag :reset_code, params[:reset_code] %>
-    <%= f.submit "Reset password!" %>
-  </p>
+    <div class="labelfield"><div class="submit"><%= submit_tag 'Change Password' %></div></div>
 <% end %>

@@ -9,7 +9,6 @@ class Material < ActiveRecord::Base
   #   - steel - uk typical makeup of new/recycled
   #   - aluminium - uk typical makeup of new/recycled
   #   - copper - maximum carbon output range
-  #   - ceiling tiles - ????
   COLOUR = "#9A5AAB"
   TYPE = {
     :timber => AmeeCategory.new("Timber", :weight, "/embodied/ice", :material => "timber", :type => "general"),
