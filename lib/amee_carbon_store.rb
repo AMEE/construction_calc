@@ -2,7 +2,8 @@ module AmeeCarbonStore
   def self.included(base)
     base.extend ClassMethods
     
-    base.module_eval do 
+    base.module_eval do
+      belongs_to :project
       @@per_page = 10
     end
   end

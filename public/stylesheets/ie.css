@@ -67,8 +67,8 @@ div.wrapper {
 }
 
 /* Date picker overrides */
-div.datepicker {
-	height: 135px;
+.datepicker {
+    background: #000000; /* Hack as datepicker gets wrong size for calendar */
 }
 
 .datepickerBorderT, .datepickerBorderB {
@@ -76,5 +76,5 @@ div.datepicker {
 }
 
 .datepickerBorderL, .datepickerBorderR {
-	height: 136px;
+	height: 131px;
 }

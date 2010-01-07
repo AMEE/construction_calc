@@ -1,4 +1,6 @@
-An account has been created on <%= APP_CONFIG[:site_name] %> (<%= @url %>) with the following details:
+An account has been created on <%= APP_CONFIG[:site_name] %> with the following details:
 
-Username: <%=h @user.login %>
+Username: <%= @user.login %>
 Password: <%= @password %>
+
+You can login at: <%= @url %>

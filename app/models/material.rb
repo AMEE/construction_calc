@@ -1,8 +1,6 @@
 class Material < ActiveRecord::Base
-  
-  belongs_to :project
 
-  include AmeeCarbonStore  
+  include AmeeCarbonStore
   has_carbon_data_stored_in_amee
   
   # Assumptions on types:

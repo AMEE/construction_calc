@@ -17,6 +17,7 @@ class Project < ActiveRecord::Base
   has_amee_profile
   
   DATE_FORMAT = "%d/%m/%Y"
+  GOOGLE_CHART_BASE_URL = "http://chart.apis.google.com/chart"
   
   def profile_path
     "/profiles/#{amee_profile}"
@@ -55,9 +56,8 @@ class Project < ActiveRecord::Base
     write_attribute(:start_date, Date.strptime(date_string, DATE_FORMAT))
   end
   
-  def google_chart_image
-    classes = [Commute, Delivery, Material, EnergyConsumption, Waste]
-    "http://chart.apis.google.com/chart?cht=p3&chd=t:#{type_percents.join(',')}&chl=#{classes.map{|c| c.to_s.underscore.humanize}.join('|')}&chs=530x200&chco=#{classes.map {|c| c::COLOUR[1,6]}.join(',')}"
+  def google_chart_url
+    "#{GOOGLE_CHART_BASE_URL}?#{google_chart_options.collect{|k,v| "#{k}=#{URI.escape(v)}"}.join("&")}"
   end
   
   private
@@ -74,5 +74,12 @@ class Project < ActiveRecord::Base
       errors.add_to_base "You are limited to #{Client::PROJECT_LIMIT} projects"
       return false
     end
+  end
+  
+  def google_chart_options
+    classes = [Commute, Delivery, Material, EnergyConsumption, Waste]
+    {:cht => "p3",
+     :chd => "t:#{type_percents.join(',')}&chl=#{classes.map{|c| c.to_s.underscore.humanize}.join('|')}",
+     :chs => "530x200", :chco => "#{classes.map {|c| c::COLOUR[1,6]}.join(',')}"}
   end
 end

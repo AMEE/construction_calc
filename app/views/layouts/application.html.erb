@@ -12,26 +12,28 @@
     </head>
     <body>
         <div class="wrapper">
-            <div class="header">
-                <div class="logo">
-                    <%= link_to(image_tag("overbury-logo.png"), root_path) %>
+            <div class="background">
+                <div class="header">
+                    <div class="logo">
+                        <%= link_to(image_tag("overbury-logo.png"), root_path) %>
+                    </div>
+                    <div class="user">
+                        <%= render :partial => "layouts/user_bar", :locals => {:project => @project} %>
+                    </div>
                 </div>
-                <div class="user">
-                    <%= render :partial => "layouts/user_bar", :locals => {:project => @project} %>
-                </div>
+                <%= flash_and_model_messages unless @no_flash_messages %>
+                <%= yield %>
+                <div class="footer"><%= link_to(image_tag("amee.png", :class => "amee-logo"), "http://www.amee.com") %></div>
+                <script type="text/javascript" charset="utf-8">
+                   $(document).ready(function(){
+                       <%= yield :jquery_onload %>
+                   });
+                   window.onload = function () {
+                       <%= yield :window_onload %>
+                   }
+                   <%= yield :page_javascript %>
+            	</script>
             </div>
-            <%= flash_and_model_messages unless @no_flash_messages %>
-            <%= yield %>
-            <div class="footer"><%= link_to(image_tag("amee.png", :class => "amee-logo"), "http://www.amee.com") %></div>
-            <script type="text/javascript" charset="utf-8">
-               $(document).ready(function(){
-                   <%= yield :jquery_onload %>
-               });
-               window.onload = function () {
-                   <%= yield :window_onload %>
-               }
-               <%= yield :page_javascript %>
-        	</script>
         </div>
     </body>
 </html>

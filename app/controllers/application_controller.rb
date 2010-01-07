@@ -32,46 +32,41 @@ class ApplicationController < ActionController::Base
   end
 end
 
-# TODO unapproved assumptions: 
-#       - ceiling tiles split into metal and mineral fibre in materials
-#       - combined paper&card in waste
-#       - split out ferrous&non-ferrous metals in waste
-#       - split out cans and bottles in waste
-#       - Train 1tonne fixed weight (no idea if this includes train itself)
-#       - fluorescent tubes waste, Paint and adhesive waste, raised floor tiles all mapped to general waste for now
-#       - fridge gas - gas HFC-134a
+# Assumptions not approved by Overbury yet:
+# - ceiling tiles are split into metal and mineral fibre in materials
+# - we've combined paper&card in waste
+# - we've split out ferrous&non-ferrous metals in waste
+# - we've split out cans and bottles in waste
+# - carpet tiles waste are general waste carbon output
+# - concrete and bricks waste are general waste carbon output
+# - plasterboard waste are general waste carbon output
+# - asbestos waste are general waste carbon output
+# - septic tank waste is organic waste carbon output
+# 
+# Assumptions not approved but will change in new year when science can do more research anyway:
+# - Train is fixed at 1 tonne weight (and I'm not sure if this includes train itself - waiting on science)
+# - Fluorescent tubes waste mapped to general waste
+# - Paint and adhesive waste mapped to general waste
+# - Raised floor tiles mapped to general waste
+# - Fridge gas - gas HFC-134a for now
 
-# TODO front page needs to warn if no JS support in browser
-# TODO 100% height causing a problem when ajax expands to be greater than window height
-# TODO change units first it goes back to default if then change waste type option
-# TODO decide on footer blurb
-# TODO calendar got white bit on bottom in IE.  Demo on their site works fine though, so must be some overbury css code
-# TODO signup, password reset emails text
-
-# TODO bug report
-# TODO on profile create add /metadata to profile with UK country (even though default)
-# TODO is way to have include out of models?
+# TODO deploy, test pdf export, email Jamie, update jira
 # TODO have possible... - good idea?  Note on method if ok to override.  Also is better way to do this?
-# TODO extend additional options to update?
-# TODO Also we need to check units everything specified in make sense (eg liquid petrol and gas measured in same?) [some hints in dynamic50 stories]
-# TODO reporting pdf
+#      Linked: we cache name and type, but why?
+# TODO on profile create add /metadata to profile with UK country (even though default)
 # TODO when new/edit for a type and it fails doesn't show form [can sort this somehow].  Also when creating new
 #      adds an item should show list.  Can do all this with JS somehow - eg on success render partial list
 
 # TODO write up wiki page
-# TODO email from local server - seems to work but should check how it's working
-# TODO setup amee.yml info needed to run against production
+# TODO email from local server - seems to work but should check how it's working [check SPF etc]
+# TODO setup amee.yml info needed to run against production.  Also settings.yml
 # TODO any more wiki notes: https://sites.google.com/a/amee.cc/knowledge-base/home/overbury
 # TODO write tests for access rights - see RolesControllerSpec for progress
-# TODO Assumptions on types
-#      What to use for freight train?
-#      materials - ceiling tile data
-#      looks like want volume for material.  Is that possible?
-#      waste mappings
 
 # Leasons learnt:
 #  - AJAX can slow things up when time is tight
 #  - need to get client category to amee categories mapped out up front
+#  - UI would sped things up a little (not so much in terms of HTML but more in terms of getting more project throughput)
 #
 # AMEE badly documented:
 # - data/profile category

@@ -5,12 +5,13 @@
     <div class="item"><div class="label">Floor Area: </div><div class="value"><%= project.floor_area %>sq.&nbsp;m</div></div>
     <div class="item"><div class="label">Start Date: </div><div class="value"><%= project.start_date %></div></div>
     <div class="item">
-        <% if current_user.admin? || current_user.client_admin?(@client) %>
-            <div class="adminlinks">
+        <div class="projectlinks">
+            <%= link_to("Download Report", project_report_path(project, :format => :pdf), :method => :post) %>
+            <% if current_user.admin? || current_user.client_admin?(@client) %> |
                 <%= link_to("Edit project", edit_project_path(project)) %> |
                 <%= link_to("New project", new_project_path) %>
-            </div>
-        <% end %>
+            <% end %>
+        </div>
     </div>
 </div>
 

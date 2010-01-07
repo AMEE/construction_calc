@@ -1,6 +1,8 @@
 /* Updates the units drop down according to the type of data selected */
 function updateUnits(object_name) {
+    was_selected = $('#' + object_name + '_units').val();
     $('#' + object_name + '_units').html(units[$('#' + object_name + '_' + object_name + '_type').val()]);
+    selectUnits(object_name, was_selected);
 }
 
 function selectUnits(object_name, unit_name) {

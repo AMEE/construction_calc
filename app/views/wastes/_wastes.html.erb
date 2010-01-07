@@ -1,5 +1,5 @@
 <div id="content" class="content">
-    <table><tr class="list-header waste-background"><td>Waste Name</td><td>Waste Mode</td><td>Weight</td><td>Emissions</td><td></td><td></td></tr>
+    <table><tr class="list-header waste-background"><td>Waste Name</td><td>Type (and disposal method)</td><td>Weight</td><td>Emissions</td><td></td><td></td></tr>
         <% if @wastes.size > 0 %>
             <%= render :partial => "waste", :collection => @wastes %>
         <% else %>
