@@ -26,7 +26,7 @@ class Waste < ActiveRecord::Base
     :raised_access_floor_tiles => AmeeCategory.new("Raised Access Floor Tiles", :weight, "/home/waste/lifecyclewaste", :wasteType => "other waste"),
     :wood => AmeeCategory.new("Wood", :weight, "/home/waste/lifecyclewaste", :wasteType => "wood"),
     :cans => AmeeCategory.new("Cans", :weight, "/home/waste/lifecyclewaste", :wasteType => "non-ferrous metal"),
-    :plastic_bottles => AmeeCategory.new("Plastics", :weight, "/home/waste/lifecyclewaste", :wasteType => "plastic (dense)"),
+    :plastic_bottles => AmeeCategory.new("Plastic Bottles", :weight, "/home/waste/lifecyclewaste", :wasteType => "plastic (dense)"),
     :asbestos => AmeeCategory.new("Asbestos", :weight, "/home/waste/lifecyclewaste", :wasteType => "other waste"),
     :fluorescent_tubes => AmeeCategory.new("Fluorescent Tubes", :weight, "/home/waste/lifecyclewaste", :wasteType => "other waste"),
     :paint_and_adhesive => AmeeCategory.new("Paint and Adhesives", :weight, "/home/waste/lifecyclewaste", :wasteType => "other waste"),

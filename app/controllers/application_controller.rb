@@ -50,12 +50,9 @@ end
 # - Raised floor tiles mapped to general waste
 # - Fridge gas - gas HFC-134a for now
 
-# TODO deploy, test pdf export, email Jamie, update jira
+# TODO on profile create add /metadata to profile with UK country (even though default)
 # TODO have possible... - good idea?  Note on method if ok to override.  Also is better way to do this?
 #      Linked: we cache name and type, but why?
-# TODO on profile create add /metadata to profile with UK country (even though default)
-# TODO when new/edit for a type and it fails doesn't show form [can sort this somehow].  Also when creating new
-#      adds an item should show list.  Can do all this with JS somehow - eg on success render partial list
 
 # TODO write up wiki page
 # TODO email from local server - seems to work but should check how it's working [check SPF etc]
