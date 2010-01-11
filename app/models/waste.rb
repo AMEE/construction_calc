@@ -1,7 +1,7 @@
 class Waste < ActiveRecord::Base
 
   include AmeeCarbonStore
-  has_carbon_data_stored_in_amee
+  has_carbon_data_stored_in_amee :singular_types => true, :nameless => true
 
   # Assumptions on types:
   #   - carpet tiles -> other waste
@@ -15,18 +15,17 @@ class Waste < ActiveRecord::Base
   #   - septic tank waste -> other organic
   COLOUR = "#5694ED"
   TYPE = {
-    :cardboard_and_paper => AmeeCategory.new("Cardboard and Paper", :weight, "/home/waste/lifecyclewaste", :wasteType => "paper and Card"),
+    :cardboard => AmeeCategory.new("Cardboard", :weight, "/home/waste/lifecyclewaste", :wasteType => "paper and Card"),
+    :paper => AmeeCategory.new("Paper", :weight, "/home/waste/lifecyclewaste", :wasteType => "paper and Card"),
     :carpet_tiles => AmeeCategory.new("Carpet Tiles", :weight, "/home/waste/lifecyclewaste", :wasteType => "other waste"),
     :concrete_and_bricks => AmeeCategory.new("Concrete and Bricks", :weight, "/home/waste/lifecyclewaste", :wasteType => "other waste"),
     :general_mixed_waste => AmeeCategory.new("General Mixed Waste", :weight, "/home/waste/lifecyclewaste", :wasteType => "other waste"),
-    :ferrous_metals => AmeeCategory.new("Ferrous metals", :weight, "/home/waste/lifecyclewaste", :wasteType => "ferrous metal"),
-    :non_ferrous_metals => AmeeCategory.new("Non-ferrous metals", :weight, "/home/waste/lifecyclewaste", :wasteType => "non-ferrous metal"),
+    :metals => AmeeCategory.new("Ferrous metals", :weight, "/home/waste/lifecyclewaste", :wasteType => "non-ferrous metal"),
     :plasterboard => AmeeCategory.new("Plasterboard", :weight, "/home/waste/lifecyclewaste", :wasteType => "other waste"),
     :plastics => AmeeCategory.new("Plastics", :weight, "/home/waste/lifecyclewaste", :wasteType => "plastic (dense)"),
     :raised_access_floor_tiles => AmeeCategory.new("Raised Access Floor Tiles", :weight, "/home/waste/lifecyclewaste", :wasteType => "other waste"),
     :wood => AmeeCategory.new("Wood", :weight, "/home/waste/lifecyclewaste", :wasteType => "wood"),
-    :cans => AmeeCategory.new("Cans", :weight, "/home/waste/lifecyclewaste", :wasteType => "non-ferrous metal"),
-    :plastic_bottles => AmeeCategory.new("Plastic Bottles", :weight, "/home/waste/lifecyclewaste", :wasteType => "plastic (dense)"),
+    :cans_plastic_bottles => AmeeCategory.new("Cans & Plastic Bottles", :weight, "/home/waste/lifecyclewaste", :wasteType => "non-ferrous metal"),
     :asbestos => AmeeCategory.new("Asbestos", :weight, "/home/waste/lifecyclewaste", :wasteType => "other waste"),
     :fluorescent_tubes => AmeeCategory.new("Fluorescent Tubes", :weight, "/home/waste/lifecyclewaste", :wasteType => "other waste"),
     :paint_and_adhesive => AmeeCategory.new("Paint and Adhesives", :weight, "/home/waste/lifecyclewaste", :wasteType => "other waste"),

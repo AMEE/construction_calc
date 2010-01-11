@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091221163455) do
+ActiveRecord::Schema.define(:version => 20100111120348) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(:version => 20091221163455) do
 
   create_table "energy_consumptions", :force => true do |t|
     t.integer  "project_id"
-    t.string   "name"
     t.string   "amee_profile_item_id"
     t.string   "energy_consumption_type"
     t.float    "carbon_output_cache"
@@ -119,7 +118,6 @@ ActiveRecord::Schema.define(:version => 20091221163455) do
 
   create_table "wastes", :force => true do |t|
     t.integer  "project_id"
-    t.string   "name"
     t.string   "amee_profile_item_id"
     t.string   "waste_type"
     t.float    "carbon_output_cache"

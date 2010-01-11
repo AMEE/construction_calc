@@ -6,7 +6,6 @@
     <% end %>
     
     <% form_for [@project, @energy_consumption] do |f| %>
-        <%= f.label :name, "Energy Consumption Name" %> <%= f.text_field :name, :class => "generic" %>
         <%= f.label :energy_consumption_type, "Energy Consumption Type" %> 
         <div class="single-row">
         <% if @energy_consumption.new_record? %>

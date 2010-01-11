@@ -9,20 +9,26 @@ module AmeeCarbonStore
   end
 
   module ClassMethods
-    def has_carbon_data_stored_in_amee
+    def has_carbon_data_stored_in_amee(options = {})
       attr_writer :amount, :units
       cattr_reader :per_page
 
-      validates_uniqueness_of :name, :scope => :project_id
-      validates_format_of :name, :with => /\A[\w -]+\Z/, :message => "must be letters, numbers or underscores only"
-      validates_length_of :name, :maximum => 250
+      unless options[:nameless]
+        validates_uniqueness_of :name, :scope => :project_id
+        validates_format_of :name, :with => /\A[\w -]+\Z/, :message => "must be letters, numbers, spaces or underscores only"
+        validates_length_of :name, :maximum => 250
+      end
       validates_numericality_of :amount
       validate_on_create :units_are_valid
-  
+
+      if options[:singular_types]
+        validate_on_create :maximum_one_instance_for_each_type
+      end
       before_create :add_to_amee
       before_update :update_amee
       after_destroy :delete_from_amee
       
+      write_inheritable_attribute(:nameless_entries, true) if options[:nameless]
       include AmeeCarbonStore::InstanceMethods
     end
     
@@ -130,7 +136,7 @@ module AmeeCarbonStore
     def create_amee_profile
       category = AMEE::Profile::Category.get(project.amee_connection, 
         "#{project.profile_path}#{amee_category.path}")
-      options = {:name => self.name, amount_symbol => self.amount,
+      options = {:name => get_name, amount_symbol => self.amount,
         amount_unit_symbol => self.units, :get_item => true}
       options.merge!(additional_options) if additional_options
       AMEE::Profile::Item.create(category, amee_data_category_uid, options)
@@ -144,15 +150,26 @@ module AmeeCarbonStore
 
     def update_amee
       result = AMEE::Profile::Item.update(project.amee_connection, amee_profile_item_path, 
-        :name => self.name, amount_symbol => self.amount, :get_item => true)
+        :name => get_name, amount_symbol => self.amount, :get_item => true)
       self.carbon_output_cache = result.total_amount
       return true
+    end
+
+    def maximum_one_instance_for_each_type
+      model_type = "#{self.class.name.underscore}_type".to_sym
+      if self.class.send(:find, :first, :conditions => {:project_id => project.id, model_type => send(model_type)})
+        errors.add_to_base "This project already has a #{amee_category.name} entry"
+      end
     end
 
     def delete_from_amee
       AMEE::Profile::Item.delete(project.amee_connection, amee_profile_item_path)
     rescue Exception => e
       logger.error "Unable to remove '#{amee_profile_item_path}' from AMEE"
+    end
+    
+    def get_name
+      self.class.read_inheritable_attribute(:nameless_entries) ? "#{self.class.name}_#{Time.now.to_i}" : self.name
     end
   end
 end

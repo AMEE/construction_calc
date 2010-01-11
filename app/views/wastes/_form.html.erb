@@ -6,7 +6,6 @@
     <% end %>
     
     <% form_for [@project, @waste] do |f| %>
-        <%= f.label :name, "Waste Name" %> <%= f.text_field :name, :class => "generic" %>
         <%= f.label :waste_type, "Waste Type" %> 
         <div class="single-row">
         <% if @waste.new_record? %>

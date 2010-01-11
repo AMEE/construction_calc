@@ -81,7 +81,7 @@ end
 #################
 pdf.move_down 20
 pdf.text "This Project", :style => :bold
-pdf.image open(@project.google_chart_url), :at => [0,320], :scale => 0.75
+pdf.image open(@project.google_chart_url), :at => [0,305], :scale => 0.75
 
 #################
 # Carbon Output
@@ -148,7 +148,7 @@ pdf.text_box "Commuting - #{two_decimal_place_float(@project.commutes_carbon)}kg
 #################
 # Deliveries
 #################
-pdf.move_down 200
+pdf.move_down 315
 
 pdf.fill_color "FFBA4E"
 pdf.text "Deliveries: #{delivery_carbon_percentage(@project)}%", :style => :bold, :size => 16
@@ -189,15 +189,15 @@ pdf.move_down 20
 pdf.fill_color "5694ED"
 pdf.text "Waste Management: #{waste_management_carbon_percentage(@project)}%", :style => :bold, :size => 16
 pdf.fill_color "000000"
-pdf.table @project.wastes.reverse.map {|w| [w.name, "#{w.amee_category.name} #{'(' + w.waste_method.capitalize + ')' if w.waste_method}", "#{w.amount} #{units_name_from_amee_unit(w)}", "#{w.carbon_output_cache.round(2)} kg"]},
-:headers => ['Waste Name', 'Type (and disposal method)', 'Weight', 'Emissions'],
+pdf.table @project.wastes.reverse.map {|w| ["#{w.amee_category.name} #{'(' + w.waste_method.capitalize + ')' if w.waste_method}", "#{w.amount} #{units_name_from_amee_unit(w)}", "#{w.carbon_output_cache.round(2)} kg"]},
+:headers => ['Type (and disposal method)', 'Weight', 'Emissions'],
 :border_style => :grid,
 :border_color => '999999',
 :header_color => '5694ED',
 :header_text_color  => "ffffff",
 :vertical_padding => 2,
 :horizontal_padding => 3,
-:column_widths => {0 => 200, 1 => 180, 2 => 80, 3 => 80}
+:column_widths => {0 => 380, 1 => 80, 2 => 80}
 
 ####################
 # Energy Consumption
@@ -207,15 +207,15 @@ pdf.move_down 20
 pdf.fill_color "CD3A3D"
 pdf.text "Energy Consumption: #{energy_consumption_carbon_percentage(@project)}%", :style => :bold, :size => 16
 pdf.fill_color "000000"
-pdf.table @project.energy_consumptions.reverse.map {|c| [c.name, c.amee_category.name, "#{c.amount} #{units_name_from_amee_unit(c)}", "#{c.carbon_output_cache.round(2)} kg"]},
-:headers => ['Energy Consumption Name', 'Type', 'Amount', 'Emissions'],
+pdf.table @project.energy_consumptions.reverse.map {|c| [c.amee_category.name, "#{c.amount} #{units_name_from_amee_unit(c)}", "#{c.carbon_output_cache.round(2)} kg"]},
+:headers => ['Type', 'Amount', 'Emissions'],
 :border_style => :grid,
 :border_color => '999999',
 :header_color => 'CD3A3D',
 :header_text_color  => "ffffff",
 :vertical_padding => 2,
 :horizontal_padding => 3,
-:column_widths => {0 => 200, 1 => 180, 2 => 80, 3 => 80}
+:column_widths => {0 => 380, 1 => 80, 2 => 80}
 
 ####################
 # Commuting

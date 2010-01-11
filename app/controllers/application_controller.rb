@@ -35,13 +35,12 @@ end
 # Assumptions not approved by Overbury yet:
 # - ceiling tiles are split into metal and mineral fibre in materials
 # - we've combined paper&card in waste
-# - we've split out ferrous&non-ferrous metals in waste
-# - we've split out cans and bottles in waste
 # - carpet tiles waste are general waste carbon output
 # - concrete and bricks waste are general waste carbon output
 # - plasterboard waste are general waste carbon output
 # - asbestos waste are general waste carbon output
 # - septic tank waste is organic waste carbon output
+# - Is cans using the best category (note if new category divides carbon output by 3 or more then may need to change to plastic bottles)
 # 
 # Assumptions not approved but will change in new year when science can do more research anyway:
 # - Train is fixed at 1 tonne weight (and I'm not sure if this includes train itself - waiting on science)
@@ -50,6 +49,10 @@ end
 # - Raised floor tiles mapped to general waste
 # - Fridge gas - gas HFC-134a for now
 
+# * examine caching issue and ensure no. of deliveries/commutes can be entered.  At same time do caching thoughts from before and what should be stored locally (could also do units here)
+# * make name field allow space [ask Jamie for example?]
+# * await volume to weight conversions from Overbury [overbury]
+# * recycled content for materials? Check ICE. Carpet from Interface. [jamie]
 # TODO on profile create add /metadata to profile with UK country (even though default)
 # TODO have possible... - good idea?  Note on method if ok to override.  Also is better way to do this?
 #      Linked: we cache name and type, but why?

@@ -1,9 +1,9 @@
 <div id="content" class="content">
-    <table><tr class="list-header waste-background"><td>Waste Name</td><td>Type (and disposal method)</td><td>Weight</td><td>Emissions</td><td></td><td></td></tr>
+    <table><tr class="list-header waste-background"><td>Type (and disposal method)</td><td>Weight</td><td>Emissions</td><td></td><td></td></tr>
         <% if @wastes.size > 0 %>
             <%= render :partial => "waste", :collection => @wastes %>
         <% else %>
-            <tr><td></td><td colspan="5">No waste management - click 'Add' to get started</td></tr>
+            <tr><td></td><td colspan="4">No waste management - click 'Add' to get started</td></tr>
         <% end %>
     </table>
     <%= will_paginate @wastes %>

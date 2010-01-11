@@ -1,9 +1,9 @@
 <div id="content" class="content">
-    <table><tr class="list-header energy-background"><td>Energy Consumption Name</td><td>Type</td><td>Amount</td><td>Emissions</td><td></td><td></td></tr>
+    <table><tr class="list-header energy-background"><td>Type</td><td>Amount</td><td>Emissions</td><td></td><td></td></tr>
         <% if @energy_consumptions.size > 0 %>
             <%= render :partial => "energy_consumption", :collection => @energy_consumptions %>
         <% else %>
-            <tr><td></td><td colspan="5">No energy consumptions - click 'Add' to get started</td></tr>
+            <tr><td></td><td colspan="4">No energy consumptions - click 'Add' to get started</td></tr>
         <% end %>
     </table>
     <%= will_paginate @energy_consumptions %>
