@@ -376,6 +376,11 @@ td.middle {
                 padding: 3px;
                 vertical-align: middle;
             }
+            
+            .types .content-container table td.multiplier {
+                padding-right:0;
+                text-align:right;
+            }
         
             .types .content-container table tr.list-header {
                 border: none;
@@ -432,6 +437,10 @@ td.middle {
             line-height: 1.5em;
             float: left;
             clear: both;
+        }
+        
+        .types .content-container input.noclear {
+            clear: none;
         }
         
         .types .content-container input.distance {

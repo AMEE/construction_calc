@@ -148,92 +148,102 @@ pdf.text_box "Commuting - #{two_decimal_place_float(@project.commutes_carbon)}kg
 #################
 # Deliveries
 #################
-pdf.move_down 315
+if @project.deliveries_carbon != 0
+    pdf.move_down 315
 
-pdf.fill_color "FFBA4E"
-pdf.text "Deliveries: #{delivery_carbon_percentage(@project)}%", :style => :bold, :size => 16
-pdf.fill_color "000000"
-pdf.table @project.deliveries.reverse.map {|d| [d.name, d.amee_category.name, "#{d.amount} #{units_name_from_amee_unit(d)}", "#{d.carbon_output_cache.round(2)} kg"]},
-  :headers => ['Delivery Name', 'Delivery Mode', 'Distance', 'Emissions'],
-  :border_style => :grid,
-  :border_color => '999999',
-  :header_color => 'FFBA4E',
-  :header_text_color  => "ffffff",
-  :vertical_padding => 2,
-  :horizontal_padding => 3,
-  :column_widths => {0 => 200, 1 => 180, 2 => 80, 3 => 80}
+    pdf.fill_color "FFBA4E"
+    pdf.text "Deliveries: #{delivery_carbon_percentage(@project)}%", :style => :bold, :size => 16
+    pdf.fill_color "000000"
+    pdf.table @project.deliveries.reverse.map {|d| [d.name, d.amee_category.name, "#{d.amount} #{units_name_from_amee_unit(d)}", "#{d.carbon_output_cache.round(2)} kg"]},
+      :headers => ['Delivery Name', 'Delivery Mode', 'Distance', 'Emissions'],
+      :border_style => :grid,
+      :border_color => '999999',
+      :header_color => 'FFBA4E',
+      :header_text_color  => "ffffff",
+      :vertical_padding => 2,
+      :horizontal_padding => 3,
+      :column_widths => {0 => 200, 1 => 180, 2 => 80, 3 => 80}
+end
   
 #################
 # Materials
 #################
-pdf.move_down 20
+if @project.materials_carbon != 0
+    pdf.move_down 20
 
-pdf.fill_color "9A5AAB"
-pdf.text "Materials: #{materials_carbon_percentage(@project)}%", :style => :bold, :size => 16
-pdf.fill_color "000000"
-pdf.table @project.materials.reverse.map {|m| [m.name, m.amee_category.name, "#{m.amount} #{units_name_from_amee_unit(m)}", "#{m.carbon_output_cache.round(2)} kg"]},
-:headers => ['Material Name', 'Material Type', 'Weight', 'Emissions'],
-:border_style => :grid,
-:border_color => '999999',
-:header_color => '9A5AAB',
-:header_text_color  => "ffffff",
-:vertical_padding => 2,
-:horizontal_padding => 3,
-:column_widths => {0 => 200, 1 => 180, 2 => 80, 3 => 80}
+    pdf.fill_color "9A5AAB"
+    pdf.text "Materials: #{materials_carbon_percentage(@project)}%", :style => :bold, :size => 16
+    pdf.fill_color "000000"
+    pdf.table @project.materials.reverse.map {|m| [m.name, m.amee_category.name, "#{m.amount} #{units_name_from_amee_unit(m)}", "#{m.carbon_output_cache.round(2)} kg"]},
+    :headers => ['Material Name', 'Material Type', 'Weight', 'Emissions'],
+    :border_style => :grid,
+    :border_color => '999999',
+    :header_color => '9A5AAB',
+    :header_text_color  => "ffffff",
+    :vertical_padding => 2,
+    :horizontal_padding => 3,
+    :column_widths => {0 => 200, 1 => 180, 2 => 80, 3 => 80}
+end
 
 ##################
 # Waste Management
 ##################
-pdf.move_down 20
+if @project.waste_management_carbon != 0
+    pdf.move_down 20
 
-pdf.fill_color "5694ED"
-pdf.text "Waste Management: #{waste_management_carbon_percentage(@project)}%", :style => :bold, :size => 16
-pdf.fill_color "000000"
-pdf.table @project.wastes.reverse.map {|w| ["#{w.amee_category.name} #{'(' + w.waste_method.capitalize + ')' if w.waste_method}", "#{w.amount} #{units_name_from_amee_unit(w)}", "#{w.carbon_output_cache.round(2)} kg"]},
-:headers => ['Type (and disposal method)', 'Weight', 'Emissions'],
-:border_style => :grid,
-:border_color => '999999',
-:header_color => '5694ED',
-:header_text_color  => "ffffff",
-:vertical_padding => 2,
-:horizontal_padding => 3,
-:column_widths => {0 => 380, 1 => 80, 2 => 80}
+    pdf.fill_color "5694ED"
+    pdf.text "Waste Management: #{waste_management_carbon_percentage(@project)}%", :style => :bold, :size => 16
+    pdf.fill_color "000000"
+    pdf.table @project.wastes.reverse.map {|w| ["#{w.amee_category.name} #{'(' + w.waste_method.capitalize + ')' if w.waste_method}", "#{w.amount} #{units_name_from_amee_unit(w)}", "#{w.carbon_output_cache.round(2)} kg"]},
+    :headers => ['Type (and disposal method)', 'Weight', 'Emissions'],
+    :border_style => :grid,
+    :border_color => '999999',
+    :header_color => '5694ED',
+    :header_text_color  => "ffffff",
+    :vertical_padding => 2,
+    :horizontal_padding => 3,
+    :column_widths => {0 => 380, 1 => 80, 2 => 80}
+end
 
 ####################
 # Energy Consumption
 ####################
-pdf.move_down 20
+if @project.energy_consumption_carbon != 0
+    pdf.move_down 20
 
-pdf.fill_color "CD3A3D"
-pdf.text "Energy Consumption: #{energy_consumption_carbon_percentage(@project)}%", :style => :bold, :size => 16
-pdf.fill_color "000000"
-pdf.table @project.energy_consumptions.reverse.map {|c| [c.amee_category.name, "#{c.amount} #{units_name_from_amee_unit(c)}", "#{c.carbon_output_cache.round(2)} kg"]},
-:headers => ['Type', 'Amount', 'Emissions'],
-:border_style => :grid,
-:border_color => '999999',
-:header_color => 'CD3A3D',
-:header_text_color  => "ffffff",
-:vertical_padding => 2,
-:horizontal_padding => 3,
-:column_widths => {0 => 380, 1 => 80, 2 => 80}
+    pdf.fill_color "CD3A3D"
+    pdf.text "Energy Consumption: #{energy_consumption_carbon_percentage(@project)}%", :style => :bold, :size => 16
+    pdf.fill_color "000000"
+    pdf.table @project.energy_consumptions.reverse.map {|c| [c.amee_category.name, "#{c.amount} #{units_name_from_amee_unit(c)}", "#{c.carbon_output_cache.round(2)} kg"]},
+    :headers => ['Type', 'Amount', 'Emissions'],
+    :border_style => :grid,
+    :border_color => '999999',
+    :header_color => 'CD3A3D',
+    :header_text_color  => "ffffff",
+    :vertical_padding => 2,
+    :horizontal_padding => 3,
+    :column_widths => {0 => 380, 1 => 80, 2 => 80}
+end
 
 ####################
 # Commuting
 ####################
-pdf.move_down 20
+if @project.commutes_carbon != 0
+    pdf.move_down 20
 
-pdf.fill_color "86CE66"
-pdf.text "Commuting: #{commutes_carbon_percentage(@project)}%", :style => :bold, :size => 16
-pdf.fill_color "000000"
-pdf.table @project.commutes.reverse.map {|c| [c.name, c.amee_category.name, "#{c.amount} #{units_name_from_amee_unit(c)}", "#{c.carbon_output_cache.round(2)} kg"]},
-:headers => ['Commute Name', 'Mode of Transport', 'Distance', 'Emissions'],
-:border_style => :grid,
-:border_color => '999999',
-:header_color => '86CE66',
-:header_text_color  => "ffffff",
-:vertical_padding => 2,
-:horizontal_padding => 3,
-:column_widths => {0 => 200, 1 => 180, 2 => 80, 3 => 80}
+    pdf.fill_color "86CE66"
+    pdf.text "Commuting: #{commutes_carbon_percentage(@project)}%", :style => :bold, :size => 16
+    pdf.fill_color "000000"
+    pdf.table @project.commutes.reverse.map {|c| [c.name, c.amee_category.name, "#{c.amount} #{units_name_from_amee_unit(c)}", "#{c.carbon_output_cache.round(2)} kg"]},
+    :headers => ['Commute Name', 'Mode of Transport', 'Distance', 'Emissions'],
+    :border_style => :grid,
+    :border_color => '999999',
+    :header_color => '86CE66',
+    :header_text_color  => "ffffff",
+    :vertical_padding => 2,
+    :horizontal_padding => 3,
+    :column_widths => {0 => 200, 1 => 180, 2 => 80, 3 => 80}
+end
 
 ####################
 # Footer

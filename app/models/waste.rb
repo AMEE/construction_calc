@@ -49,12 +49,4 @@ class Waste < ActiveRecord::Base
       METHOD[waste_method.to_sym]
     end
   end
-  
-  def possible_amount_field_names
-    if waste_type.to_sym == :refrigerant_gases
-      ["emissionRate"]
-    else
-      [METHOD[:landfill], METHOD[:recycle]]
-    end
-  end
 end

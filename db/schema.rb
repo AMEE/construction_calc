@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100111120348) do
+ActiveRecord::Schema.define(:version => 20100114101049) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -25,6 +25,9 @@ ActiveRecord::Schema.define(:version => 20100111120348) do
     t.float    "carbon_output_cache"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "units"
+    t.float    "amount"
+    t.integer  "repetitions"
   end
 
   add_index "commutes", ["project_id"], :name => "index_commutes_on_project_id"
@@ -37,6 +40,9 @@ ActiveRecord::Schema.define(:version => 20100111120348) do
     t.float    "carbon_output_cache"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "units"
+    t.float    "amount"
+    t.integer  "repetitions"
   end
 
   add_index "deliveries", ["project_id"], :name => "index_deliveries_on_project_id"
@@ -48,6 +54,8 @@ ActiveRecord::Schema.define(:version => 20100111120348) do
     t.float    "carbon_output_cache"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "units"
+    t.float    "amount"
   end
 
   add_index "energy_consumptions", ["project_id"], :name => "index_energy_consumptions_on_project_id"
@@ -60,6 +68,8 @@ ActiveRecord::Schema.define(:version => 20100111120348) do
     t.float    "carbon_output_cache"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "units"
+    t.float    "amount"
   end
 
   add_index "materials", ["project_id"], :name => "index_materials_on_project_id"
@@ -124,6 +134,8 @@ ActiveRecord::Schema.define(:version => 20100111120348) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "waste_method"
+    t.string   "units"
+    t.float    "amount"
   end
 
   add_index "wastes", ["project_id"], :name => "index_wastes_on_project_id"

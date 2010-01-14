@@ -21,6 +21,7 @@
         <% else %>
             <p><%= units_name_from_amee_unit(@delivery) %></p>
         <% end %>
+        <p>&nbsp;x&nbsp;</p><%= f.text_field :repetitions, :class => "generic distance noclear" %><p>trips</p>
         <%= submit_tag @delivery.new_record? ? "Create" : "Update", :class => "button" %>
     <% end %>
 </div>

@@ -1,7 +1,7 @@
 class Delivery < ActiveRecord::Base
   
   include AmeeCarbonStore
-  has_carbon_data_stored_in_amee
+  has_carbon_data_stored_in_amee :type_amount_repeats => true
   
   # Assumptions on types:
   #   - van - diesel, 1.305-1.740 tonnes

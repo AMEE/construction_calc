@@ -1,5 +1,5 @@
 <div id="content" class="content">
-    <table><tr class="list-header commuting-background"><td>Commute Name</td><td>Mode of Transport</td><td>Distance</td><td>Emissions</td><td></td><td></td></tr>
+    <table><tr class="list-header commuting-background"><td>Commute Name</td><td>Mode of Transport</td><td>Trips</td><td>Distance</td><td>Emissions</td><td></td><td></td></tr>
         <% if @commutes.size > 0 %>
             <%= render :partial => "commute", :collection => @commutes %>
         <% else %>

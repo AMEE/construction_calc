@@ -21,6 +21,7 @@
         <% else %>
             <p><%= units_name_from_amee_unit(@commute) %></p>
         <% end %>
+        <p>&nbsp;x&nbsp;</p><%= f.text_field :repetitions, :class => "generic distance noclear" %><p>trips</p>
         <%= submit_tag @commute.new_record? ? "Create" : "Update", :class => "button" %>
     <% end %>
 </div>

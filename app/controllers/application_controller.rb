@@ -48,9 +48,7 @@ end
 # - Raised floor tiles mapped to general waste
 # - Fridge gas - gas HFC-134a for now
 
-# * examine caching issue and ensure no. of deliveries/commutes can be entered.  At same time do caching thoughts
-#   from before and what should be stored locally - store units at same time and drop those methods
-#   amee_profile_item still needed?
+# ** Due to changes will need to clear out DB when deploy **
 # * make name field allow space [ask Jamie for example?]
 # * await volume to weight conversions from Overbury [overbury]
 # * recycled content for materials? Check ICE. Carpet from Interface. [jamie]
@@ -64,7 +62,9 @@ end
 # Leasons learnt:
 #  - AJAX can slow things up when time is tight
 #  - need to get client category to amee categories mapped out up front
+#  - storing of data in amee (wasted some time trying to do this, now know but would be nice to have custom variable support)
 #  - UI would sped things up a little (not so much in terms of HTML but more in terms of getting more project throughput)
+#  - Can knock these out quite quickly if had UI dude with potential reusable components
 #
 # AMEE badly documented:
 # - data/profile category

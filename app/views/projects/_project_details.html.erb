@@ -6,7 +6,9 @@
     <div class="item"><div class="label">Start Date: </div><div class="value"><%= project.start_date %></div></div>
     <div class="item">
         <div class="projectlinks">
-            <%= link_to("Download Report", project_report_path(project, :format => :pdf), :method => :post) %>
+            <% if project.total_carbon != 0 %>
+                <%= link_to("Download Report", project_report_path(project, :format => :pdf), :method => :post) %>
+            <% end %>
             <% if current_user.admin? || current_user.client_admin?(@client) %> |
                 <%= link_to("Edit project", edit_project_path(project)) %> |
                 <%= link_to("New project", new_project_path) %>

@@ -10,25 +10,28 @@ module AmeeCarbonStore
 
   module ClassMethods
     def has_carbon_data_stored_in_amee(options = {})
-      attr_writer :amount, :units
-      cattr_reader :per_page
-
+      validates_numericality_of :amount
+      validate_on_create :units_are_valid
       unless options[:nameless]
         validates_uniqueness_of :name, :scope => :project_id
         validates_format_of :name, :with => /\A[\w -]+\Z/, :message => "must be letters, numbers, spaces or underscores only"
         validates_length_of :name, :maximum => 250
       end
-      validates_numericality_of :amount
-      validate_on_create :units_are_valid
-
       if options[:singular_types]
         validate_on_create :maximum_one_instance_for_each_type
       end
+      if options[:type_amount_repeats]
+        validates_numericality_of :repetitions, :only_integer => true
+      end
+      
       before_create :add_to_amee
       before_update :update_amee
       after_destroy :delete_from_amee
       
+      write_inheritable_attribute(:type_amount_repeats, true) if options[:type_amount_repeats]
       write_inheritable_attribute(:nameless_entries, true) if options[:nameless]
+      cattr_reader :per_page
+      
       include AmeeCarbonStore::InstanceMethods
     end
     
@@ -40,22 +43,6 @@ module AmeeCarbonStore
   end
 
   module InstanceMethods
-    def amount
-      if new_record?
-        @amount
-      else
-        @amount || amee_profile_item_field[:amount]
-      end
-    end
-
-    def units
-      if new_record?
-        @units
-      else
-        @units || amee_profile_item_field[:unit]
-      end
-    end
-    
     def update_carbon_output_cache
       update_attributes(:carbon_output_cache => amee_profile_item.total_amount)
     end
@@ -80,43 +67,13 @@ module AmeeCarbonStore
       (amount_symbol.to_s + "Unit").to_sym
     end
 
-    private
-    # This lets us reuse the AR validations
-    def amount_before_type_cast
-      self.amount
-    end
-    
+    private    
     def units_are_valid
       errors.add("units", "are not valid") if amee_category.item_value_name(self.units).nil?
     end
-    
-    def amee_profile_item_field
-      potential_fields = potential_amee_profile_fields
-      if potential_fields.size == 0
-        return nil
-      elsif potential_fields.size == 1
-        return {:amount => potential_fields.first[:value], :unit => potential_fields.first[:unit]}
-      else
-        # Assumes the field we're looking for is a number
-        potential_fields.each do |field|
-          return {:amount => field[:value], :unit => field[:unit]} if field[:value].to_i != 0
-        end
-      end
-    end
 
-    def potential_amee_profile_fields
-      matches = []
-      amee_profile_item.values.each do |value|
-        matches << value if possible_amount_field_names.map{|f| f.to_s}.include?(value[:path])
-      end
-      matches
-    end
-
-    # override if not inferable from units
-    def possible_amount_field_names
-      amee_category.item_value_names
-    end
-
+    # We call the distance/weight/... of an item the amount.  AMEE calls this value.  It refers
+    # to total_amount for the amount of carbon so don't confuse these.
     def amee_profile_item
       @amee_profile_item_cache ||= AMEE::Profile::Item.get(project.amee_connection, 
         amee_profile_item_path)
@@ -136,7 +93,7 @@ module AmeeCarbonStore
     def create_amee_profile
       category = AMEE::Profile::Category.get(project.amee_connection, 
         "#{project.profile_path}#{amee_category.path}")
-      options = {:name => get_name, amount_symbol => self.amount,
+      options = {:name => get_name, amount_symbol => get_amount,
         amount_unit_symbol => self.units, :get_item => true}
       options.merge!(additional_options) if additional_options
       AMEE::Profile::Item.create(category, amee_data_category_uid, options)
@@ -150,7 +107,7 @@ module AmeeCarbonStore
 
     def update_amee
       result = AMEE::Profile::Item.update(project.amee_connection, amee_profile_item_path, 
-        :name => get_name, amount_symbol => self.amount, :get_item => true)
+        :name => get_name, amount_symbol => get_amount, :get_item => true)
       self.carbon_output_cache = result.total_amount
       return true
     end
@@ -170,6 +127,10 @@ module AmeeCarbonStore
     
     def get_name
       self.class.read_inheritable_attribute(:nameless_entries) ? "#{self.class.name}_#{Time.now.to_i}" : self.name
+    end
+    
+    def get_amount
+      self.class.read_inheritable_attribute(:type_amount_repeats) ? self.amount * self.repetitions : self.amount
     end
   end
 end
