@@ -34,7 +34,6 @@ end
 
 # Assumptions not approved by Overbury yet:
 # - ceiling tiles are split into metal and mineral fibre in materials
-# - we've combined paper&card in waste
 # - carpet tiles waste are general waste carbon output
 # - concrete and bricks waste are general waste carbon output
 # - plasterboard waste are general waste carbon output
@@ -49,16 +48,15 @@ end
 # - Raised floor tiles mapped to general waste
 # - Fridge gas - gas HFC-134a for now
 
-# * examine caching issue and ensure no. of deliveries/commutes can be entered.  At same time do caching thoughts from before and what should be stored locally (could also do units here)
+# * examine caching issue and ensure no. of deliveries/commutes can be entered.  At same time do caching thoughts
+#   from before and what should be stored locally - store units at same time and drop those methods
+#   amee_profile_item still needed?
 # * make name field allow space [ask Jamie for example?]
 # * await volume to weight conversions from Overbury [overbury]
 # * recycled content for materials? Check ICE. Carpet from Interface. [jamie]
-# TODO on profile create add /metadata to profile with UK country (even though default)
-# TODO have possible... - good idea?  Note on method if ok to override.  Also is better way to do this?
-#      Linked: we cache name and type, but why?
 
-# TODO write up wiki page
 # TODO email from local server - seems to work but should check how it's working [check SPF etc]
+# TODO write up wiki page
 # TODO setup amee.yml info needed to run against production.  Also settings.yml
 # TODO any more wiki notes: https://sites.google.com/a/amee.cc/knowledge-base/home/overbury
 # TODO write tests for access rights - see RolesControllerSpec for progress

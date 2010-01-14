@@ -6,6 +6,7 @@ Code notes
 ----------
 - AmeeCarbonStore#amee_profile_item_field assumes the field entered is going to be a number.  If the application is extended to support fields that are non-numbers this area will need to be revisited
 - Material::Type[:particle_board] is called "Chipboard" as only UK market at the moment.  In the US this is called "Particle Board"
+- If used by clients outside the UK, a metadata profile should be created with an appropriate country code set
 
 
 Future work
