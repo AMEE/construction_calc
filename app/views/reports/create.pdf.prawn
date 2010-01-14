@@ -154,7 +154,7 @@ if @project.deliveries_carbon != 0
     pdf.fill_color "FFBA4E"
     pdf.text "Deliveries: #{delivery_carbon_percentage(@project)}%", :style => :bold, :size => 16
     pdf.fill_color "000000"
-    pdf.table @project.deliveries.reverse.map {|d| [d.name, d.amee_category.name, "#{d.amount} #{units_name_from_amee_unit(d)}", "#{d.carbon_output_cache.round(2)} kg"]},
+    pdf.table @project.deliveries.reverse.map {|d| [d.name, d.amee_category.name, "#{d.repetitions} x #{d.amount} #{units_name_from_amee_unit(d)}", "#{d.carbon_output_cache.round(2)} kg"]},
       :headers => ['Delivery Name', 'Delivery Mode', 'Distance', 'Emissions'],
       :border_style => :grid,
       :border_color => '999999',
@@ -162,7 +162,7 @@ if @project.deliveries_carbon != 0
       :header_text_color  => "ffffff",
       :vertical_padding => 2,
       :horizontal_padding => 3,
-      :column_widths => {0 => 200, 1 => 180, 2 => 80, 3 => 80}
+      :column_widths => {0 => 200, 1 => 160, 2 => 100, 3 => 80}
 end
   
 #################
@@ -234,7 +234,7 @@ if @project.commutes_carbon != 0
     pdf.fill_color "86CE66"
     pdf.text "Commuting: #{commutes_carbon_percentage(@project)}%", :style => :bold, :size => 16
     pdf.fill_color "000000"
-    pdf.table @project.commutes.reverse.map {|c| [c.name, c.amee_category.name, "#{c.amount} #{units_name_from_amee_unit(c)}", "#{c.carbon_output_cache.round(2)} kg"]},
+    pdf.table @project.commutes.reverse.map {|c| [c.name, c.amee_category.name, "#{c.repetitions} x #{c.amount} #{units_name_from_amee_unit(c)}", "#{c.carbon_output_cache.round(2)} kg"]},
     :headers => ['Commute Name', 'Mode of Transport', 'Distance', 'Emissions'],
     :border_style => :grid,
     :border_color => '999999',
@@ -242,7 +242,7 @@ if @project.commutes_carbon != 0
     :header_text_color  => "ffffff",
     :vertical_padding => 2,
     :horizontal_padding => 3,
-    :column_widths => {0 => 200, 1 => 180, 2 => 80, 3 => 80}
+    :column_widths => {0 => 200, 1 => 160, 2 => 100, 3 => 80}
 end
 
 ####################

@@ -48,7 +48,6 @@ end
 # - Raised floor tiles mapped to general waste
 # - Fridge gas - gas HFC-134a for now
 
-# ** Due to changes will need to clear out DB when deploy **
 # * make name field allow space [ask Jamie for example?]
 # * await volume to weight conversions from Overbury [overbury]
 # * recycled content for materials? Check ICE. Carpet from Interface. [jamie]
