@@ -4,7 +4,7 @@ include UsersHelper
 
 describe UsersHelper do
   before do
-    @user = mock_user
+    @user = Factory(:user)
   end
   
   describe "if_authorized" do 

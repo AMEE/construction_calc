@@ -28,6 +28,7 @@ class Unit
     AMEE_API_UNITS.each do |key, value|
       return new(key) if value == unit
     end
+    return nil
   end
   
   def name

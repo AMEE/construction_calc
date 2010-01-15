@@ -90,7 +90,7 @@ pdf.image open(@project.google_chart_url), :at => [0,305], :scale => 0.75
 pdf.fill_color "888888"
 pdf.fill_rectangle([385,330], 160, 40)
 pdf.fill_color "ffffff"
-pdf.text_box "Total CO² output:",
+pdf.text_box "Total CO2 output:",
     :width    => 100, :height => 20,
     :at       => [400, 325],
     :size     => 10
@@ -175,7 +175,7 @@ if @project.materials_carbon != 0
     pdf.text "Materials: #{materials_carbon_percentage(@project)}%", :style => :bold, :size => 16
     pdf.fill_color "000000"
     pdf.table @project.materials.reverse.map {|m| [m.name, m.amee_category.name, "#{m.amount} #{units_name_from_amee_unit(m)}", "#{m.carbon_output_cache.round(2)} kg"]},
-    :headers => ['Material Name', 'Material Type', 'Weight', 'Emissions'],
+    :headers => ['Material Name', 'Material Type', 'Amount', 'Emissions'],
     :border_style => :grid,
     :border_color => '999999',
     :header_color => '9A5AAB',

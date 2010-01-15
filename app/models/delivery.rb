@@ -7,14 +7,12 @@ class Delivery < ActiveRecord::Base
   #   - van - diesel, 1.305-1.740 tonnes
   #   - non-articulated lorry - diesel, fixed load
   #   - articulated lorry - diesel, fixed load
-  #   - rail - fixed weight (1 tonne) freight train
   COLOUR = "#FFBA4E"
   TRAIN_MASS = 1
   TYPE = {
     :van => AmeeCategory.new("Van", :distance, "/transport/van/generic", :fuel => "diesel (by size class)", :size => "1.305 to 1.740 tonnes"),
     :non_articulated => AmeeCategory.new("Non-Articulated Lorry", :distance, "/transport/lgv/generic", :fuel => "diesel", :size => "non articulated"),
-    :articulated => AmeeCategory.new("Articulated Lorry", :distance, "/transport/lgv/generic", :fuel => "diesel", :size => "articulated"),
-    :rail => AmeeCategory.new("Rail", :distance, "/transport/train/generic/freight/ghgp/other", :type => "train")
+    :articulated => AmeeCategory.new("Articulated Lorry", :distance, "/transport/lgv/generic", :fuel => "diesel", :size => "articulated")
   }
   
   def amee_category

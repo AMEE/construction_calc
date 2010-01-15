@@ -60,7 +60,7 @@ module AmeeCarbonStore
     
     # Override this if the amount symbol isn't inferable from the units
     def amount_symbol
-      amee_category.item_value_name(self.units)
+      amee_category.item_value_name(get_units)
     end
 
     def amount_unit_symbol
@@ -69,7 +69,7 @@ module AmeeCarbonStore
 
     private    
     def units_are_valid
-      errors.add("units", "are not valid") if amee_category.item_value_name(self.units).nil?
+      errors.add("units", "are not valid") if amee_category.item_value_name(get_units).nil?
     end
 
     # We call the distance/weight/... of an item the amount.  AMEE calls this value.  It refers
@@ -94,7 +94,7 @@ module AmeeCarbonStore
       category = AMEE::Profile::Category.get(project.amee_connection, 
         "#{project.profile_path}#{amee_category.path}")
       options = {:name => get_name, amount_symbol => get_amount,
-        amount_unit_symbol => self.units, :get_item => true}
+        amount_unit_symbol => get_units, :get_item => true}
       options.merge!(additional_options) if additional_options
       AMEE::Profile::Item.create(category, amee_data_category_uid, options)
     end
@@ -130,7 +130,21 @@ module AmeeCarbonStore
     end
     
     def get_amount
-      self.class.read_inheritable_attribute(:type_amount_repeats) ? self.amount * self.repetitions : self.amount
+      if amee_category.has_alternative_unit?(self.units)
+        self.amount * amee_category.alternative_unit_conversion_factor(self.units)
+      elsif self.class.read_inheritable_attribute(:type_amount_repeats)
+        self.amount * self.repetitions
+      else
+        self.amount
+      end
+    end
+    
+    def get_units
+      if amee_category.has_alternative_unit?(self.units)
+        amee_category.alternative_unit_converts_to(self.units).to_s
+      else
+        self.units
+      end
     end
   end
 end

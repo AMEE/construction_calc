@@ -9,10 +9,20 @@ module ApplicationHelper
   end
   
   def units_name_from_amee_unit(carbon_producing_type)
-    Unit.from_amee_unit(carbon_producing_type.units).name
+    unit_obj = Unit.from_amee_unit(carbon_producing_type.units)
+    unit_obj ? unit_obj.name : convert_units_to_readable_format(carbon_producing_type.units)
   end
   
   def two_decimal_place_float(amount)
     (amount * 100).round / 100.0
+  end
+  
+  # Horrible!
+  def convert_units_to_readable_format(units)
+    if units == "m2"
+      "m²"
+    elsif units == "m3"
+      "m³"
+    end
   end
 end

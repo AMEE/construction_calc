@@ -1,5 +1,5 @@
 <div id="content" class="content">
-    <table><tr class="list-header materials-background"><td>Material Name</td><td>Material Type</td><td>Weight</td><td>Emissions</td><td></td><td></td></tr>
+    <table><tr class="list-header materials-background"><td>Material Name</td><td>Material Type</td><td>Amount</td><td>Emissions</td><td></td><td></td></tr>
         <% if @materials.size > 0 %>
             <%= render :partial => "material", :collection => @materials %>
         <% else %>
