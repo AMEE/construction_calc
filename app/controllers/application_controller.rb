@@ -33,11 +33,10 @@ class ApplicationController < ActionController::Base
 end
 
 # Dev actions:
-# plastic conversion, what to do about marble tiles
-# - do sample weight<->volume conversion
-# - labeling on fields (+ check that email)
-# - asbestos exception
-# - await volume to weight conversions from Overbury [overbury]
+# - plastic conversion, what to do about marble tiles
+# - email in inbox received friday and check against outstanding actions
+# - labeling on fields (+ check that email for other actions)
+# - asbestos exception in UI where has no waste type or type changes to other
 # - recycled content for materials? Check ICE. Carpet from Interface. [jamie]
 
 # TODO email from local server - seems to work but should check how it's working [check SPF etc]

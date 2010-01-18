@@ -18,7 +18,7 @@ class Material < ActiveRecord::Base
     :aluminium => AmeeCategory.new("Aluminium", :weight, "/embodied/ice", :material => "aluminium", :type => "general", :subtype => "uk typical", :unit_conversions => {:kg => [:m3 => 2500]}),
     :insulation => AmeeCategory.new("Insulation", :weight, "/embodied/ice", :material => "insulation", :type => "general", :unit_conversions => {:kg => [:m3 => 150]}),
     :plastic => AmeeCategory.new("Plastic", :weight, "/embodied/ice", :material => "platics", :type => "general", :unit_conversions => {:kg => [:m3 => 1]}),
-    :concrete => AmeeCategory.new("Concrete", :weight, "/embodied/ice/concrete", :type => "general", , :unit_conversions => {:kg => [:m3 => 2300]}),
+    :concrete => AmeeCategory.new("Concrete", :weight, "/embodied/ice/concrete", :type => "general", :unit_conversions => {:kg => [:m3 => 2300]}),
     :plywood => AmeeCategory.new("Plywood", :weight, "/embodied/ice", :material => "timber", :type => "plywood", :unit_conversions => {:kg => [:m2 => 6.2, :m3 => 516.5]}),
     :mdf => AmeeCategory.new("MDF", :weight, "/embodied/ice", :material => "timber", :type => "MDF", :unit_conversions => {:kg => [:m2 => 13.32, :m3 => 740]}),
     :particle_board => AmeeCategory.new("Chipboard", :weight, "/embodied/ice", :material => "timber", :type => "particle board", :unit_conversions => {:kg => [:m2 => 11.7, :m3 => 650]}),
