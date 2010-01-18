@@ -15,7 +15,7 @@
             <p><%= @material.amee_category.name %></p>
         <% end %>
         </div>
-        <%= f.label :amount, "Weight" %> <%= f.text_field :amount, :class => "generic weight" %>
+        <%= f.label :amount, "Amount" %> <%= f.text_field :amount, :class => "generic weight" %>
         <% if @material.new_record? %>
             <%= f.select :units, ["(fetching)"] %>
         <% else %>
