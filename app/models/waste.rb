@@ -45,6 +45,8 @@ class Waste < ActiveRecord::Base
   def amount_symbol
     if waste_type.to_sym == :refrigerant_gases
       "emissionRate"
+    elsif waste_type.to_sym == :asbestos
+      "quantityLandfill"
     else
       METHOD[waste_method.to_sym]
     end

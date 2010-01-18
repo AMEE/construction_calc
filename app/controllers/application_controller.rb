@@ -33,22 +33,18 @@ class ApplicationController < ActionController::Base
 end
 
 # Assumptions science will need to do more research for:
-# - ceiling tiles are split into metal and mineral fibre in materials
-# - carpet tiles waste are general waste carbon output
-# - concrete and bricks waste are general waste carbon output
-# - plasterboard waste are general waste carbon output
-# - septic tank waste is organic waste carbon output
 # - Is cans using the best category (currently non-ferrous)? (note if new category divides carbon output by 3 or more then may need to change to plastic bottles)
 # - asbestos waste are general waste carbon output
 # - Fluorescent tubes waste mapped to general waste
 # - Paint and adhesive waste mapped to general waste
-# - Raised floor tiles mapped to general waste
+# - concrete and bricks waste are general waste carbon output
+# - raised access floor tiles - need composite type
+# Once done them all go through and update notes in models
 
 # Dev actions:
-# - plastic conversion, what to do about marble tiles??
-# - what is gas measured in?  Overbury did comment on this
-# - asbestos exception in UI where has no waste type or type changes to other
-# - recycled content for materials? Check ICE. Carpet from Interface. [jamie]
+# - what to do about marble tiles [replace with raised access tiles]??
+# - plastic conversion
+# - material changes going be made by Andrew
 
 # TODO email from local server - seems to work but should check how it's working [check SPF etc]
 # TODO write up wiki page

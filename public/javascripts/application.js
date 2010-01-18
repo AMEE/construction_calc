@@ -10,7 +10,7 @@ function selectUnits(object_name, unit_name) {
 }
 
 function adjustWasteDisposeMethod() {
-    if ($('#waste_waste_type').val() == "refrigerant_gases") {
+    if ($('#waste_waste_type').val() == "refrigerant_gases" || $('#waste_waste_type').val() == "asbestos") {
         $('#waste_waste_method').disable();
     } else {
         $('#waste_waste_method').enable();
