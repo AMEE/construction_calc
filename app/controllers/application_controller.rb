@@ -32,28 +32,21 @@ class ApplicationController < ActionController::Base
   end
 end
 
-# Assumptions science will need to do more research for:
-# - Is cans using the best category (currently non-ferrous)? (note if new category divides carbon output by 3 or more then may need to change to plastic bottles)
-# - asbestos waste are general waste carbon output
-# - Fluorescent tubes waste mapped to general waste
-# - Paint and adhesive waste mapped to general waste
-# - concrete and bricks waste are general waste carbon output
-# - raised access floor tiles - need composite type
-# Once done them all go through and update notes in models
-
 # Dev actions:
-# - what to do about marble tiles [replace with raised access tiles]??
+# - Jen re clash tomorrow (in morning, home at lunch)
+# - Raise bug against infrastructure for non-returneable 
+# - Checkin, deploy to staging and test new bits work
 # - plastic conversion
-# - material changes going be made by Andrew
 
 # TODO email from local server - seems to work but should check how it's working [check SPF etc]
 # TODO write up wiki page
+# TODO Andrews lifecycle changes (http://wiki.amee.com/index.php/Life-Cycle_Waste) will need to go to live
 # TODO setup amee.yml info needed to run against production.  Also settings.yml
 # TODO any more wiki notes: https://sites.google.com/a/amee.cc/knowledge-base/home/overbury
 # TODO write tests for access rights - see RolesControllerSpec for progress
 
 # Leasons learnt:
-#  - need to get client category <-> amee categories mapped out up front
+#  - need to get client category <-> amee categories mapped out up front - also would have avoided last minute changes for 2 to 1 category that caused such headaches
 #  - storing of data in amee (wasted some time trying to do this, now know but would be nice to have custom variable support)
 #  - UI would speed things up a little (not so much in terms of HTML but more in terms of getting more project throughput)
 #  - Reusable on two levels - should run through libs with other rails guys

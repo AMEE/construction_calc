@@ -82,6 +82,10 @@ module AmeeCarbonStore
     def amee_profile_item_path
       "#{project.profile_path}#{amee_category.path}/#{amee_profile_item_id}"
     end
+    
+    def amee_profile_category
+      AMEE::Profile::Category.get(project.amee_connection, "#{project.profile_path}#{amee_category.path}")
+    end
 
     def add_to_amee
       profile = create_amee_profile
@@ -91,12 +95,10 @@ module AmeeCarbonStore
     end
 
     def create_amee_profile
-      category = AMEE::Profile::Category.get(project.amee_connection, 
-        "#{project.profile_path}#{amee_category.path}")
       options = {:name => get_name, amount_symbol => get_amount,
         amount_unit_symbol => get_units, :get_item => true}
       options.merge!(additional_options) if additional_options
-      AMEE::Profile::Item.create(category, amee_data_category_uid, options)
+      AMEE::Profile::Item.create(amee_profile_category, amee_data_category_uid, options)
     end
 
     def amee_data_category_uid

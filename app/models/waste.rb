@@ -7,11 +7,12 @@ class Waste < ActiveRecord::Base
   #   - carpet tiles -> other waste
   #   - concrete and bricks -> other waste
   #   - plasterboard -> other waste
-  #   - raised access floor tiles -> ???
-  #   - asbestos -> other waste
-  #   - fluorescent tubes -> ???
-  #   - paint and adhesive -> ???
-  #   - refrigerant gases -> ???
+  #   - raised access floor tiles -> wood as these are 84% chipboard
+  #   - cans & plastic bottles -> non-ferous metal
+  #   - asbestos -> other waste (Andrew B approved this - due to long complex reasons very low carbon output)
+  #   - fluorescent tubes -> other waste
+  #   - paint and adhesive -> other waste
+  #   - refrigerant gases -> HFC-134a gas
   #   - septic tank waste -> other organic
   COLOUR = "#5694ED"
   TYPE = {
@@ -23,7 +24,7 @@ class Waste < ActiveRecord::Base
     :metals => AmeeCategory.new("Ferrous metals", :weight, "/home/waste/lifecyclewaste", :wasteType => "non-ferrous metal"),
     :plasterboard => AmeeCategory.new("Plasterboard", :weight, "/home/waste/lifecyclewaste", :wasteType => "other waste"),
     :plastics => AmeeCategory.new("Plastics", :weight, "/home/waste/lifecyclewaste", :wasteType => "plastic (dense)"),
-    :raised_access_floor_tiles => AmeeCategory.new("Raised Access Floor Tiles", :weight, "/home/waste/lifecyclewaste", :wasteType => "other waste"),
+    :raised_access_floor_tiles => AmeeCategory.new("Raised Access Floor Tiles", :weight, "/home/waste/lifecyclewaste", :wasteType => "wood"),
     :wood => AmeeCategory.new("Wood", :weight, "/home/waste/lifecyclewaste", :wasteType => "wood"),
     :cans_plastic_bottles => AmeeCategory.new("Cans & Plastic Bottles", :weight, "/home/waste/lifecyclewaste", :wasteType => "non-ferrous metal"),
     :asbestos => AmeeCategory.new("Asbestos", :weight, "/home/waste/lifecyclewaste", :wasteType => "other waste"),
@@ -40,6 +41,10 @@ class Waste < ActiveRecord::Base
   
   def amee_category
     TYPE[waste_type.to_sym]
+  end
+  
+  def additional_options
+    {:disposalEmissionsOnly => true}
   end
   
   def amount_symbol

@@ -11,6 +11,8 @@ Code notes
 
 Future work
 -----------
+- Suitable multiple type to multiple amee category mappings (to avoid raised access floor
+  tiles hack)
 - For types where extra fields are required (for example waste) the METHOD hash uses a name
   inferred from the key name converted to a string and capitalised.  Whilst this works well
   in this example, it is unsure whether this well for future additions.  A fuller solution
