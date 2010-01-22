@@ -5,7 +5,7 @@ class Waste < ActiveRecord::Base
 
   # Assumptions on types:
   #   - carpet tiles -> other waste
-  #   - concrete and bricks -> other waste
+  #   - concrete and bricks -> aggregate materials
   #   - plasterboard -> other waste
   #   - raised access floor tiles -> wood as these are 84% chipboard
   #   - cans & plastic bottles -> non-ferous metal
@@ -19,7 +19,7 @@ class Waste < ActiveRecord::Base
     :cardboard => AmeeCategory.new("Cardboard", :weight, "/home/waste/lifecyclewaste", :wasteType => "paper and Card"),
     :paper => AmeeCategory.new("Paper", :weight, "/home/waste/lifecyclewaste", :wasteType => "paper and Card"),
     :carpet_tiles => AmeeCategory.new("Carpet Tiles", :weight, "/home/waste/lifecyclewaste", :wasteType => "other waste"),
-    :concrete_and_bricks => AmeeCategory.new("Concrete and Bricks", :weight, "/home/waste/lifecyclewaste", :wasteType => "other waste"),
+    :concrete_and_bricks => AmeeCategory.new("Concrete and Bricks", :weight, "/home/waste/lifecyclewaste", :wasteType => "aggregate materials"),
     :general_mixed_waste => AmeeCategory.new("General Mixed Waste", :weight, "/home/waste/lifecyclewaste", :wasteType => "other waste"),
     :metals => AmeeCategory.new("Non-ferrous metals", :weight, "/home/waste/lifecyclewaste", :wasteType => "non-ferrous metal"),
     :plasterboard => AmeeCategory.new("Plasterboard", :weight, "/home/waste/lifecyclewaste", :wasteType => "other waste"),

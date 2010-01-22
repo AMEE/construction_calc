@@ -11,7 +11,7 @@ class Material < ActiveRecord::Base
   # Assumptions on types:
   #   - steel - primary (virgin) steel
   #   - aluminium - primary (virgin) aluminium
-  #   - copper - maximum carbon output range
+  #   - copper - primary (virgin) copper
   #   - raised access floor tiles - 84% chipboard, 16% steel
   COLOUR = "#9A5AAB"
   TYPE = {
@@ -28,7 +28,7 @@ class Material < ActiveRecord::Base
     :plywood => AmeeCategory.new("Plywood", :weight, "/embodied/ice", :material => "timber", :type => "plywood", :unit_conversions => {:kg => [:m2 => 6.2, :m3 => 516.5]}),
     :mdf => AmeeCategory.new("MDF", :weight, "/embodied/ice", :material => "timber", :type => "MDF", :unit_conversions => {:kg => [:m2 => 13.32, :m3 => 740]}),
     :particle_board => AmeeCategory.new("Chipboard", :weight, "/embodied/ice", :material => "timber", :type => "particle board", :unit_conversions => {:kg => [:m2 => 11.7, :m3 => 650]}),
-    :copper => AmeeCategory.new("Copper", :weight, "/embodied/ice", :material => "copper", :type => "general", :subtype => "maximum value", :unit_conversions => {:kg => [:m3 => 8930]}),
+    :copper => AmeeCategory.new("Copper", :weight, "/embodied/ice", :material => "copper", :type => "general", :subtype => "primary", :unit_conversions => {:kg => [:m3 => 8930]}),
     :mineral_fibre_ceiling_tiles => AmeeCategory.new("Mineral Fibre Ceiling Tiles", :weight, "/embodied/ice", :material => "insulation", :type => "mineral wool", :unit_conversions => {:kg => [:m2 => 3.5, :m3 => 250]}),
     :metal_ceiling_tiles => AmeeCategory.new("Metal Ceiling Tiles", :weight, "/embodied/ice", :material => "steel", :type => "sheet", :unit_conversions => {:kg => [:m2 => 7, :m3 => 212]}),
     :ceramic_tiles => AmeeCategory.new("Ceramic Tiles", :weight, "/embodied/ice", :material => "ceramics", :type => "tile", :unit_conversions => {:kg => [:m2 => 15, :m3 => 1922]}),
