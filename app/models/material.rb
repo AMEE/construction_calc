@@ -9,8 +9,8 @@ class Material < ActiveRecord::Base
   after_destroy :delete_second_amee_profile_item
   
   # Assumptions on types:
-  #   - steel - uk typical makeup of new/recycled
-  #   - aluminium - uk typical makeup of new/recycled
+  #   - steel - primary (virgin) steel
+  #   - aluminium - primary (virgin) aluminium
   #   - copper - maximum carbon output range
   #   - raised access floor tiles - 84% chipboard, 16% steel
   COLOUR = "#9A5AAB"
@@ -19,9 +19,9 @@ class Material < ActiveRecord::Base
     :carpet => AmeeCategory.new("Carpet", :weight, "/embodied/ice", :material => "carpets", :type => "general", :unit_conversions => {:kg => [:m2 => 4.5, :m3 => 500]}),
     :vinyl => AmeeCategory.new("Vinyl Flooring", :weight, "/embodied/ice", :material => "vinyl flooring", :type => "general vinyl flooring", :unit_conversions => {:kg => [:m2 => 4.95, :m3 => 1980]}),
     :plasterboard => AmeeCategory.new("Plasterboard", :weight, "/embodied/ice", :material => "plaster", :type => "plasterboard", :unit_conversions => {:kg => [:m2 => 9, :m3 => 725]}),
-    :steel => AmeeCategory.new("Steel", :weight, "/embodied/ice", :material => "steel", :type => "general steel", :subtype => "uk typical", :unit_conversions => {:kg => [:m3 => 7850]}),
+    :steel => AmeeCategory.new("Steel", :weight, "/embodied/ice", :material => "steel", :type => "general steel", :subtype => "primary", :unit_conversions => {:kg => [:m3 => 7850]}),
     :glass => AmeeCategory.new("Glass", :weight, "/embodied/ice", :material => "glass", :type => "general", :unit_conversions => {:kg => [:m3 => 2579]}),
-    :aluminium => AmeeCategory.new("Aluminium", :weight, "/embodied/ice", :material => "aluminium", :type => "general", :subtype => "uk typical", :unit_conversions => {:kg => [:m3 => 2500]}),
+    :aluminium => AmeeCategory.new("Aluminium", :weight, "/embodied/ice", :material => "aluminium", :type => "general", :subtype => "primary", :unit_conversions => {:kg => [:m3 => 2500]}),
     :insulation => AmeeCategory.new("Insulation", :weight, "/embodied/ice", :material => "insulation", :type => "general", :unit_conversions => {:kg => [:m3 => 150]}),
     :plastic => AmeeCategory.new("Plastic", :weight, "/embodied/ice", :material => "plastics", :type => "general", :unit_conversions => {:kg => [:m3 => 1]}),
     :concrete => AmeeCategory.new("Concrete", :weight, "/embodied/ice/concrete", :type => "general", :unit_conversions => {:kg => [:m3 => 2300]}),
