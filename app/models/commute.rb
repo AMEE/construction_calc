@@ -8,13 +8,13 @@ class Commute < ActiveRecord::Base
   #   - car - medium, petrol
   COLOUR = "#86CE66"
   TYPE = {
-    :bus => AmeeCategory.new("Bus", :distance, "/transport/bus/generic", :type => "typical"),
+    :bus => AmeeCategory.new("Bus", :journey_distance, "/transport/bus/generic/defra", :type => "typical"),
     :cycling => AmeeCategory.new("Cycling", :distance, "/transport/other", :type => "cycling"),
-    :motorbike => AmeeCategory.new("Motorbike", :distance, "/transport/motorcycle/generic", :fuel => "petrol", :size => "medium"),
-    :car => AmeeCategory.new("Car", :distance, "/transport/car/generic", :fuel => "petrol", :size => "medium"),
+    :motorbike => AmeeCategory.new("Motorbike", :distance, "/transport/motorcycle/generic/defra", :fuel => "petrol", :size => "medium (125-500cc)"),
+    :car => AmeeCategory.new("Car", :distance, "/transport/car/generic/defra/bysize", :fuel => "average", :size => "average"),
     :walking => AmeeCategory.new("Walking", :distance, "/transport/other", :type => "walking"),
-    :train => AmeeCategory.new("Train", :distance, "/transport/train/generic", :type => "national"),
-    :tube => AmeeCategory.new("Tube", :distance, "/transport/train/generic", :type => "underground")
+    :train => AmeeCategory.new("Train", :journey_distance, "/transport/train/generic/defra", :type => "national"),
+    :tube => AmeeCategory.new("Tube", :journey_distance, "/transport/train/generic/defra", :type => "underground")
   }
   
   def amee_category

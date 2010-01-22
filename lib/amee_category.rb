@@ -8,6 +8,7 @@ class AmeeCategory
   
   AMEE_ITEM_VALUE_NAMES = {
     :distance => [:distance],
+    :journey_distance => [:distancePerJourney],
     :weight => [:mass],
     :energy => [:energyConsumption],
     :volumable_energy => [:volumePerTime, :energyConsumption]
@@ -15,6 +16,7 @@ class AmeeCategory
 
   AMEE_ITEM_VALUE_UNITS = {
     :distance => [Unit.km, Unit.miles],
+    :distancePerJourney => [Unit.km, Unit.miles],
     :mass => [Unit.kg, Unit.tonnes],
     :energyConsumption => [Unit.kwh],
     :volumePerTime => [Unit.litres],
