@@ -32,10 +32,7 @@ class ApplicationController < ActionController::Base
   end
 end
 
-# Dev actions:
-# - negative emissions
-# - plastic conversion
-
+# TODO plastic conversion m3->kg factor needed
 # TODO email from local server - seems to work but should check how it's working [check SPF etc]
 # TODO write up wiki page
 # TODO Andrews lifecycle changes (http://wiki.amee.com/index.php/Life-Cycle_Waste) will need to go to live

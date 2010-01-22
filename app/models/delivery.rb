@@ -10,9 +10,9 @@ class Delivery < ActiveRecord::Base
   COLOUR = "#FFBA4E"
   TRAIN_MASS = 1
   TYPE = {
-    :van => AmeeCategory.new("Van", :distance, "/transport/van/generic", :fuel => "diesel (by size class)", :size => "1.305 to 1.740 tonnes"),
-    :non_articulated => AmeeCategory.new("Non-Articulated Lorry", :distance, "/transport/lgv/generic", :fuel => "diesel", :size => "non articulated"),
-    :articulated => AmeeCategory.new("Articulated Lorry", :distance, "/transport/lgv/generic", :fuel => "diesel", :size => "articulated")
+    :van => AmeeCategory.new("Van", :distance, "/transport/van/generic/defra", :fuel => "diesel", :size => "1.305 to 1.740 tonnes"),
+    :non_articulated => AmeeCategory.new("Non-Articulated Lorry", :distance, "/transport/lgv/generic/defra", :type => "rigid", :size => "uk average"),
+    :articulated => AmeeCategory.new("Articulated Lorry", :distance, "/transport/lgv/generic/defra", :type => "articulated", :size => "uk average")
   }
   
   def amee_category
