@@ -41,7 +41,8 @@ end
 # TODO write tests for access rights - see RolesControllerSpec for progress
 
 # Leasons learnt:
-#  - need to get client category <-> amee categories mapped out up front - also would have avoided last minute changes for 2 to 1 category that caused such headaches
+#  - need to get client category <-> amee categories mapped out up front - also would have avoided last minute changes for 2 to 1 category that caused such headaches.  In end redid the whole lot in under a day with Andrew B once had his attention
+#    also linked categories with brackets in name are gay
 #  - storing of data in amee (wasted some time trying to do this, now know but would be nice to have custom variable support)
 #  - UI would speed things up a little (not so much in terms of HTML but more in terms of getting more project throughput)
 #  - Reusable on two levels - should run through libs with other rails guys

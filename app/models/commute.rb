@@ -10,7 +10,7 @@ class Commute < ActiveRecord::Base
   TYPE = {
     :bus => AmeeCategory.new("Bus", :journey_distance, "/transport/bus/generic/defra", :type => "typical"),
     :cycling => AmeeCategory.new("Cycling", :distance, "/transport/other", :type => "cycling"),
-    :motorbike => AmeeCategory.new("Motorbike", :distance, "/transport/motorcycle/generic/defra", :fuel => "petrol", :size => "medium (125-500cc)"),
+    :motorbike => AmeeCategory.new("Motorbike", :distance, "/transport/motorcycle/generic/defra", :fuel => "petrol", :size => "unknown"),
     :car => AmeeCategory.new("Car", :distance, "/transport/car/generic/defra/bysize", :fuel => "average", :size => "average"),
     :walking => AmeeCategory.new("Walking", :distance, "/transport/other", :type => "walking"),
     :train => AmeeCategory.new("Train", :journey_distance, "/transport/train/generic/defra", :type => "national"),
