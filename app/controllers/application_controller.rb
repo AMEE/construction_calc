@@ -33,9 +33,7 @@ class ApplicationController < ActionController::Base
 end
 
 # Dev actions:
-# - Jen re clash tomorrow (in morning, home at lunch)
-# - Raise bug against infrastructure for non-returneable 
-# - Checkin, deploy to staging and test new bits work
+# - negative emissions
 # - plastic conversion
 
 # TODO email from local server - seems to work but should check how it's working [check SPF etc]
