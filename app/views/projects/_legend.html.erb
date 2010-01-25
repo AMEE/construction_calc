@@ -1,8 +1,8 @@
 <div class="legend">
     <h3>Legend</h3>
-    <div class="item"><div class="colour deliveries-background"></div><div class="words">Deliveries - <%= two_decimal_place_float(project.deliveries_carbon) %>kg</div></div>
-    <div class="item"><div class="colour materials-background"></div><div class="words">Materials - <%= two_decimal_place_float(project.materials_carbon) %>kg</div></div>
-    <div class="item"><div class="colour waste-background"></div><div class="words">Waste - <%= two_decimal_place_float(project.waste_management_carbon) %>kg</div></div>
-    <div class="item"><div class="colour energy-background"></div><div class="words">Energy - <%= two_decimal_place_float(project.energy_consumption_carbon) %>kg</div></div>
-    <div class="item"><div class="colour commuting-background"></div><div class="words">Commuting - <%= two_decimal_place_float(project.commutes_carbon) %>kg</div></div>
+    <div class="item"><div class="colour deliveries-background"></div><div class="words">Deliveries (<%= two_decimal_place_float(project.deliveries_carbon) %>kg)</div></div>
+    <div class="item"><div class="colour materials-background"></div><div class="words">Materials (<%= two_decimal_place_float(project.materials_carbon) %>kg)</div></div>
+    <div class="item"><div class="colour waste-background"></div><div class="words">Waste (<%= two_decimal_place_float(project.waste_management_carbon) %>kg)</div></div>
+    <div class="item"><div class="colour energy-background"></div><div class="words">Energy (<%= two_decimal_place_float(project.energy_consumption_carbon) %>kg)</div></div>
+    <div class="item"><div class="colour commuting-background"></div><div class="words">Commuting (<%= two_decimal_place_float(project.commutes_carbon) %>kg)</div></div>
 </div>

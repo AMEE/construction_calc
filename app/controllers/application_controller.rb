@@ -32,6 +32,7 @@ class ApplicationController < ActionController::Base
   end
 end
 
+# TODO some values co2, some co2e/amee url structure change
 # TODO plastic conversion m3->kg factor needed
 # TODO email from local server - seems to work but should check how it's working [check SPF etc]
 # TODO write up wiki page
@@ -47,6 +48,7 @@ end
 #  - UI would speed things up a little (not so much in terms of HTML but more in terms of getting more project throughput)
 #  - Reusable on two levels - should run through libs with other rails guys
 #  - Can knock these out quite quickly if had UI dude (with potential reusable components - althought depends how, is reusable on two levels though)
+#  - AMEE url change
 #  - AJAX can slow things up when time is tight
 #  - AMEE badly documented:
 #     - data/profile category

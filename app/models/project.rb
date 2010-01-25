@@ -60,15 +60,7 @@ class Project < ActiveRecord::Base
     "#{GOOGLE_CHART_BASE_URL}?#{google_chart_options.collect{|k,v| "#{k}=#{URI.escape(v)}"}.join("&")}"
   end
   
-  private
-  def type_percents
-    percents = []
-    [commutes, deliveries, materials, energy_consumptions, wastes].each do |type|
-      percents << (100 * type.map {|i| i.carbon_output_cache}.sum) / total_carbon.to_f
-    end
-    percents
-  end
-  
+  private  
   def check_client_project_limit
     if client.projects.size >= Client::PROJECT_LIMIT
       errors.add_to_base "You are limited to #{Client::PROJECT_LIMIT} projects"
@@ -79,7 +71,17 @@ class Project < ActiveRecord::Base
   def google_chart_options
     classes = [Commute, Delivery, Material, EnergyConsumption, Waste]
     {:cht => "p3",
-     :chd => "t:#{type_percents.join(',')}&chl=#{classes.map{|c| c.to_s.underscore.humanize}.join('|')}",
+     :chd => "t:#{google_type_percents.join(',')}&chl=#{classes.map{|c| c.to_s.underscore.humanize}.join('|')}",
      :chs => "530x200", :chco => "#{classes.map {|c| c::COLOUR[1,6]}.join(',')}"}
+  end
+  
+  def google_type_percents
+    percents = []
+    [commutes, deliveries, materials, energy_consumptions, wastes].each do |type|
+      percentage = (100 * type.map {|i| i.carbon_output_cache}.sum) / total_carbon.to_f
+      percentage = 0 if percentage < 0
+      percents << percentage
+    end
+    percents
   end
 end

@@ -113,35 +113,35 @@ pdf.text_box "Legend",
 pdf.fill_color "FFBA4E"
 pdf.fill_rectangle([385,250], 10, 15)
 pdf.fill_color "000000"
-pdf.text_box "Deliveries - #{two_decimal_place_float(@project.deliveries_carbon)}kg", 
+pdf.text_box "Deliveries (#{two_decimal_place_float(@project.deliveries_carbon)}kg)", 
     :width    => 145, :height => 20,
     :at       => [400,246]
 
 pdf.fill_color "9A5AAB"
 pdf.fill_rectangle([385,232], 10, 15)
 pdf.fill_color "000000"
-pdf.text_box "Materials - #{two_decimal_place_float(@project.materials_carbon)}kg", 
+pdf.text_box "Materials (#{two_decimal_place_float(@project.materials_carbon)}kg)", 
     :width    => 145, :height => 20,
     :at       => [400,228]
 
 pdf.fill_color "5694ED"
 pdf.fill_rectangle([385,214], 10, 15)
 pdf.fill_color "000000"
-pdf.text_box "Waste - #{two_decimal_place_float(@project.waste_management_carbon)}kg", 
+pdf.text_box "Waste (#{two_decimal_place_float(@project.waste_management_carbon)}kg)", 
     :width    => 145, :height => 20,
     :at       => [400,210]
     
 pdf.fill_color "CD3A3D"
 pdf.fill_rectangle([385,196], 10, 15)
 pdf.fill_color "000000"
-pdf.text_box "Energy - #{two_decimal_place_float(@project.energy_consumption_carbon)}kg", 
+pdf.text_box "Energy (#{two_decimal_place_float(@project.energy_consumption_carbon)}kg)", 
     :width    => 145, :height => 20,
     :at       => [400,192]
     
 pdf.fill_color "86CE66"
 pdf.fill_rectangle([385,178], 10, 15)
 pdf.fill_color "000000"
-pdf.text_box "Commuting - #{two_decimal_place_float(@project.commutes_carbon)}kg", 
+pdf.text_box "Commuting (#{two_decimal_place_float(@project.commutes_carbon)}kg)", 
     :width    => 145, :height => 20,
     :at       => [400,174]
     
