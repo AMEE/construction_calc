@@ -8,7 +8,6 @@ class Delivery < ActiveRecord::Base
   #   - non-articulated lorry - diesel, fixed load
   #   - articulated lorry - diesel, fixed load
   COLOUR = "#FFBA4E"
-  TRAIN_MASS = 1
   TYPE = {
     :van => AmeeCategory.new("Van", :distance, "/transport/van/generic/defra", :fuel => "diesel", :size => "1.305 to 1.740 tonnes"),
     :non_articulated => AmeeCategory.new("Non-Articulated Lorry", :distance, "/transport/lgv/generic/defra", :type => "rigid", :size => "uk average"),
@@ -17,9 +16,5 @@ class Delivery < ActiveRecord::Base
   
   def amee_category
     TYPE[delivery_type.to_sym]
-  end
-  
-  def additional_options
-    delivery_type.to_sym == :rail ? {:mass => TRAIN_MASS} : nil
   end
 end
