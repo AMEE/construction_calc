@@ -16,13 +16,4 @@ module ApplicationHelper
   def two_decimal_place_float(amount)
     (amount * 100).round / 100.0
   end
-  
-  # Horrible!
-  def convert_units_to_readable_format(units)
-    if units == "m2"
-      "m²"
-    elsif units == "m3"
-      "m³"
-    end
-  end
 end

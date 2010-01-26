@@ -5,8 +5,8 @@
 # Make sure the secret is at least 30 characters and all random, 
 # no regular words or you'll be exposed to dictionary attacks.
 ActionController::Base.session = {
-  :key         => '_overbury_session',
-  :secret      => 'd502368646bafbca8832124ba18bebbe99939c7bb983e8ed0015eaa60c34304a26096cc70698f7f160f409ff73cb815ff7702ec19869457fb2dd29bf1b142888'
+  :key         => '_my_app_session',
+  :secret      => 'd542368646bafbaa8532124b918bebae92939c7ba983e2ed7015eca60c34704a29196cc70398f4f160a512fe73cb315fe7902ec12879467eb2ad49bf3b142718'
 }
 
 # Use the database for sessions instead of the cookie-based default,

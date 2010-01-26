@@ -1,0 +1,22 @@
+= Carbon Calculating Sample Application
+
+This is a sample Ruby on Rails (http://rubyonrails.org/) application that shows how to use the AMEE API (http://my.amee.com/developers) in a real life application.  The application was designed as a sample carbon calculator similar to one that would be used by a construction company.  Whilst this is a sample application and is known to work at time of release, there is no guarantee that AMEE will fix any bugs found, or update this application if a substantial new version of the AMEE API is introduced.
+
+== Getting Started
+
+Before starting install the gem dependencies:
+    rake gems:install 
+
+The project requires an initial client and super admin before it is usable.  There is currently only one client supported but the application shows how to easily turn the application into this into a SaaS model.  To create these fire up the script/console and do the following:
+    User.create(:login => "yourlogin", :email => "youremail", :name => "yourname", :password => "yourpassword", :password_confirmation => "yourpassword")
+    User.first.register!
+    User.first.activate!
+    User.first.roles << Role.create(:role_type => Role::Type::SUPER_ADMIN)
+    Client.create(:name => "clientname")
+
+== Further notes
+
+This software was designed as an example UK calculator.  The AMEE API assumes that any data submitted is for the UK unless a metadata profile item is created explicitly specifying the country.  Any project using this codebase as a basis for their software should therefore set the country if it is not the UK.  More details can be found at: http://explorer.amee.com/categories/Metadata
+
+As AMEE can update the algorithms that produce the carbon output as more accurate data becomes available, any application that caches the carbon output needs a way to updates its cache.  This project includes a rake project for that purpose and can be run via:
+  rake cronjobs:update_carbon_cache

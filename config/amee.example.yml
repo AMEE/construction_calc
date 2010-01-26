@@ -1,7 +1,7 @@
 development:
   server: stage.amee.com
-  username: georgepalmer
-  password: xxcqajcy
+  username: your_amee_username
+  password: your_amee_password
 test:
   server: stage.amee.com
   username: your_amee_username

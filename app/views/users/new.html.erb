@@ -2,15 +2,38 @@
 <% @user.password = @user.password_confirmation = nil %>
 
 <% form_for @user, :html => {:class => "user-form"} do |f| -%>
-    <div class="labelfield"><div class="label"><%= f.label :login %></div><div class="field"><%= f.text_field :login %></div></div>
-    <div class="labelfield"><div class="label"><%= f.label :name %></div><div class="field"><%= f.text_field :name %></div></div>
-    <div class="labelfield"><div class="label"><%= f.label :email %></div><div class="field"><%= f.text_field :email %></div></div>
-    <div class="labelfield"><div class="label"><%= f.label :password %></div><div class="field"><%= f.password_field :password %></div></div>
-    <div class="labelfield"><div class="label"><%= f.label :password_confirmation %></div><div class="field"><%= f.password_field :password_confirmation %></div></div>
+    <div class="labelfield">
+        <div class="label"><%= f.label :login %></div>
+        <div class="field"><%= f.text_field :login %></div>
+    </div>
+    <div class="labelfield">
+        <div class="label"><%= f.label :name %></div>
+        <div class="field"><%= f.text_field :name %></div>
+    </div>
+    <div class="labelfield">
+        <div class="label"><%= f.label :email %></div>
+        <div class="field"><%= f.text_field :email %></div>
+    </div>
+    <div class="labelfield">
+        <div class="label"><%= f.label :password %></div>
+        <div class="field"><%= f.password_field :password %></div>
+    </div>
+    <div class="labelfield">
+        <div class="label"><%= f.label :password_confirmation %></div>
+        <div class="field"><%= f.password_field :password_confirmation %></div>
+    </div>
     <div class="labelfield access-rights-intro">Initial access right:</div>
         <% f.fields_for :roles do |rf| %>
-            <div class="labelfield"><div class="label"><%= rf.label :allowable_id, "&nbsp;Project" %></div><div class="field"><%= rf.select(:allowable_id, @client.projects_assignable_by(current_user).map{|p| [p.name, p.id.to_s]}) %></div></div>
-            <div class="labelfield" style="margin-top:0;"><div class="label"><%= rf.label :role_type, "&nbsp;Access Level" %></div><div class="field"><%= rf.select(:role_type, roles_user_can_assign(current_user)) %></div></div>
+            <div class="labelfield">
+                <div class="label"><%= rf.label :allowable_id, "&nbsp;Project" %></div>
+                <div class="field"><%= rf.select(:allowable_id, @client.projects_assignable_by(current_user).map{|p| [p.name, p.id.to_s]}) %></div>
+            </div>
+            <div class="labelfield" style="margin-top:0;">
+                <div class="label"><%= rf.label :role_type, "&nbsp;Access Level" %></div>
+                <div class="field"><%= rf.select(:role_type, roles_user_can_assign(current_user)) %></div>
+            </div>
         <% end %>
-    <div class="labelfield"><div class="submit"><%= submit_tag 'Create User' %></div></div>
+    <div class="labelfield">
+        <div class="submit"><%= submit_tag 'Create User' %></div>
+    </div>
 <% end -%>

@@ -2,10 +2,23 @@
 <% @user.password = @user.password_confirmation = nil %>
 
 <% form_for @user, :html => {:class => "profile-form"} do |f| -%>
-    <div class="labelfield"><div class="label"><%= f.label :name %></div><div class="field"><%= f.text_field :name %></div></div>
-    <div class="labelfield"><div class="label"><%= f.label :email %></div><div class="field"><%= f.text_field :email %></div></div>
-    <div class="labelfield"><div class="label"><%= f.label :password, 'Change Password' %></div><div class="field"><%= f.text_field :password %></div></div>
-    <div class="labelfield"><div class="label"><%= f.label :password_confirmation, 'Confirm Password' %></div><div class="field"><%= f.text_field :password_confirmation %></div></div>
-    
-    <div class="labelfield"><div class="submit"><%= submit_tag 'Update Details' %></div></div>
+    <div class="labelfield">
+        <div class="label"><%= f.label :name %></div>
+        <div class="field"><%= f.text_field :name %></div>
+    </div>
+    <div class="labelfield">
+        <div class="label"><%= f.label :email %></div>
+        <div class="field"><%= f.text_field :email %></div>
+    </div>
+    <div class="labelfield">
+        <div class="label"><%= f.label :password, 'Change Password' %></div>
+        <div class="field"><%= f.text_field :password %></div>
+    </div>
+    <div class="labelfield">
+        <div class="label"><%= f.label :password_confirmation, 'Confirm Password' %></div>
+        <div class="field"><%= f.text_field :password_confirmation %></div>
+    </div>
+    <div class="labelfield">
+        <div class="submit"><%= submit_tag 'Update Details' %></div>
+    </div>
 <% end %>

@@ -1,17 +1,17 @@
 development:
   adapter: mysql
-  database: overbury_dev
+  database: my_app_dev
   pool: 5
   timeout: 5000
 
 test:
   adapter: mysql
-  database: overbury_test
+  database: my_app_test
   pool: 5
   timeout: 5000
 
 production:
   adapter: mysql
-  database: overbury_production
+  database: my_app_production
   pool: 5
   timeout: 5000

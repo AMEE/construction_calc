@@ -1,6 +1,6 @@
 class Role < ActiveRecord::Base
   belongs_to :user
-  belongs_to :allowable, :polymorphic => true # TODO rename I think: refs in client and project and of course DB
+  belongs_to :allowable, :polymorphic => true
   
   validates_uniqueness_of :role_type, :scope => [:user_id, :allowable_id, :allowable_type], :message => "Access right for this Role and Project already exists"
   

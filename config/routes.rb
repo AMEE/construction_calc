@@ -23,6 +23,5 @@ ActionController::Routing::Routes.draw do |map|
     project.resources :materials, :except => [:show]
     project.resources :energy_consumptions, :except => [:show]
     project.resources :wastes, :except => [:show]
-    project.resource :report, :only => [:create]
   end
 end

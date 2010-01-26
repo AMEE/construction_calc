@@ -1,7 +1,6 @@
 # Handles alternative units that come in the format: 
 #   {:kg => [:m3 => 2.5, :abc => 0.3], :xyz => [:efg => 0.6]}
 # In this example we get weight from volume by doing m3 * 2.5
-
 class AmeeCategory
   
   attr_accessor :name, :path

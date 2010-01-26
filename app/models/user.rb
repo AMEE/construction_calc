@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
     write_attribute :email, (value ? value.downcase : nil)
   end
   
-  # Permission stuff
+  # Permission methods
   def admin?
     !roles.admin.nil?
   end

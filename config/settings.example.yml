@@ -1,7 +1,7 @@
 development: &non_production_settings
   site_name: Carbon Calculator (development)
   site_host: localhost:3000
-  noreply_email: noreply@ineedadomainname.com
+  noreply_email: noreply@myappsdomain.com
 
 test:
   <<: *non_production_settings

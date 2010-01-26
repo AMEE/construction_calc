@@ -1,1 +1,7 @@
-<tr><td><%= energy_consumption.amee_category.name %></td><td><%= energy_consumption.amount %> <%= units_name_from_amee_unit(energy_consumption) %></td><td><%= energy_consumption.carbon_output_cache.round(2) %> kg</td><td class="middle"><%= link_to_remote(image_tag("energy-edit.png", :style => "margin:0;padding:0;"), :url => edit_project_energy_consumption_path(energy_consumption.project, energy_consumption), :method => :get) %></td><td class="middle"><%= button_to("delete", project_energy_consumption_path(energy_consumption.project, energy_consumption), :method => :delete, :confirm => "Are you sure?", :class => "delete-button") %></td></tr>
+<tr>
+    <td><%= energy_consumption.amee_category.name %></td>
+    <td><%= energy_consumption.amount %> <%= units_name_from_amee_unit(energy_consumption) %></td>
+    <td><%= energy_consumption.carbon_output_cache.round(2) %> kg</td>
+    <td class="middle"><%= link_to_remote(image_tag("energy-edit.png", :style => "margin:0;padding:0;"), :url => edit_project_energy_consumption_path(energy_consumption.project, energy_consumption), :method => :get) %></td>
+    <td class="middle"><%= button_to("delete", project_energy_consumption_path(energy_consumption.project, energy_consumption), :method => :delete, :confirm => "Are you sure?", :class => "delete-button") %></td>
+</tr>

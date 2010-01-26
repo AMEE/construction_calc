@@ -3,17 +3,6 @@ class Waste < ActiveRecord::Base
   include AmeeCarbonStore
   has_carbon_data_stored_in_amee :singular_types => true, :nameless => true
 
-  # Assumptions on types:
-  #   - carpet tiles -> other waste
-  #   - concrete and bricks -> aggregate materials
-  #   - plasterboard -> other waste
-  #   - raised access floor tiles -> wood as these are 84% chipboard
-  #   - cans & plastic bottles -> non-ferous metal
-  #   - asbestos -> other waste (Andrew B approved this - due to long complex reasons very low carbon output)
-  #   - fluorescent tubes -> other waste
-  #   - paint and adhesive -> other waste
-  #   - refrigerant gases -> HFC-134a gas
-  #   - septic tank waste -> other organic
   COLOUR = "#5694ED"
   TYPE = {
     :cardboard => AmeeCategory.new("Cardboard", :weight, "/home/waste/lifecyclewaste", :wasteType => "paper and Card"),
