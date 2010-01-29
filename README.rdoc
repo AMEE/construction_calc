@@ -7,12 +7,8 @@ This is a sample Ruby on Rails (http://rubyonrails.org/) application that shows 
 Before starting install the gem dependencies:
     rake gems:install 
 
-The project requires an initial client and super admin before it is usable.  There is currently only one client supported but the application shows how to easily turn the application into this into a SaaS model.  To create these fire up the script/console and do the following:
-    User.create(:login => "yourlogin", :email => "youremail", :name => "yourname", :password => "yourpassword", :password_confirmation => "yourpassword")
-    User.first.register!
-    User.first.activate!
-    User.first.roles << Role.create(:role_type => Role::Type::SUPER_ADMIN)
-    Client.create(:name => "clientname")
+The project requires an initial client and super admin before it is usable.  There is currently only one client supported but the application shows how to easily turn the application into this into a SaaS model.  To create these run the following on the command line:
+    rake setup:data <adminlogin> <adminemail> <adminname> <adminpassword> <clientname>
 
 == Further notes
 
