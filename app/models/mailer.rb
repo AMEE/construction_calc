@@ -11,8 +11,8 @@ class Mailer < ActionMailer::Base
   end
   
   def current_host
-    if defined?(CurrentHost)
-      CurrentHost.get
+    if defined?(MyAmee::CurrentHost)
+      MyAmee::CurrentHost.get
     else
       YAML.load_file("#{RAILS_ROOT}/config/settings.yml")[RAILS_ENV].symbolize_keys[:site_host]
     end
