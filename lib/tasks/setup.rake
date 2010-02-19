@@ -15,7 +15,7 @@ namespace :setup do
       :name => ARGV[5]
     }
     # Create user
-    User.create(user_opts)
+    User.create!(user_opts)
     User.first.register!
     User.first.activate!
     User.first.roles << Role.create(:role_type => Role::Type::SUPER_ADMIN)
