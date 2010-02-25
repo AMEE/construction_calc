@@ -32,7 +32,7 @@ class Client < ActiveRecord::Base
   
   private
   def associated_client_admins
-    roles.map{|r| r.user}
+    roles.map{|r| r.user} + [Role.find_by_role_type(Role::Type::SUPER_ADMIN).user]
   end
   
   def associated_projects_users

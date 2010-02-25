@@ -1,5 +1,5 @@
 <tr id="role<%=role.id%>">
-    <td><%= role.allowable.name %></td>
+    <td><%= role.allowable.name rescue "-" %></td>
     <td><%= readable_role_type(role.role_type) %></td>
     <td><%= link_to_remote("remove", :url => user_role_path(@user, role), :method => :delete, :confirm => "Are you sure you would like to revoke this right?", :html => {:class => "delete-button"} ) if @user != current_user %></td>
 </tr>
