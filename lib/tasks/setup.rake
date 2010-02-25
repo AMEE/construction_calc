@@ -2,17 +2,17 @@ namespace :setup do
 
   # Performs application setup
   desc "Sets up initial application data - only run once. Run as rake setup:data <username> <email> <name> <password> <clientname>"
-  task :data => :environment do
+  task :data, :login, :email, :name, :password, :clientname, :needs => :environment do |t, args|
     # Get commandline options
     user_opts = {
-      :login => ARGV[1],
-      :email => ARGV[2],
-      :name => ARGV[3],
-      :password => ARGV[4],
-      :password_confirmation => ARGV[4],
+      :login => args[:login],
+      :email => args[:email],
+      :name => args[:name],
+      :password => args[:password],
+      :password_confirmation => args[:password],
     }
     client_opts = {
-      :name => ARGV[5]
+      :name => args[:clientname]
     }
     # Create user
     User.create!(user_opts)
