@@ -8,7 +8,7 @@ Before starting install the gem dependencies:
     rake gems:install 
 
 The project requires an initial client and super admin before it is usable.  There is currently only one client supported but the application shows how to easily turn the application into this into a SaaS model.  To create these run the following on the command line:
-    rake setup:data[<adminlogin>,<adminemail>,<adminname>,<adminpassword>,<clientname>]
+    rake "setup:data[<adminlogin>,<adminemail>,<adminname>,<adminpassword>,<clientname>]"
 
 == Further notes
 
