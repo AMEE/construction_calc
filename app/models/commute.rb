@@ -1,6 +1,7 @@
 class Commute < ActiveRecord::Base
 
   has_carbon_data_stored_in_amee :type_amount_repeats => true
+  cattr_reader :per_page
 
   COLOUR = "#86CE66"
   TYPE = {
@@ -12,6 +13,7 @@ class Commute < ActiveRecord::Base
     :train => AmeeCategory.new("Train", :journey_distance, "/transport/train/generic/defra", :type => "national"),
     :tube => AmeeCategory.new("Tube", :journey_distance, "/transport/train/generic/defra", :type => "underground")
   }
+  @@per_page = 10
   
   def amee_category
     TYPE[commute_type.to_sym]

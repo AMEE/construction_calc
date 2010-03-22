@@ -1,6 +1,7 @@
 class EnergyConsumption < ActiveRecord::Base
 
   has_carbon_data_stored_in_amee :singular_types => true, :nameless => true
+  cattr_reader :per_page
   
   COLOUR = "#CD3A3D"
   TYPE = {
@@ -9,6 +10,7 @@ class EnergyConsumption < ActiveRecord::Base
     :diesel => AmeeCategory.new("Diesel", :volumable_energy, "/home/energy/quantity", :type => "diesel"),
     :petrol => AmeeCategory.new("Petrol", :volumable_energy, "/home/energy/quantity", :type => "petrol")
   }
+  @@per_page = 10
   
   def amee_category
     TYPE[energy_consumption_type.to_sym]

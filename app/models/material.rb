@@ -1,6 +1,7 @@
 class Material < ActiveRecord::Base
 
   has_carbon_data_stored_in_amee
+  cattr_reader :per_page
   
   COLOUR = "#9A5AAB"
   TYPE = {
@@ -22,6 +23,7 @@ class Material < ActiveRecord::Base
     :metal_ceiling_tiles => AmeeCategory.new("Metal Ceiling Tiles", :weight, "/embodied/ice", :material => "steel", :type => "sheet"),
     :ceramic_tiles => AmeeCategory.new("Ceramic Tiles", :weight, "/embodied/ice", :material => "ceramics", :type => "tile")
   }
+  @@per_page = 10
   
   def amee_category
     TYPE[material_type.to_sym]

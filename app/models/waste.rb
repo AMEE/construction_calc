@@ -1,6 +1,7 @@
 class Waste < ActiveRecord::Base
 
   has_carbon_data_stored_in_amee :singular_types => true, :nameless => true
+  cattr_reader :per_page
 
   COLOUR = "#5694ED"
   TYPE = {
@@ -28,6 +29,7 @@ class Waste < ActiveRecord::Base
     :landfill => "quantityLandfill",
     :recycle => "quantityClosedLoop"
   }
+  @@per_page = 10
   
   def amee_category
     TYPE[waste_type.to_sym]
