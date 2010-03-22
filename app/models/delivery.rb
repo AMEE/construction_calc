@@ -1,6 +1,5 @@
 class Delivery < ActiveRecord::Base
   
-  include AmeeCarbonStore
   has_carbon_data_stored_in_amee :type_amount_repeats => true
 
   COLOUR = "#FFBA4E"

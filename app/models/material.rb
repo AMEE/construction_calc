@@ -1,6 +1,5 @@
 class Material < ActiveRecord::Base
 
-  include AmeeCarbonStore
   has_carbon_data_stored_in_amee
   
   COLOUR = "#9A5AAB"

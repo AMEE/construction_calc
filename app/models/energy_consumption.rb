@@ -1,6 +1,5 @@
 class EnergyConsumption < ActiveRecord::Base
 
-  include AmeeCarbonStore
   has_carbon_data_stored_in_amee :singular_types => true, :nameless => true
   
   COLOUR = "#CD3A3D"
