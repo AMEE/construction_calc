@@ -1,6 +1,6 @@
 class Delivery < ActiveRecord::Base
   
-  has_carbon_data_stored_in_amee :type_amount_repeats => true
+  has_carbon_data_stored_in_amee :repetitions => true
   cattr_reader :per_page
 
   COLOUR = "#FFBA4E"
