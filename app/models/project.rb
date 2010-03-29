@@ -19,10 +19,6 @@ class Project < ActiveRecord::Base
   DATE_FORMAT = "%d/%m/%Y"
   GOOGLE_CHART_BASE_URL = "http://chart.apis.google.com/chart"
   
-  def profile_path
-    "/profiles/#{amee_profile}"
-  end
-  
   def commutes_carbon
     commutes.map{|c| c.carbon_output_cache}.sum
   end
