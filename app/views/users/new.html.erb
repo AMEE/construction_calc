@@ -1,6 +1,12 @@
 <% @show_model_errors = @user %>
 <% @user.password = @user.password_confirmation = nil %>
 
+<div id="message_block" class="message_block">
+  <ul class="notice">
+    <li>New users can have admin rights so that they can add/edit data for their projects, or they can be 'readers' and only view data. Users can be added to more than one project, but you need to select one to start with.</li>
+  </ul>
+</div>
+
 <% form_for @user, :html => {:class => "user-form"} do |f| -%>
     <div class="labelfield">
         <div class="label"><%= f.label :login %></div>
