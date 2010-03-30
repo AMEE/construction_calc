@@ -13,8 +13,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	padding: 0;
 	border: 0;
 	outline: 0;
-	font-size: 100%;
-    vertical-align: baseline;
+  vertical-align: baseline;
 }
 body {
     line-height: 1;
@@ -557,7 +556,7 @@ td.middle {
 }
 
     .project-form .labelfield .label {
-        width: 80px;
+        width: 100px;
     }
 
 .profile-form {
@@ -768,4 +767,16 @@ a.add-user-link:hover {
 }
 .users-background {
     background-color: #AAA;
+}
+
+img.help{
+  vertical-align: text-top;
+}
+
+.fieldWithErrors input {
+  border: 1px solid red;
+}
+
+.fieldWithErrors {
+  display: inline;
 }
