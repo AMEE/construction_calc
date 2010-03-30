@@ -1,22 +1,37 @@
 <div class="labelfield">
     <div class="label"><%= form.label :name %></div>
-    <div class="field"><%= form.text_field :name %></div>
+    <div class="field">
+      <%= form.text_field :name %>
+      <%= image_tag "help.png", :title => "This is the name of the construction project you are adding, for your reference.", :class => "help" %>
+    </div>
 </div>
 <div class="labelfield">
     <div class="label"><%= form.label :number %></div>
-    <div class="field"><%= form.text_field :number %></div>
+    <div class="field">
+      <%= form.text_field :number %>
+      <%= image_tag "help.png", :title => "(optional) Your own internal reference/project number.", :class => "help" %>
+    </div>
 </div>
 <div class="labelfield">
     <div class="label"><%= form.label :value, "Value (in £)" %></div>
-    <div class="field"><%= form.text_field :value %></div>
+    <div class="field">
+      <%= form.text_field :value %>
+      <%= image_tag "help.png", :title => "(optional) This is a field to add the value of the project.", :class => "help" %>
+    </div>
 </div>
 <div class="labelfield">
-    <div class="label"><%= form.label :floor_area %></div>
-    <div class="field"><%= form.text_field :floor_area %>&nbsp;sq.&nbsp;m</div>
+    <div class="label"><%= form.label :floor_area, "Floor area (m<sup>2</sup>)" %></div>
+    <div class="field">
+      <%= form.text_field :floor_area %>
+      <%= image_tag "help.png", :title => "(optional) Adding the floor area is good practice to enable comparison of the carbon impact of projects of different sizes.", :class => "help" %>
+    </div>
 </div>
 <div class="labelfield">
     <div class="label"><%= form.label :start_date %></div>
-    <div class="field"><%= text_field_tag("project[start_date]", @project.start_date) %></div>
+    <div class="field">
+      <%= text_field_tag("project[start_date]", @project.start_date) %>
+      <%= image_tag "help.png", :title => "Enter the date you want to start adding details of construction work. This should be the date that workers start coming to site (it's assumed that any material deliveries will be after this date).", :class => "help" %>
+    </div>
 </div>
 
 <% content_for :jquery_onload do %>
