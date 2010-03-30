@@ -1,6 +1,6 @@
 class Commute < ActiveRecord::Base
 
-  has_carbon_data_stored_in_amee :repetitions => true
+  has_carbon_data_stored_in_amee :profile => :project, :repetitions => true
   cattr_reader :per_page
 
   COLOUR = "#86CE66"

@@ -1,6 +1,6 @@
 class Material < ActiveRecord::Base
 
-  has_carbon_data_stored_in_amee
+  has_carbon_data_stored_in_amee :profile => :project
   cattr_reader :per_page
   
   COLOUR = "#9A5AAB"

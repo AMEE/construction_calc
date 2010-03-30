@@ -1,6 +1,6 @@
 class Waste < ActiveRecord::Base
 
-  has_carbon_data_stored_in_amee :singular_types => true, :nameless => true
+  has_carbon_data_stored_in_amee :profile => :project, :singular_types => true, :nameless => true
   cattr_reader :per_page
 
   COLOUR = "#5694ED"
