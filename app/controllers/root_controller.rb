@@ -7,7 +7,7 @@ class RootController < ApplicationController
     if projects.size > 0
       redirect_to project_path(projects.first)
     elsif current_user.admin? || current_user.client_admin?(@client)
-      flash[:error] = "There are no projects that you have permissions to read"
+      flash[:error] = "There are no projects that you have permissions to read. Create your first construction project here."
       redirect_to new_project_path
     else
       logout_killing_session!
