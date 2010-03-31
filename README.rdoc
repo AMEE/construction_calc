@@ -10,12 +10,11 @@ MIT (see the COPYING file)
 
 == Getting Started
 
-Before starting install the gem dependencies:
+Ensure you have Rails 2.3.5 installed. Then install the gem dependencies:
     rake gems:install 
 
-Download the application, and customise config/amee.example.yml and config/database.example.yml with your own settings. Then run:
-
-  rake db:schema:load
+Download the application, and customise config/amee.example.yml, config/database.example.yml and config/settings.example.yml with your own settings. Then run:
+    rake db:schema:load
 
 to set up the database.
 
@@ -29,4 +28,4 @@ Your application is then ready to use by running script/server.
 This software was designed as an example UK calculator.  The AMEE API assumes that any data submitted is for the UK unless a metadata profile item is created explicitly specifying the country.  Any project using this codebase as a basis for their software should therefore set the country if it is not the UK.  More details can be found at: http://explorer.amee.com/categories/Metadata
 
 As AMEE can update the algorithms that produce the carbon output as more accurate data becomes available, any application that caches the carbon output needs a way to updates its cache.  This project includes a rake project for that purpose and can be run via:
-  rake cronjobs:update_carbon_cache
+    rake cronjobs:update_carbon_cache

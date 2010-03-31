@@ -1,0 +1,4 @@
+development: &non_production_settings
+  site_name: Construction Calculator
+  site_host: localhost:3000
+  noreply_email: noreply@myappsdomain.com
