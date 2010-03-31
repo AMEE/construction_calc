@@ -1,14 +1,28 @@
-= Carbon Calculating Sample Application
+= AMEE Construction Calculator
 
 This is a sample Ruby on Rails (http://rubyonrails.org/) application that shows how to use the AMEE API (http://my.amee.com/developers) in a real life application.  The application was designed as a sample carbon calculator similar to one that would be used by a construction company.  Whilst this is a sample application and is known to work at time of release, there is no guarantee that AMEE will fix any bugs found, or update this application if a substantial new version of the AMEE API is introduced.
+
+You can create your own copy of this application at http://my.amee.com/templates/21-construction-calculator, or you can use this codebase to run your own copy on your own servers. You may also use it as a base from which to develop your own AMEE applications.
+
+== License
+
+MIT (see the COPYING file)
 
 == Getting Started
 
 Before starting install the gem dependencies:
     rake gems:install 
 
-The project requires an initial client and super admin before it is usable.  There is currently only one client supported but the application shows how to easily turn the application into this into a SaaS model.  To create these run the following on the command line:
+Download the application, and customise config/amee.example.yml and config/database.example.yml with your own settings. Then run:
+
+  rake db:schema:load
+
+to set up the database.
+
+The project requires an initial client and super admin before it is usable.  There is currently only one client supported but the application shows how to easily change this and turn the application into a SaaS model.  To create these run the following on the command line:
     rake "setup:data[<adminlogin>,<adminemail>,<adminname>,<adminpassword>,<clientname>]"
+
+Your application is then ready to use by running script/server.
 
 == Further notes
 
