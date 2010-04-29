@@ -13,7 +13,7 @@ Rails::Initializer.run do |config|
   config.gem 'json'
   config.gem "amee"
   config.gem 'aasm'
-  config.gem 'amee_rails_layer'
+  config.gem 'amee_rails_layer', :version => "~> 0.3.4"
   
   config.gem 'rspec', :lib => false
   config.gem 'rspec-rails', :lib => false
