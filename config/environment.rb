@@ -18,7 +18,7 @@ Rails::Initializer.run do |config|
   config.gem 'rspec', :lib => false
   config.gem 'rspec-rails', :lib => false
   config.gem 'shoulda', :lib => false
-  config.gem "thoughtbot-factory_girl", :lib => "factory_girl"
+  config.gem "factory_girl"
   config.gem "will_paginate"
   config.gem 'prawn', :version => "0.7.1"
 
