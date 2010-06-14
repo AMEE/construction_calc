@@ -15,9 +15,7 @@
             <div class="background">
                 <div class="header">
                     <div class="logo"></div>
-                    <div class="user">
-                        <%= render :partial => "layouts/user_bar", :locals => {:project => @project} %>
-                    </div>
+                    <%= render :partial => "layouts/user_bar", :locals => {:project => @project} %>
                 </div>
                 <%= flash_and_model_messages unless @no_flash_messages %>
                 <%= yield %>

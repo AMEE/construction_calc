@@ -1,5 +1,4 @@
 <div class="project-info">
-    <h3><%= project.name %></h3>
     <div class="item">
         <div class="label">Number: </div>
         <div class="value"><%= project.number %></div>
@@ -15,14 +14,6 @@
     <div class="item">
         <div class="label">Start Date: </div>
         <div class="value"><%= project.start_date %></div>
-    </div>
-    <div class="item">
-        <div class="projectlinks">
-            <% if current_user.admin? || current_user.client_admin?(@client) %>
-                <%= link_to("Edit project", edit_project_path(project)) %> |
-                <%= link_to("New project", new_project_path) %>
-            <% end %>
-        </div>
     </div>
 </div>
 
