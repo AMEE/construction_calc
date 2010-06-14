@@ -1,7 +1,7 @@
 namespace :setup do
 
   # Performs application setup
-  desc "Sets up initial application data - only run once. Run as rake setup:data <username> <email> <name> <password> <clientname>"
+  desc 'Sets up initial application data - only run once. Run as: rake "setup:data[<username>, <email>, <name>, <password>, <clientname>]"'
   task :data, :login, :email, :name, :password, :clientname, :needs => :environment do |t, args|
     # Get commandline options
     user_opts = {
