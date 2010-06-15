@@ -1,7 +1,7 @@
 <% @show_model_errors = @project %>
 
 <% form_for @project, :html => {:class => "project-form"} do |form| %>
-    <%= render :partial => "form", :locals => {:form => form} %>
+    <%= render :partial => "form", :locals => {:form => form, :type => "Create New Project"} %>
     <div class="labelfield">
         <div class="submit"><%= form.submit "Create Project" %></div>
     </div>
