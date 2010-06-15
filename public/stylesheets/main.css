@@ -584,10 +584,26 @@ td.middle {
     width: 330px;
     padding: 5px;
     float: left;
+    margin: 0 295px;
+}
+
+.user-div {
+    border: 3px solid #aaa;
+    width: 330px;
+    padding: 5px;
+    float: left;
     margin: 0 295px; 
 }
 
 .user-form .labelfield .label {
+    width: 150px;
+}
+
+.new-user-form {
+    width: 330px;
+}
+
+.new-user-form .labelfield .label {
     width: 150px;
 }
 
@@ -609,6 +625,7 @@ td.middle {
 }
 
 .edit-access-rights table {
+    width: 300px;
 }
 
 .edit-access-rights table tr {
