@@ -688,6 +688,14 @@ a.add-user-link:hover {
     text-decoration: underline;
 }
 
+.users {
+    border: 3px solid #aaa;
+    width: 620px;
+    padding: 5px;
+    float: left;
+    margin: 0 150px;
+}
+
 .users-container table {
     width: 600px;
     margin: 5px 0 0 10px;

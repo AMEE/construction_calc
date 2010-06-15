@@ -1,9 +1,20 @@
-<div class="users-container">
-    <table><tr class="list-header users-background"><td>User Login</td><td>User Name</td><td>Email</td><td></td><td></td></tr>
-        <%= render :partial => "user", :collection => @users %>
+<div class="users">
+  <h2>Manage Users</h2>
+  <br />
+  <div class="users-container">
+    <table>
+      <tr class="list-header users-background">
+        <td>User Login</td>
+        <td>User Name</td>
+        <td>Email</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <%= render :partial => "user", :collection => @users %>
     </table>
-</div>
+  </div>
 
-<% if current_user.can_create_other_users? %>
+  <% if current_user.can_create_other_users? %>
     <%= link_to("Add user", new_user_path, :class => "add-user-link") %>
-<% end %>
+  <% end %>
+</div>
