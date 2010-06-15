@@ -24,7 +24,13 @@ class ProjectsController < ApplicationController
   end
   
   def show
-    # No extra work required here
+    if !current_user.can_write?(@project)
+      flash[:info] =
+        "Please note that you have read-only access to the #{@project.name} project.
+        You will not be able to update any of the values below."
+    else
+      flash[:info] = nil
+    end
   end
   
   def edit
