@@ -1,10 +1,19 @@
 <div id="content" class="content">
-    <table><tr class="list-header commuting-background"><td>Commute Name</td><td>Mode of Transport</td><td>Trips</td><td>Distance</td><td>Emissions</td><td></td><td></td></tr>
-        <% if @commutes.size > 0 %>
-            <%= render :partial => "commute", :collection => @commutes %>
-        <% else %>
-            <tr><td></td><td colspan="5">No commutes - click 'Add' to start creating commutes</td></tr>
-        <% end %>
-    </table>
-    <%= will_paginate @commutes %>
+  <table>
+    <tr class="list-header commuting-background">
+      <td>Commute Name</td>
+      <td>Mode of Transport</td>
+      <td>Trips</td>
+      <td>Distance</td>
+      <td>Emissions</td>
+    </tr>
+    <% if @commutes.size > 0 %>
+      <%= render :partial => "commute", :collection => @commutes %>
+    <% else %>
+      <tr>
+        <td colspan="5" style="text-align: center;">No commutes - click 'Add' to start creating commutes</td>
+      </tr>
+    <% end %>
+  </table>
+  <%= will_paginate @commutes %>
 </div>

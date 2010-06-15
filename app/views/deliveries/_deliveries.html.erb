@@ -1,10 +1,19 @@
 <div id="content" class="content">
-    <table><tr class="list-header deliveries-background"><td>Delivery Name</td><td>Delivery Mode</td><td>Trips</td><td>Distance</td><td>Emissions</td><td></td><td></td></tr>
-        <% if @deliveries.size > 0 %>
-            <%= render :partial => "delivery", :collection => @deliveries %>
-        <% else %>
-            <tr><td></td><td colspan="5">No deliveries - click 'Add' to start creating deliveries</td></tr>
-        <% end %>
-    </table>
-    <%= will_paginate @deliveries %>
+  <table>
+    <tr class="list-header deliveries-background">
+      <td>Delivery Name</td>
+      <td>Delivery Mode</td>
+      <td>Trips</td>
+      <td>Distance</td>
+      <td>Emissions</td>
+    </tr>
+    <% if @deliveries.size > 0 %>
+      <%= render :partial => "delivery", :collection => @deliveries %>
+    <% else %>
+      <tr>
+        <td colspan="5" style="text-align: center;">No deliveries - click 'Add' to start creating deliveries</td>
+      </tr>
+    <% end %>
+  </table>
+  <%= will_paginate @deliveries %>
 </div>
