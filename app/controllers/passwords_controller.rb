@@ -14,12 +14,12 @@ class PasswordsController < ApplicationController
     
     respond_to do |format|
       if @password.save
-        flash[:notice] = "A link to change your password has been sent to #{@password.email}."
+        flash[:notice] = "We've sent an email to you at '#{@password.email}'. Please check your email!"
         format.html { redirect_to root_path }
       else
         if @password.errors.on(:user)
           @password.errors.clear
-          flash[:error] = "We can't find a user with that email. Please check the email address and try again."
+          flash[:error] = "Sorry, we can't find a user with the email address '#{@password.email}'. Please check your email address and try again."
         end
         format.html { render :action => "new" }
       end
@@ -29,7 +29,7 @@ class PasswordsController < ApplicationController
   def reset
     @user = Password.find(:first, :conditions => ['reset_code = ? and expiration_date > ?', params[:reset_code], Time.now]).user
   rescue
-    flash[:notice] = 'The change password URL you visited is either invalid or expired'
+    flash[:notice] = 'Sorry, but this change password is either invalid or expired.'
     redirect_to(new_password_path)
   end
 
@@ -40,7 +40,7 @@ class PasswordsController < ApplicationController
     respond_to do |format|
       if @user.update_attributes(params[:user])
         @password.destroy
-        flash[:notice] = "Password was successfully updated.  Please log in"
+        flash[:notice] = "Your password was successfully updated. Please log in below!"
         format.html { redirect_to login_path}
       else
         format.html { render :action => :reset, :reset_code => params[:reset_code] }

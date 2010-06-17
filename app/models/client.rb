@@ -13,7 +13,9 @@ class Client < ActiveRecord::Base
   PROJECT_LIMIT = 10
   
   def associated_users_readable_by(viewing_user)
-    if viewing_user.admin? || viewing_user.client_admin?(self)
+    if viewing_user.admin?
+      all_users
+    elsif viewing_user.client_admin?(self)
       (associated_client_admins + associated_projects_users).uniq
     elsif viewing_user.roles.project_owners.size > 0
       users_from_projects_owned_by(viewing_user)
@@ -31,6 +33,10 @@ class Client < ActiveRecord::Base
   end
   
   private
+  def all_users
+    User.find(:all)
+  end
+
   def associated_client_admins
     roles.map{|r| r.user} + [Role.find_by_role_type(Role::Type::SUPER_ADMIN).user]
   end

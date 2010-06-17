@@ -9,68 +9,68 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	outline: 0;
-  vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
 }
 body {
     line-height: 1;
     font-family: Helvetica, Arial, sans-serif;
-	font-size: 12px;
+    font-size: 12px;
 }
 ol, ul {
-	list-style: none;
+    list-style: none;
 }
 blockquote, q {
-	quotes: none;
+    quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+    content: '';
+    content: none;
 }
 
 /* remember to define focus styles! */
 :focus {
-	outline: 0;
+    outline: 0;
 }
 
 /* remember to highlight inserts somehow! */
 ins {
-	text-decoration: none;
+    text-decoration: none;
 }
 del {
-	text-decoration: line-through;
+    text-decoration: line-through;
 }
 
 /* tables still need 'cellspacing="0"' in the markup */
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 sup {
-	vertical-align:text-top;
+    vertical-align:text-top;
 }
 sub {
-	vertical-align:text-bottom;
+    vertical-align:text-bottom;
 }
 /*to enable resizing for IE*/
 input,
 textarea,
 select {
-	*font-size:100%;
+    *font-size:100%;
 }
 /*because legend doesn't inherit in IE */
 legend {
-	color:#000;
+    color:#000;
 }
 
 * {
-	margin: 0;
-	padding: 0; }
+    margin: 0;
+    padding: 0; }
 
 body {
     background: #eeeeee;
@@ -102,54 +102,54 @@ td.middle {
     margin: 5px 0 20px 0;
 }
 
-    .header .logo {
-        float: left;
-    }
-    
-    .header .user {
-        float: right;
-    }
-    
-        .header .user #switch_project_form {
-            display: inline;
-        }
+.header .logo {
+    float: left;
+}
+
+.header .user {
+    float: right;
+}
+
+.header .user #switch_project_form {
+    display: inline;
+}
 
 .project-info {
     float: left;
     width: 180px;
 }
 
-    .project-info h3 {
-        color: #f5d573;
-        font-size: 20px;
-    }
-    
-    .project-info .item {
-        clear: left;
-    }
-    
-    .project-info .label {
-        font-size: 13px;
-        color: #999;
-        width: 100px;
-        float: left;
-    }
-    
-    .project-info .value {
-        font-size: 12px;
-        color: #999;
-        float: left;
-    }
-    
-    .project-info .projectlinks {
-        float: left;
-        padding-top: 5px;
-    }
-    
-    .project-info a {
-        color: #999;
-        line-height: 1.2em;
-    }
+.project-info h3 {
+    color: #f5d573;
+    font-size: 20px;
+}
+
+.project-info .item {
+    clear: left;
+}
+
+.project-info .label {
+    font-size: 13px;
+    color: #999;
+    width: 100px;
+    float: left;
+}
+
+.project-info .value {
+    font-size: 12px;
+    color: #999;
+    float: left;
+}
+
+.project-info .projectlinks {
+    float: left;
+    padding-top: 5px;
+}
+
+.project-info a {
+    color: #999;
+    line-height: 1.2em;
+}
 
 .co2-output {
     background: #888;
@@ -157,44 +157,44 @@ td.middle {
     float: right;
 }
 
-    .co2-output .label {
-        color: #fff;
-        padding: 3px 0 5px 20px;
-        margin: 0;
-    }
+.co2-output .label {
+    color: #fff;
+    padding: 3px 0 5px 20px;
+    margin: 0;
+}
 
-    .co2-output .amount {
-        color: #fff;
-        font-size: 20px;
-        font-weight: bold;
-        padding: 0 0 3px 65px;
-        margin: 0;
-    }
+.co2-output .amount {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 0 3px 65px;
+    margin: 0;
+}
 
 .chart {
     float: left;
 }
 
-    .chart .no-chart-message {
-        float: left;
-        width: 480px;
-        margin: 10px 20px 0 20px;
-        padding: 10px;
-        border: 1px solid #000;
-    }
-    
-        .chart .no-chart-message h4 {
-            font-size: 22px;
-            font-weight: bold;
-            color: #aaaaaa;
-            margin: 0 0 10px 0;
-        }
-    
-        .chart .no-chart-message p.summary {
-            font-weight: bold;
-            color: #444444;
-            margin: 0 0 4px 0;
-        }
+.chart .no-chart-message {
+    float: left;
+    width: 480px;
+    margin: 10px 20px 0 20px;
+    padding: 10px;
+    border: 1px solid #000;
+}
+
+.chart .no-chart-message h4 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #aaaaaa;
+    margin: 0 0 10px 0;
+}
+
+.chart .no-chart-message p.summary {
+    font-weight: bold;
+    color: #444444;
+    margin: 0 0 4px 0;
+}
 
 .legend {
     float: right;
@@ -202,34 +202,34 @@ td.middle {
     margin: 20px 0 0 0;
 }
 
-    .legend h3 {
-        color: #999;
-        font-weight: bold;
-        float: left;
-        font-size: 14px;
-        margin: 0 0 10px 0;
-    }
+.legend h3 {
+    color: #999;
+    font-weight: bold;
+    float: left;
+    font-size: 14px;
+    margin: 0 0 10px 0;
+}
 
-    .legend .item {
-        float: left;
-        clear: left;
-    }
+.legend .item {
+    float: left;
+    clear: left;
+}
 
-    .legend .colour {
-        width: 16px;
-        height: 16px;
-        float: left;
-        -moz-border-radius: 6px;
-		-webkit-border-radius: 6px;
-		margin: 2px 5px 2px 5px;
-    }
-    
-    .legend .words {
-        color: #999;
-        font-size: 13px;
-        float: left;
-        margin: 5px 0 0 0;
-    }
+.legend .colour {
+    width: 16px;
+    height: 16px;
+    float: left;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    margin: 2px 5px 2px 5px;
+}
+
+.legend .words {
+    color: #999;
+    font-size: 13px;
+    float: left;
+    margin: 5px 0 0 0;
+}
 
 .types {
     float: left;
@@ -239,254 +239,254 @@ td.middle {
     padding: 0;
 }
 
-    .types .container {
-        float: left;
-        padding: 0 10px 0 10px;
-        margin: 0;
-    }
+.types .container {
+    float: left;
+    padding: 0 10px 0 10px;
+    margin: 0;
+}
 
-        .types .container .name {
-            width: 125px;
-            font-size: 13px;
-            text-align: center;
-            margin-bottom: 5px;
-        }
+.types .container .name {
+    width: 125px;
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 5px;
+}
 
-        .types .container .percentage {
-            width: 125px;
-            color: #ffffff;
-            font-size: 36px;
-            font-weight: bold;
-            text-align: center;
-        }
-        
-            .types .container .percentage p {
-                height: 45px;
-                line-height: 45px;
-            }
-            
-        .types .container .links {
-            margin: 10px 0 5px 0;
-        }
-        
-            .types .container .links a {
-                text-decoration: none;
-                color: inherit;
-                font-weight: bold;
-                display: block;
-                float: left;
-                height: 18px;
-            }
-            
-            .types .container .links a:hover {
-                text-decoration: underline;
-            }
-            
-            .types .container .links a.add {
-                padding: 3px 0 0 20px;
-                margin: 0 23px 0 5px;
-            }
-            
-            .types .container .links a.list {
-                padding: 3px 0 0 20px; 
-                margin: 0 0 0 0;
-            }
-            
-            .types .container .links a.delivery-add {
-                background: url('../images/delivery-add.png') no-repeat top left;
-            }
-            
-            .types .container .links a.delivery-list {
-                background: url('../images/delivery-list.png') no-repeat top left;
-            }
-            
-            .types .container .links a.material-add {
-                background: url('../images/material-add.png') no-repeat top left;
-            }
-            
-            .types .container .links a.material-list {
-                background: url('../images/material-list.png') no-repeat top left;
-            }
-            
-            .types .container .links a.waste-add {
-                background: url('../images/waste-add.png') no-repeat top left;
-            }
-            
-            .types .container .links a.waste-list {
-                background: url('../images/waste-list.png') no-repeat top left;
-            }
-            
-            .types .container .links a.energy-add {
-                background: url('../images/energy-add.png') no-repeat top left;
-            }
-            
-            .types .container .links a.energy-list {
-                background: url('../images/energy-list.png') no-repeat top left;
-            }
-            
-            .types .container .links a.commute-add {
-                background: url('../images/commute-add.png') no-repeat top left;
-            }
-            
-            .types .container .links a.commute-list {
-                background: url('../images/commute-list.png') no-repeat top left;
-            }
-    
-    .types .first {
-        margin-left: 15px;
-    }
-    
-    .types .last {
-        margin-right: 15px;
-    }
-    
-    .types .content-container {
-        float: left;
-        clear: both;
-        width: 100%;
-    }
-    
-        .types .content {
-            width: 600px;
-            margin: 0 auto;
-        }
-        
-        .types .narrow {
-            width: 400px;
-        }
-        
-        .types .content-container table {
-            width: 600px;
-            margin: 15px 0 0 0;
-        }
-        
-            .types .content-container table tr {
-               border-bottom: 1px solid #aaaaaa;
-            }
-        
-            .types .content-container table td {
-                padding: 3px;
-                vertical-align: middle;
-            }
-            
-            .types .content-container table td.multiplier {
-                padding-right:0;
-                text-align:right;
-            }
-        
-            .types .content-container table tr.list-header {
-                border: none;
-                font-size: 14px;
-                color: #ffffff;
-            }
-            
-            .types .content-container table tr.list-header td {
-                padding: 3px;
-            }
-        
-        .types .content-container .delete-button, .users-container .delete-button, .edit-access-rights .delete-button {
-            background: url('../images/delete-button.png') no-repeat top left;
-            border: none;
-            text-indent: -9999px;
-            display: block;
-            width: 43px;
-            height: 18px;
-            cursor: pointer;
-        }
-    
-        .types .content-container h3 {
-            font-size: 20px;
-            font-weight: normal;
-            margin: 10px 0 5px 0;
-        }
-    
-        .types .content-container p {
-            font-size: 14px;
-            line-height: 1.5em;
-            margin-top: 2px;
-            float: left;
-        }
-    
-        .types .content-container label {
-            background: #dedede;
-            float: left;
-            clear: both;
-            width: 392px;
-            color: #555555;
-            font-size: 14px;
-            padding: 4px;
-            margin: 15px 0 5px 0;
-        }
-        
-        .types .content-container div.single-row {
-            width: 100%;
-        }
-    
-        .types .content-container input.generic {
-            border: 1px solid #dedede;
-            width: 400px;
-            font-size: 14px;
-            line-height: 1.5em;
-            float: left;
-            clear: both;
-        }
-        
-        .types .content-container input.noclear {
-            clear: none;
-        }
-        
-        .types .content-container input.distance {
-            width: 60px;
-            margin-right: 5px;
-        }
-        
-        .types .content-container input.weight {
-            width: 60px;
-            margin-right: 5px;
-        }
-        
-        .types .content-container input.amount {
-            width: 60px;
-            margin-right: 5px;
-        }
-        
-        .types .content-container select {
-            float: left;
-            font-size: 14px;
-            margin-top: 2px;
-        }
-        
-        .types .content-container input.button {
-            float: right;
-            clear: both;
-            font-size: 14px;
-            margin: 15px 0 0 0;
-        }
-        
-        .types .content-container .pagination {
-            margin: 10px auto;
-            text-align: center;
-        }
-        
-            .types .content-container .pagination a {
-                color: #666666;
-                border: 1px solid #666666;
-                text-decoration: none;
-                padding: 1px 2px;
-            }
-            
-            .types .content-container .pagination .current {
-                color: #ffffff;
-                background: #666666;
-                border: 1px solid #666666;
-                padding: 1px 2px;
-            }
-            
-            .types .content-container .pagination .disabled {
-                color: #666666;
-                border: 1px solid #666666;
-                padding: 1px 2px;
-            }
+.types .container .percentage {
+    width: 125px;
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.types .container .percentage p {
+    height: 45px;
+    line-height: 45px;
+}
+
+.types .container .links {
+    margin: 10px 0 5px 0;
+}
+
+.types .container .links a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+    display: block;
+    float: left;
+    height: 18px;
+}
+
+.types .container .links a:hover {
+    text-decoration: underline;
+}
+
+.types .container .links a.add {
+    padding: 3px 0 0 20px;
+    margin: 0 23px 0 5px;
+}
+
+.types .container .links a.list {
+    padding: 3px 0 0 20px;
+    margin: 0 0 0 0;
+}
+
+.types .container .links a.delivery-add {
+    background: url('../images/delivery-add.png') no-repeat top left;
+}
+
+.types .container .links a.delivery-list {
+    background: url('../images/delivery-list.png') no-repeat top left;
+}
+
+.types .container .links a.material-add {
+    background: url('../images/material-add.png') no-repeat top left;
+}
+
+.types .container .links a.material-list {
+    background: url('../images/material-list.png') no-repeat top left;
+}
+
+.types .container .links a.waste-add {
+    background: url('../images/waste-add.png') no-repeat top left;
+}
+
+.types .container .links a.waste-list {
+    background: url('../images/waste-list.png') no-repeat top left;
+}
+
+.types .container .links a.energy-add {
+    background: url('../images/energy-add.png') no-repeat top left;
+}
+
+.types .container .links a.energy-list {
+    background: url('../images/energy-list.png') no-repeat top left;
+}
+
+.types .container .links a.commute-add {
+    background: url('../images/commute-add.png') no-repeat top left;
+}
+
+.types .container .links a.commute-list {
+    background: url('../images/commute-list.png') no-repeat top left;
+}
+
+.types .first {
+    margin-left: 15px;
+}
+
+.types .last {
+    margin-right: 15px;
+}
+
+.types .content-container {
+    float: left;
+    clear: both;
+    width: 100%;
+}
+
+.types .content {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.types .narrow {
+    width: 400px;
+}
+
+.types .content-container table {
+    width: 600px;
+    margin: 15px 0 0 0;
+}
+
+.types .content-container table tr {
+    border-bottom: 1px solid #aaaaaa;
+}
+
+.types .content-container table td {
+    padding: 3px;
+    vertical-align: middle;
+}
+
+.types .content-container table td.multiplier {
+    padding-right:0;
+    text-align:right;
+}
+
+.types .content-container table tr.list-header {
+    border: none;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.types .content-container table tr.list-header td {
+    padding: 3px;
+}
+
+.types .content-container .delete-button, .users-container .delete-button, .edit-access-rights .delete-button {
+    background: url('../images/delete-button.png') no-repeat top left;
+    border: none;
+    text-indent: -9999px;
+    display: block;
+    width: 43px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.types .content-container h3 {
+    font-size: 20px;
+    font-weight: normal;
+    margin: 10px 0 5px 0;
+}
+
+.types .content-container p {
+    font-size: 14px;
+    line-height: 1.5em;
+    margin-top: 2px;
+    float: left;
+}
+
+.types .content-container label {
+    background: #dedede;
+    float: left;
+    clear: both;
+    width: 392px;
+    color: #555555;
+    font-size: 14px;
+    padding: 4px;
+    margin: 15px 0 5px 0;
+}
+
+.types .content-container div.single-row {
+    width: 100%;
+}
+
+.types .content-container input.generic {
+    border: 1px solid #dedede;
+    width: 400px;
+    font-size: 14px;
+    line-height: 1.5em;
+    float: left;
+    clear: both;
+}
+
+.types .content-container input.noclear {
+    clear: none;
+}
+
+.types .content-container input.distance {
+    width: 60px;
+    margin-right: 5px;
+}
+
+.types .content-container input.weight {
+    width: 60px;
+    margin-right: 5px;
+}
+
+.types .content-container input.amount {
+    width: 60px;
+    margin-right: 5px;
+}
+
+.types .content-container select {
+    float: left;
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+.types .content-container input.button {
+    float: right;
+    clear: both;
+    font-size: 14px;
+    margin: 15px 0 0 0;
+}
+
+.types .content-container .pagination {
+    margin: 10px auto;
+    text-align: center;
+}
+
+.types .content-container .pagination a {
+    color: #666666;
+    border: 1px solid #666666;
+    text-decoration: none;
+    padding: 1px 2px;
+}
+
+.types .content-container .pagination .current {
+    color: #ffffff;
+    background: #666666;
+    border: 1px solid #666666;
+    padding: 1px 2px;
+}
+
+.types .content-container .pagination .disabled {
+    color: #666666;
+    border: 1px solid #666666;
+    padding: 1px 2px;
+}
 
 .footer {
     margin: 20px 0 10px 0;
@@ -496,9 +496,9 @@ td.middle {
     border-top: 1px solid #aaaaaa;
 }
 
-    .footer .amee-logo {
-        margin-top: 5px;
-    }
+.footer .amee-logo {
+    margin-top: 5px;
+}
 
 .labelfield {
     float: left;
@@ -506,28 +506,28 @@ td.middle {
     margin: 5px 0;
     width: 100%;
 }
-    .formintro {
-        font-size: 13px;
-        margin-top: 0;
-    }
+.formintro {
+    font-size: 13px;
+    margin-top: 0;
+}
 
-    .labelfield .label {
-        font-size: 14px;
-        float: left;
-        width: 65px;
-        line-height: 22px;
-        height: 22px;
-    }
+.labelfield .label {
+    font-size: 14px;
+    float: left;
+    width: 65px;
+    line-height: 22px;
+    height: 22px;
+}
 
-    .labelfield .field {
-        float: left;
-        margin-left: 5px;
-    }
+.labelfield .field {
+    float: left;
+    margin-left: 5px;
+}
 
-        .labelfield .field input {
-            font-size: 14px;
-            width: 175px;
-        }
+.labelfield .field input {
+    font-size: 14px;
+    width: 175px;
+}
 
 .submit {
     clear: left;
@@ -555,11 +555,11 @@ td.middle {
     margin: 0 310px;
 }
 
-    .project-form .labelfield .label {
-        width: 100px;
-    }
+.project-form .labelfield .label {
+    width: 100px;
+}
 
-.profile-form {
+.profile-div {
     border: 3px solid #aaa;
     width: 310px;
     padding: 5px;
@@ -567,9 +567,9 @@ td.middle {
     margin: 0 305px;
 }
 
-    .profile-form .labelfield .label {
-        width: 130px;
-    }
+.profile-form .labelfield .label {
+    width: 130px;
+}
 
 .created-project-form {
     border: 3px solid #aaa;
@@ -584,65 +584,82 @@ td.middle {
     width: 330px;
     padding: 5px;
     float: left;
+    margin: 0 295px;
+}
+
+.user-div {
+    border: 3px solid #aaa;
+    width: 330px;
+    padding: 5px;
+    float: left;
     margin: 0 295px; 
 }
 
-    .user-form .labelfield .label {
-        width: 150px;
-    }
-    
-    .uneditable {
-        font-size: 14px;
-        padding: 2px 0;
-    }
-    
-    .access-rights-intro {
-        margin-top: 5px;
-        padding-top: 5px;
-        border-top: 1px solid #aaa;
-        font-size: 14px;
-        line-height: 16px;
-    }
-    
-    .edit-access-rights {
-        margin: 8px 0 0 5px;
-    }
-    
-    .edit-access-rights table {
-    }
-    
-    .edit-access-rights table tr {
-        color: #444;
-        border-bottom: 1px solid #aaaaaa;
-    }
-    
-    .edit-access-rights table td {
-        padding: 3px;
-        vertical-align: middle;
-    }
+.user-form .labelfield .label {
+    width: 150px;
+}
 
-    .edit-access-rights table tr.list-header {
-        font-size: 14px;
-        border-top: 1px solid #aaaaaa;
-    }
-    
-    .edit-access-rights table tr.list-header td {
-        padding: 3px;
-    }
-    
-    a.add-right-link {
-        text-decoration: none;
-        color: #666;
-        font-size: 13px;
-        background: url('../images/user-add.png') no-repeat top left;
-        padding: 3px 0 3px 20px;
-        display: block;
-        margin: 8px 0 0 5px;
-    }
-    
-    a.add-right-link:hover {
-        text-decoration: underline;
-    }
+.new-user-form {
+    width: 330px;
+}
+
+.new-user-form .labelfield .label {
+    width: 150px;
+}
+
+.uneditable {
+    font-size: 14px;
+    padding: 2px 0;
+}
+
+.access-rights-intro {
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px solid #aaa;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.edit-access-rights {
+    margin: 8px 0 0 5px;
+}
+
+.edit-access-rights table {
+    width: 300px;
+}
+
+.edit-access-rights table tr {
+    color: #444;
+    border-bottom: 1px solid #aaaaaa;
+}
+
+.edit-access-rights table td {
+    padding: 3px;
+    vertical-align: middle;
+}
+
+.edit-access-rights table tr.list-header {
+    font-size: 14px;
+    border-top: 1px solid #aaaaaa;
+}
+
+.edit-access-rights table tr.list-header td {
+    padding: 3px;
+}
+
+a.add-right-link {
+    text-decoration: none;
+    color: #666;
+    font-size: 13px;
+    background: url('../images/user-add.png') no-repeat top left;
+    padding: 3px 0 3px 20px;
+    display: block;
+    margin: 8px 0 0 5px;
+}
+
+a.add-right-link:hover {
+    text-decoration: underline;
+}
 
 .edit-user-roles {
     width: 350px;
@@ -653,10 +670,10 @@ td.middle {
     margin: 10px 0 2px 0;
 }
 
-    .add-right-form .field {
-        display: inline;
-        margin-right: 3px;
-    }
+.add-right-form .field {
+    display: inline;
+    margin-right: 3px;
+}
 
 a.add-user-link {
     text-decoration: none;
@@ -671,29 +688,37 @@ a.add-user-link:hover {
     text-decoration: underline;
 }
 
+.users {
+    border: 3px solid #aaa;
+    width: 620px;
+    padding: 5px;
+    float: left;
+    margin: 0 150px;
+}
+
 .users-container table {
     width: 600px;
     margin: 5px 0 0 10px;
 }
 
-    .users-container table tr {
-       border-bottom: 1px solid #aaaaaa;
-    }
+.users-container table tr {
+    border-bottom: 1px solid #aaaaaa;
+}
 
-    .users-container table td {
-        padding: 3px;
-        vertical-align: middle;
-    }
+.users-container table td {
+    padding: 3px;
+    vertical-align: middle;
+}
 
-    .users-container table tr.list-header {
-        border: none;
-        font-size: 14px;
-        color: #ffffff;
-    }
-    
-    .users-container table tr.list-header td {
-        padding: 3px;
-    }
+.users-container table tr.list-header {
+    border: none;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.users-container table tr.list-header td {
+    padding: 3px;
+}
 
 .add-user-link {
     margin: 10px 0 0 10px;
@@ -770,13 +795,13 @@ a.add-user-link:hover {
 }
 
 img.help{
-  vertical-align: text-top;
+    vertical-align: text-top;
 }
 
 .fieldWithErrors input {
-  border: 1px solid red;
+    border: 1px solid red;
 }
 
 .fieldWithErrors {
-  display: inline;
+    display: inline;
 }

@@ -1,18 +1,18 @@
 <div class="user-form edit-user-roles">
-    <p class="uneditable">User: <%= @user.name || @user.login %></p>
-
-    <div class="edit-access-rights">
-        <% if @roles.size > 0 %>
-            <table id="roletable"><tr class="list-header"><td><b>Project</b></td><td><b>Access</b></td><td><b>Revoke</b></td></tr>
-                <%= render :partial => "role", :collection => @roles %>
-            </table>
-        <% else %>
-            User is not currently assigned to any projects
-        <% end %>
-    </div>
-
-    <% if @user != current_user %>
-        <div id="addRight"></div>
-        <div id="addRightLink"><%= link_to_remote("Add access right", :url => new_user_role_path(@user), :method => :get, :html => {:class => "add-right-link"}) %></div>
+  <h2>Manage Project Access Rights for User: <%= @user.name || @user.login %></h2>
+  <br />
+  <div class="edit-access-rights">
+    <% if @roles.size > 0 %>
+      <table id="roletable"><tr class="list-header"><td><b>Project</b></td><td><b>Access</b></td><td><b>Revoke</b></td></tr>
+        <%= render :partial => "role", :collection => @roles %>
+      </table>
+    <% else %>
+      User is not currently assigned to any projects
     <% end %>
+  </div>
+
+  <% if @user != current_user %>
+    <div id="addRight"></div>
+    <div id="addRightLink"><%= link_to_remote("Add access right", :url => new_user_role_path(@user), :method => :get, :html => {:class => "add-right-link"}) %></div>
+  <% end %>
 </div>

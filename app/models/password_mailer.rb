@@ -8,6 +8,7 @@ class PasswordMailer < Mailer
 
   def reset_password(user)
     setup_email(user)
-    @subject     = 'Your password has been reset.'
+    @subject    = 'Your password has been reset.'
+    @body[:url] = login_url(:host => current_host)
   end
 end

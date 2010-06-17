@@ -1,5 +1,16 @@
-<% form_for @password, :html => {:class => "login-form"} do |f| %> 
-    <div class="labelfield formintro">Enter your email address and we'll send you a link to reset your password</div>
-    <div class="labelfield"><div class="label"><%= f.label :email %></div><div class="field"><%= f.text_field :email %></div></div>
-    <div class="labelfield"><div class="submit"><%= submit_tag 'Reset my password' %></div></div>
+<% form_for @password, :html => {:class => "login-form"} do |f| %>
+    <h2>Forgotten your account name or password? No worries!</h2>
+    <br />
+    <br />
+    <div class="labelfield formintro">
+      Enter your email address below, and we'll send you a email to remind you
+      of your account name and inlcude a link to let you reset your password.
+    </div>
+    <div class="labelfield">
+      <div class="label"><%= f.label :email %></div>
+      <div class="field"><%= f.text_field :email %></div>
+    </div>
+    <div class="labelfield">
+      <div class="submit"><%= submit_tag 'Reset my password' %></div>
+    </div>
 <% end %>
