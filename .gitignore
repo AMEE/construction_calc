@@ -1,1 +1,5 @@
 nbproject
+config/amee.yml
+config/database.yml
+config/hoptoad.yml
+config/settings.yml
