@@ -38,6 +38,16 @@ class Waste < ActiveRecord::Base
   def additional_options
     {:disposalEmissionsOnly => true}
   end
+
+  # Hard-code waste amount to zero for recycled waste
+  # https://jira.amee.com/browse/MA-233
+  def carbon_output_cache
+    if waste_method && waste_method.to_sym == :recycle
+      0.0
+    else
+      read_attribute(:carbon_output_cache)
+    end
+  end
   
   def amount_symbol
     if waste_type.to_sym == :refrigerant_gases
