@@ -41,4 +41,6 @@ Rails::Initializer.run do |config|
 end
 
 # Set the timeout value for the AMEE API to 10 seconds
-AMEE::Rails.connection.timeout = 10
+Dispatcher.to_prepare do
+  AMEE::Rails.connection.timeout = 10
+end
