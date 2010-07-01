@@ -38,9 +38,10 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
-end
 
-# Set the timeout value for the AMEE API to 10 seconds
-Dispatcher.to_prepare do
-  AMEE::Rails.connection.timeout = 10
+  # Set the timeout value for the AMEE API to 10 seconds
+  config.to_prepare do
+    AMEE::Rails.connection.timeout = 10
+  end
+
 end
