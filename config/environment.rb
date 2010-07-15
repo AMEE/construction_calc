@@ -11,7 +11,7 @@ Rails::Initializer.run do |config|
   # Specify gems that this application depends on and have them installed with rake gems:install
   config.gem 'mysql'
   config.gem 'json'
-  config.gem "amee"
+  config.gem 'amee', :version => "~> 2.0.35"
   config.gem 'aasm'
   config.gem 'amee_rails_layer', :version => "~> 0.4.0"
   
@@ -38,10 +38,5 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
-
-  # Set the timeout value for the AMEE API to 10 seconds
-  config.to_prepare do
-    AMEE::Rails.connection.timeout = 10
-  end
 
 end
