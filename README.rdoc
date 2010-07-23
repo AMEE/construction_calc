@@ -10,13 +10,14 @@ MIT (see the COPYING file)
 
 == Getting Started
 
-Ensure you have Rails 2.3.5 installed. Then install the gem dependencies:
-    rake gems:install 
+Ensure you have Rails 2.3.5 installed.
 
 Download the application, and customise config/amee.example.yml, config/database.example.yml and config/settings.example.yml with your own settings. Then run:
+
+    rake gems:install 
     rake db:schema:load
 
-to set up the database.
+to set up the app.
 
 The project requires an initial client and super admin before it is usable.  There is currently only one client supported but the application shows how to easily change this and turn the application into a SaaS model.  To create these run the following on the command line:
     rake "setup:data[<adminlogin>,<adminemail>,<adminname>,<adminpassword>,<clientname>]"
@@ -29,3 +30,20 @@ This software was designed as an example UK calculator.  The AMEE API assumes th
 
 As AMEE can update the algorithms that produce the carbon output as more accurate data becomes available, any application that caches the carbon output needs a way to updates its cache.  This project includes a rake project for that purpose and can be run via:
     rake cronjobs:update_carbon_cache
+
+== Requirements
+
+Rails 2.3.5
+Rails-compatible database server (MySQL, PostgreSQL, SQLite, etc)
+gems:
+  amee ~> 2.0.35
+  amee_rails_layer ~> 0.4.0
+  json
+  aasm
+  will_paginate
+  prawn 0.7.1
+  rspec
+  rspec-rails
+  shoulda
+  factory_girl
+  hoptoad_notifier
