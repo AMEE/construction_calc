@@ -7,10 +7,16 @@ class WastesController < ApplicationController
   
   def index
     @wastes = @project.wastes.paginate :page => params[:page], :order => 'created_at DESC'
+    respond_to do |format|
+      format.js
+    end
   end
 
   def new
     @waste = @project.wastes.new(params[:waste])
+    respond_to do |format|
+      format.js
+    end
   end
   
   def create
@@ -25,6 +31,9 @@ class WastesController < ApplicationController
   
   def edit
     @waste = @project.wastes.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
   end
   
   def update

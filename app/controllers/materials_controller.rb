@@ -7,10 +7,16 @@ class MaterialsController < ApplicationController
   
   def index
     @materials = @project.materials.paginate :page => params[:page], :order => 'created_at DESC'
+    respond_to do |format|
+      format.js
+    end
   end
 
   def new
     @material = @project.materials.new(params[:material])
+    respond_to do |format|
+      format.js
+    end
   end
   
   def create
@@ -25,6 +31,9 @@ class MaterialsController < ApplicationController
   
   def edit
     @material = @project.materials.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
   end
   
   def update

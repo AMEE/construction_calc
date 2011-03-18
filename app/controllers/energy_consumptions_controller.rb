@@ -7,10 +7,16 @@ class EnergyConsumptionsController < ApplicationController
   
   def index
     @energy_consumptions = @project.energy_consumptions.paginate :page => params[:page], :order => 'created_at DESC'
+    respond_to do |format|
+      format.js
+    end
   end
 
   def new
     @energy_consumption = @project.energy_consumptions.new(params[:energy_consumption])
+    respond_to do |format|
+      format.js
+    end
   end
   
   def create
@@ -25,6 +31,9 @@ class EnergyConsumptionsController < ApplicationController
   
   def edit
     @energy_consumption = @project.energy_consumptions.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
   end
   
   def update
