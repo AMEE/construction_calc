@@ -15,14 +15,14 @@ Rails::Initializer.run do |config|
   config.gem 'aasm'
   config.gem 'amee_rails_layer', :version => "~> 0.4.0"
   
-  config.gem 'rspec', :lib => false
-  config.gem 'rspec-rails', :lib => false
+  config.gem 'rspec', :lib => false, :version => "1.3.2"
+  config.gem 'rspec-rails', :lib => false, :version => "1.3.2"
   config.gem 'shoulda', :lib => false
   config.gem "factory_girl"
-  config.gem "will_paginate"
+  config.gem "will_paginate", :version => "~> 2.0"
   config.gem 'prawn', :version => "0.7.1"
 
-  config.gem 'hoptoad_notifier'
+  config.gem "airbrake", :version => '~> 3.0.5'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
