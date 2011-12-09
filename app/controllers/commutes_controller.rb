@@ -7,10 +7,16 @@ class CommutesController < ApplicationController
   
   def index
     @commutes = @project.commutes.paginate :page => params[:page], :order => 'created_at DESC'
+    respond_to do |format|
+      format.js
+    end
   end
 
   def new
     @commute = @project.commutes.new(params[:commute])
+    respond_to do |format|
+      format.js
+    end
   end
   
   def create
@@ -25,6 +31,9 @@ class CommutesController < ApplicationController
   
   def edit
     @commute = @project.commutes.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
   end
   
   def update
