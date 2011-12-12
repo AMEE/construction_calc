@@ -46,4 +46,4 @@ gems:
   rspec-rails
   shoulda
   factory_girl
-  hoptoad_notifier
+  airbrake
