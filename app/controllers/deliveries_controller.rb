@@ -7,10 +7,16 @@ class DeliveriesController < ApplicationController
   
   def index
     @deliveries = @project.deliveries.paginate :page => params[:page], :order => 'created_at DESC'
+    respond_to do |format|
+      format.js
+    end
   end
 
   def new
     @delivery = @project.deliveries.new(params[:delivery])
+    respond_to do |format|
+      format.js
+    end
   end
   
   def create
@@ -25,6 +31,9 @@ class DeliveriesController < ApplicationController
   
   def edit
     @delivery = @project.deliveries.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
   end
   
   def update
